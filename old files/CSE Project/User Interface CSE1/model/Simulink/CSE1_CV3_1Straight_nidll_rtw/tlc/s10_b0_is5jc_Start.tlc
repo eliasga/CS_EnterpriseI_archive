@@ -1,0 +1,366 @@
+%implements s10_b0_is5jc_Start "C"
+
+%function Start(block, system) Output
+
+{
+int32_T i;
+%assign tlcStartFcnOfS10B0 = OpaqueTLCBlockFcn("Start", 10, 0)
+%assign tlcStartFcnOfS10B1 = OpaqueTLCBlockFcn("Start", 10, 1)
+%assign tlcStartFcnOfS10B2 = OpaqueTLCBlockFcn("Start", 10, 2)
+%assign tlcStartFcnOfS10B3 = OpaqueTLCBlockFcn("Start", 10, 3)
+%assign tlcStartFcnOfS9B11 = OpaqueTLCBlockFcn("Start", 9, 11)
+%assign tlcStartFcnOfS9B12 = OpaqueTLCBlockFcn("Start", 9, 12)
+%assign tlcStartFcnOfS9B25 = OpaqueTLCBlockFcn("Start", 9, 25)
+%assign tlcInitializeConditionsFcnOfS9B11 = OpaqueTLCBlockFcn("InitializeConditions", 9, 11)
+%assign tlcInitializeConditionsFcnOfS9B12 = OpaqueTLCBlockFcn("InitializeConditions", 9, 12)
+%assign tlcStartFcnOfS10B8 = OpaqueTLCBlockFcn("Start", 10, 8)
+%assign tlcStartFcnOfS10B13 = OpaqueTLCBlockFcn("Start", 10, 13)
+%assign tlcStartFcnOfS10B14 = OpaqueTLCBlockFcn("Start", 10, 14)
+%assign tlcStartFcnOfS10B15 = OpaqueTLCBlockFcn("Start", 10, 15)
+%assign tlcStartFcnOfS6B5 = OpaqueTLCBlockFcn("Start", 6, 5)
+%assign tlcStartFcnOfS6B9 = OpaqueTLCBlockFcn("Start", 6, 9)
+%assign tlcStartFcnOfS6B11 = OpaqueTLCBlockFcn("Start", 6, 11)
+%assign tlcStartFcnOfS6B12 = OpaqueTLCBlockFcn("Start", 6, 12)
+%assign tlcStartFcnOfS6B13 = OpaqueTLCBlockFcn("Start", 6, 13)
+%assign tlcStartFcnOfS6B14 = OpaqueTLCBlockFcn("Start", 6, 14)
+%assign tlcStartFcnOfS6B15 = OpaqueTLCBlockFcn("Start", 6, 15)
+%assign tlcStartFcnOfS6B17 = OpaqueTLCBlockFcn("Start", 6, 17)
+%assign tlcStartFcnOfS6B25 = OpaqueTLCBlockFcn("Start", 6, 25)
+%assign tlcStartFcnOfS6B28 = OpaqueTLCBlockFcn("Start", 6, 28)
+%assign tlcInitializeConditionsFcnOfS6B12 = OpaqueTLCBlockFcn("InitializeConditions", 6, 12)
+%assign tlcStartFcnOfS1B90 = OpaqueTLCBlockFcn("Start", 1, 90)
+%assign tlcStartFcnOfS1B92 = OpaqueTLCBlockFcn("Start", 1, 92)
+%assign tlcStartFcnOfS1B95 = OpaqueTLCBlockFcn("Start", 1, 95)
+%assign tlcStartFcnOfS1B97 = OpaqueTLCBlockFcn("Start", 1, 97)
+%assign tlcStartFcnOfS1B100 = OpaqueTLCBlockFcn("Start", 1, 100)
+%assign tlcStartFcnOfS1B102 = OpaqueTLCBlockFcn("Start", 1, 102)
+%assign tlcStartFcnOfS1B105 = OpaqueTLCBlockFcn("Start", 1, 105)
+%assign tlcStartFcnOfS1B107 = OpaqueTLCBlockFcn("Start", 1, 107)
+%assign tlcStartFcnOfS1B110 = OpaqueTLCBlockFcn("Start", 1, 110)
+%assign tlcStartFcnOfS1B112 = OpaqueTLCBlockFcn("Start", 1, 112)
+%assign tlcStartFcnOfS1B115 = OpaqueTLCBlockFcn("Start", 1, 115)
+%assign tlcStartFcnOfS1B117 = OpaqueTLCBlockFcn("Start", 1, 117)
+%assign tlcStartFcnOfS1B118 = OpaqueTLCBlockFcn("Start", 1, 118)
+%assign tlcInitializeConditionsFcnOfS1B115 = OpaqueTLCBlockFcn("InitializeConditions", 1, 115)
+%assign tlcInitializeConditionsFcnOfS1B117 = OpaqueTLCBlockFcn("InitializeConditions", 1, 117)
+%assign tlcStartFcnOfS2B84 = OpaqueTLCBlockFcn("Start", 2, 84)
+%assign tlcStartFcnOfS2B86 = OpaqueTLCBlockFcn("Start", 2, 86)
+%assign tlcStartFcnOfS2B89 = OpaqueTLCBlockFcn("Start", 2, 89)
+%assign tlcStartFcnOfS2B91 = OpaqueTLCBlockFcn("Start", 2, 91)
+%assign tlcStartFcnOfS2B94 = OpaqueTLCBlockFcn("Start", 2, 94)
+%assign tlcStartFcnOfS2B96 = OpaqueTLCBlockFcn("Start", 2, 96)
+%assign tlcStartFcnOfS2B99 = OpaqueTLCBlockFcn("Start", 2, 99)
+%assign tlcStartFcnOfS2B101 = OpaqueTLCBlockFcn("Start", 2, 101)
+%assign tlcStartFcnOfS2B104 = OpaqueTLCBlockFcn("Start", 2, 104)
+%assign tlcStartFcnOfS2B106 = OpaqueTLCBlockFcn("Start", 2, 106)
+%assign tlcStartFcnOfS2B108 = OpaqueTLCBlockFcn("Start", 2, 108)
+%assign tlcStartFcnOfS2B111 = OpaqueTLCBlockFcn("Start", 2, 111)
+%assign tlcInitializeConditionsFcnOfS2B108 = OpaqueTLCBlockFcn("InitializeConditions", 2, 108)
+%assign tlcInitializeConditionsFcnOfS2B111 = OpaqueTLCBlockFcn("InitializeConditions", 2, 111)
+%assign tlcStartFcnOfS10B60 = OpaqueTLCBlockFcn("Start", 10, 60)
+%assign tlcStartFcnOfS10B62 = OpaqueTLCBlockFcn("Start", 10, 62)
+%assign tlcStartFcnOfS10B65 = OpaqueTLCBlockFcn("Start", 10, 65)
+%assign tlcStartFcnOfS10B67 = OpaqueTLCBlockFcn("Start", 10, 67)
+%assign tlcStartFcnOfS10B70 = OpaqueTLCBlockFcn("Start", 10, 70)
+%assign tlcStartFcnOfS10B72 = OpaqueTLCBlockFcn("Start", 10, 72)
+%assign tlcStartFcnOfS10B75 = OpaqueTLCBlockFcn("Start", 10, 75)
+%assign tlcStartFcnOfS10B77 = OpaqueTLCBlockFcn("Start", 10, 77)
+%assign tlcStartFcnOfS10B80 = OpaqueTLCBlockFcn("Start", 10, 80)
+%assign tlcStartFcnOfS10B82 = OpaqueTLCBlockFcn("Start", 10, 82)
+%assign tlcStartFcnOfS0B0 = OpaqueTLCBlockFcn("Start", 0, 0)
+%assign tlcStartFcnOfS0B3 = OpaqueTLCBlockFcn("Start", 0, 3)
+%assign tlcStartFcnOfS0B5 = OpaqueTLCBlockFcn("Start", 0, 5)
+%assign tlcStartFcnOfS0B28 = OpaqueTLCBlockFcn("Start", 0, 28)
+%assign tlcStartFcnOfS0B30 = OpaqueTLCBlockFcn("Start", 0, 30)
+%assign tlcStartFcnOfS0B33 = OpaqueTLCBlockFcn("Start", 0, 33)
+%assign tlcStartFcnOfS0B35 = OpaqueTLCBlockFcn("Start", 0, 35)
+%assign tlcStartFcnOfS0B38 = OpaqueTLCBlockFcn("Start", 0, 38)
+%assign tlcStartFcnOfS0B40 = OpaqueTLCBlockFcn("Start", 0, 40)
+%assign tlcStartFcnOfS0B43 = OpaqueTLCBlockFcn("Start", 0, 43)
+%assign tlcStartFcnOfS0B45 = OpaqueTLCBlockFcn("Start", 0, 45)
+%assign tlcStartFcnOfS0B48 = OpaqueTLCBlockFcn("Start", 0, 48)
+%assign tlcStartFcnOfS0B50 = OpaqueTLCBlockFcn("Start", 0, 50)
+%assign tlcInitializeConditionsFcnOfS0B5 = OpaqueTLCBlockFcn("InitializeConditions", 0, 5)
+%assign tlcStartFcnOfS10B100 = OpaqueTLCBlockFcn("Start", 10, 100)
+%assign tlcStartFcnOfS10B101 = OpaqueTLCBlockFcn("Start", 10, 101)
+%assign tlcStartFcnOfS10B102 = OpaqueTLCBlockFcn("Start", 10, 102)
+%assign tlcStartFcnOfS10B103 = OpaqueTLCBlockFcn("Start", 10, 103)
+%assign tlcStartFcnOfS10B104 = OpaqueTLCBlockFcn("Start", 10, 104)
+%assign tlcStartFcnOfS10B120 = OpaqueTLCBlockFcn("Start", 10, 120)
+%assign tlcStartFcnOfS10B121 = OpaqueTLCBlockFcn("Start", 10, 121)
+%assign tlcStartFcnOfS10B122 = OpaqueTLCBlockFcn("Start", 10, 122)
+%assign tlcStartFcnOfS10B123 = OpaqueTLCBlockFcn("Start", 10, 123)
+%assign tlcStartFcnOfS10B124 = OpaqueTLCBlockFcn("Start", 10, 124)
+%assign tlcStartFcnOfS10B125 = OpaqueTLCBlockFcn("Start", 10, 125)
+%assign tlcStartFcnOfS7B0 = OpaqueTLCBlockFcn("Start", 7, 0)
+%assign tlcStartFcnOfS7B6 = OpaqueTLCBlockFcn("Start", 7, 6)
+%assign tlcStartFcnOfS7B7 = OpaqueTLCBlockFcn("Start", 7, 7)
+%assign tlcStartFcnOfS7B8 = OpaqueTLCBlockFcn("Start", 7, 8)
+%assign tlcStartFcnOfS7B9 = OpaqueTLCBlockFcn("Start", 7, 9)
+%assign tlcStartFcnOfS7B10 = OpaqueTLCBlockFcn("Start", 7, 10)
+%assign tlcStartFcnOfS7B11 = OpaqueTLCBlockFcn("Start", 7, 11)
+%assign tlcStartFcnOfS7B12 = OpaqueTLCBlockFcn("Start", 7, 12)
+%assign tlcStartFcnOfS7B13 = OpaqueTLCBlockFcn("Start", 7, 13)
+%assign tlcStartFcnOfS7B14 = OpaqueTLCBlockFcn("Start", 7, 14)
+%assign tlcStartFcnOfS7B15 = OpaqueTLCBlockFcn("Start", 7, 15)
+%assign tlcStartFcnOfS7B16 = OpaqueTLCBlockFcn("Start", 7, 16)
+%assign tlcStartFcnOfS7B17 = OpaqueTLCBlockFcn("Start", 7, 17)
+%assign tlcStartFcnOfS10B130 = OpaqueTLCBlockFcn("Start", 10, 130)
+%<tlcStartFcnOfS10B0>\
+%<tlcStartFcnOfS10B1>\
+%<tlcStartFcnOfS10B2>\
+%<tlcStartFcnOfS10B3>\
+
+/* Start for enable SubSystem: '<S5>/Linear Simulator' */
+%<SLibCG_SetDWV(1, 33, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+
+/* Start for Constant: '<S313>/psi_0' */
+%<SLibCG_SetBOV(0, 165, 165, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 839, 839, 0, 10, 1, -1, "", 0)>")>\
+
+/* Start for Constant: '<S313>/x_0' */
+%<SLibCG_SetBOV(0, 166, 166, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 840, 840, 0, 10, 1, -1, "", 0)>")>\
+
+/* Start for Constant: '<S313>/y_0' */
+%<SLibCG_SetBOV(0, 167, 167, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 841, 841, 0, 10, 1, -1, "", 0)>")>\
+
+/* Start for Constant: '<S314>/r_0' */
+%<SLibCG_SetBOV(0, 168, 168, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 842, 842, 0, 10, 1, -1, "", 0)>")>\
+
+/* Start for Constant: '<S314>/u_0' */
+%<SLibCG_SetBOV(0, 169, 169, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 843, 843, 0, 10, 1, -1, "", 0)>")>\
+
+/* Start for Constant: '<S314>/v_0' */
+%<SLibCG_SetBOV(0, 170, 170, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 844, 844, 0, 10, 1, -1, "", 0)>")>\
+%<tlcStartFcnOfS9B11>\
+%<tlcStartFcnOfS9B12>\
+%<tlcStartFcnOfS9B25>\
+%<tlcInitializeConditionsFcnOfS9B11>\
+%<tlcInitializeConditionsFcnOfS9B12>\
+
+/* end of Start for SubSystem: '<S5>/Linear Simulator' */
+%<tlcStartFcnOfS10B8>\
+%<tlcStartFcnOfS10B13>\
+%<tlcStartFcnOfS10B14>\
+%<tlcStartFcnOfS10B15>\
+
+/* Start for enable SubSystem: '<S2>/Path-following' */
+%<SLibCG_SetDWV(1, 34, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+%<tlcStartFcnOfS6B5>\
+%<tlcStartFcnOfS6B9>\
+%<tlcStartFcnOfS6B11>\
+%<tlcStartFcnOfS6B12>\
+%<tlcStartFcnOfS6B13>\
+%<tlcStartFcnOfS6B14>\
+%<tlcStartFcnOfS6B15>\
+%<tlcStartFcnOfS6B17>\
+%<tlcStartFcnOfS6B25>\
+%<tlcStartFcnOfS6B28>\
+%<tlcInitializeConditionsFcnOfS6B12>\
+
+/* end of Start for SubSystem: '<S2>/Path-following' */
+
+/* Start for enable SubSystem: '<S1>/LgV design 2' */
+%<SLibCG_SetDWV(1, 35, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+%<tlcStartFcnOfS1B90>\
+%<tlcStartFcnOfS1B92>\
+%<tlcStartFcnOfS1B95>\
+%<tlcStartFcnOfS1B97>\
+%<tlcStartFcnOfS1B100>\
+%<tlcStartFcnOfS1B102>\
+%<tlcStartFcnOfS1B105>\
+%<tlcStartFcnOfS1B107>\
+%<tlcStartFcnOfS1B110>\
+%<tlcStartFcnOfS1B112>\
+
+/* Start for Constant: '<S107>/q_x_0' */
+%<SLibCG_SetBOV(0, 723, 723, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 544, 544, 0, 10, 1, -1, "", 0)>")>\
+
+/* Start for Constant: '<S107>/q_y_0' */
+%<SLibCG_SetBOV(0, 724, 724, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 545, 545, 0, 10, 1, -1, "", 0)>")>\
+%<tlcStartFcnOfS1B115>\
+
+/* Start for Constant: '<S64>/s_0' */
+%<SLibCG_SetBOV(0, 726, 726, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 547, 547, 0, 10, 1, -1, "", 0)>")>\
+%<tlcStartFcnOfS1B117>\
+%<tlcStartFcnOfS1B118>\
+
+/* InitializeConditions for Integrator: '<S64>/Integrator2' */
+%<SLibCG_CS(4, 9, 0, 10, 2, -1, "", 0)> = %<SLibCGIR_PV(2, 407, 407, 0, 10, 1, -1, "", 0)>;
+%<SLibCG_CS(4, 9, 0, 10, 2, -1, "", 1)> = %<SLibCGIR_PV(2, 407, 407, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S54>/Integrator' */
+%<SLibCG_CS(4, 10, 0, 10, 3, -1, "", 0)> = %<SLibCGIR_PV(2, 437, 437, 0, 10, 3, -1, "", 0)>;
+%<SLibCG_CS(4, 10, 0, 10, 3, -1, "", 1)> = %<SLibCGIR_PV(2, 437, 437, 0, 10, 3, -1, "", 1)>;
+%<SLibCG_CS(4, 10, 0, 10, 3, -1, "", 2)> = %<SLibCGIR_PV(2, 437, 437, 0, 10, 3, -1, "", 2)>;
+%<tlcInitializeConditionsFcnOfS1B115>\
+%<tlcInitializeConditionsFcnOfS1B117>\
+
+/* VirtualOutportStart for Outport: '<S7>/Thruster setting' */
+%<SLibCG_SetBOV(0, 701, 701, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 389, 389, 0, 10, 7, -1, "", 0)>")>\
+%<SLibCG_SetBOV(0, 704, 704, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 389, 389, 0, 10, 7, -1, "", 1)>")>\
+%<SLibCG_SetBOV(0, 707, 707, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 389, 389, 0, 10, 7, -1, "", 2)>")>\
+%<SLibCG_SetBOV(0, 710, 710, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 389, 389, 0, 10, 7, -1, "", 3)>")>\
+%<SLibCG_SetBOV(0, 713, 713, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 389, 389, 0, 10, 7, -1, "", 4)>")>\
+%<SLibCG_SetBOV(0, 602, 602, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 389, 389, 0, 10, 7, -1, "", 5)>")>\
+%<SLibCG_SetBOV(0, 728, 728, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 389, 389, 0, 10, 7, -1, "", 6)>")>\
+
+/* end of Start for SubSystem: '<S1>/LgV design 2' */
+
+/* Start for enable SubSystem: '<S1>/Nonlinear PID' */
+%<SLibCG_SetDWV(1, 36, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+%<tlcStartFcnOfS2B84>\
+%<tlcStartFcnOfS2B86>\
+%<tlcStartFcnOfS2B89>\
+%<tlcStartFcnOfS2B91>\
+%<tlcStartFcnOfS2B94>\
+%<tlcStartFcnOfS2B96>\
+%<tlcStartFcnOfS2B99>\
+%<tlcStartFcnOfS2B101>\
+%<tlcStartFcnOfS2B104>\
+%<tlcStartFcnOfS2B106>\
+
+/* Start for Constant: '<S189>/q_x_0' */
+%<SLibCG_SetBOV(0, 570, 570, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 694, 694, 0, 10, 1, -1, "", 0)>")>\
+
+/* Start for Constant: '<S189>/q_y_0' */
+%<SLibCG_SetBOV(0, 571, 571, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 695, 695, 0, 10, 1, -1, "", 0)>")>\
+%<tlcStartFcnOfS2B108>\
+
+/* Start for Constant: '<S137>/s_0' */
+%<SLibCG_SetBOV(0, 579, 579, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 699, 699, 0, 10, 1, -1, "", 0)>")>\
+%<tlcStartFcnOfS2B111>\
+
+/* InitializeConditions for Integrator: '<S9>/zeta' */
+%<SLibCG_CS(4, 13, 0, 10, 3, -1, "", 0)> = %<SLibCGIR_PV(2, 598, 598, 0, 10, 1, -1, "", 0)>;
+%<SLibCG_CS(4, 13, 0, 10, 3, -1, "", 1)> = %<SLibCGIR_PV(2, 598, 598, 0, 10, 1, -1, "", 0)>;
+%<SLibCG_CS(4, 13, 0, 10, 3, -1, "", 2)> = %<SLibCGIR_PV(2, 598, 598, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S137>/omega_q' */
+%<SLibCG_CS(4, 14, 0, 10, 2, -1, "", 0)> = %<SLibCGIR_PV(2, 634, 634, 0, 10, 1, -1, "", 0)>;
+%<SLibCG_CS(4, 14, 0, 10, 2, -1, "", 1)> = %<SLibCGIR_PV(2, 634, 634, 0, 10, 1, -1, "", 0)>;
+%<tlcInitializeConditionsFcnOfS2B108>\
+%<tlcInitializeConditionsFcnOfS2B111>\
+
+/* VirtualOutportStart for Outport: '<S9>/Thruster setting' */
+%<SLibCG_SetBOV(0, 557, 557, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 549, 549, 0, 10, 7, -1, "", 0)>")>\
+%<SLibCG_SetBOV(0, 560, 560, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 549, 549, 0, 10, 7, -1, "", 1)>")>\
+%<SLibCG_SetBOV(0, 563, 563, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 549, 549, 0, 10, 7, -1, "", 2)>")>\
+%<SLibCG_SetBOV(0, 566, 566, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 549, 549, 0, 10, 7, -1, "", 3)>")>\
+%<SLibCG_SetBOV(0, 569, 569, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 549, 549, 0, 10, 7, -1, "", 4)>")>\
+%<SLibCG_SetBOV(0, 481, 481, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 549, 549, 0, 10, 7, -1, "", 5)>")>\
+%<SLibCG_SetBOV(0, 581, 581, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 549, 549, 0, 10, 7, -1, "", 6)>")>\
+
+/* end of Start for SubSystem: '<S1>/Nonlinear PID' */
+%<tlcStartFcnOfS10B60>\
+%<tlcStartFcnOfS10B62>\
+%<tlcStartFcnOfS10B65>\
+%<tlcStartFcnOfS10B67>\
+%<tlcStartFcnOfS10B70>\
+%<tlcStartFcnOfS10B72>\
+%<tlcStartFcnOfS10B75>\
+%<tlcStartFcnOfS10B77>\
+%<tlcStartFcnOfS10B80>\
+%<tlcStartFcnOfS10B82>\
+
+/* Start for enable SubSystem: '<S1>/DP control' */
+%<SLibCG_SetDWV(1, 37, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+%<tlcStartFcnOfS0B0>\
+%<tlcStartFcnOfS0B3>\
+%<tlcStartFcnOfS0B5>\
+%<tlcStartFcnOfS0B28>\
+%<tlcStartFcnOfS0B30>\
+%<tlcStartFcnOfS0B33>\
+%<tlcStartFcnOfS0B35>\
+%<tlcStartFcnOfS0B38>\
+%<tlcStartFcnOfS0B40>\
+%<tlcStartFcnOfS0B43>\
+%<tlcStartFcnOfS0B45>\
+%<tlcStartFcnOfS0B48>\
+%<tlcStartFcnOfS0B50>\
+
+/* InitializeConditions for Integrator: '<S17>/Integrator1' */
+%<SLibCG_CS(4, 3, 0, 10, 3, -1, "", 0)> = %<SLibCGIR_PV(2, 264, 264, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator' */
+%<SLibCG_CS(4, 4, 0, 10, 3, -1, "", 0)> = %<SLibCGIR_PV(2, 267, 267, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator1' */
+%<SLibCG_CS(4, 3, 0, 10, 3, -1, "", 1)> = %<SLibCGIR_PV(2, 264, 264, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator' */
+%<SLibCG_CS(4, 4, 0, 10, 3, -1, "", 1)> = %<SLibCGIR_PV(2, 267, 267, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator1' */
+%<SLibCG_CS(4, 3, 0, 10, 3, -1, "", 2)> = %<SLibCGIR_PV(2, 264, 264, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator' */
+%<SLibCG_CS(4, 4, 0, 10, 3, -1, "", 2)> = %<SLibCGIR_PV(2, 267, 267, 0, 10, 1, -1, "", 0)>;
+%<tlcInitializeConditionsFcnOfS0B5>\
+
+/* InitializeConditions for Integrator: '<S17>/Integrator4' */
+%<SLibCG_CS(4, 6, 0, 10, 3, -1, "", 0)> = %<SLibCGIR_PV(2, 280, 280, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator2' */
+%<SLibCG_CS(4, 7, 0, 10, 3, -1, "", 0)> = %<SLibCGIR_PV(2, 371, 371, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator3' */
+%<SLibCG_CS(4, 8, 0, 10, 3, -1, "", 0)> = %<SLibCGIR_PV(2, 378, 378, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator4' */
+%<SLibCG_CS(4, 6, 0, 10, 3, -1, "", 1)> = %<SLibCGIR_PV(2, 280, 280, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator2' */
+%<SLibCG_CS(4, 7, 0, 10, 3, -1, "", 1)> = %<SLibCGIR_PV(2, 371, 371, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator3' */
+%<SLibCG_CS(4, 8, 0, 10, 3, -1, "", 1)> = %<SLibCGIR_PV(2, 378, 378, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator4' */
+%<SLibCG_CS(4, 6, 0, 10, 3, -1, "", 2)> = %<SLibCGIR_PV(2, 280, 280, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator2' */
+%<SLibCG_CS(4, 7, 0, 10, 3, -1, "", 2)> = %<SLibCGIR_PV(2, 371, 371, 0, 10, 1, -1, "", 0)>;
+
+/* InitializeConditions for Integrator: '<S17>/Integrator3' */
+%<SLibCG_CS(4, 8, 0, 10, 3, -1, "", 2)> = %<SLibCGIR_PV(2, 378, 378, 0, 10, 1, -1, "", 0)>;
+
+/* VirtualOutportStart for Outport: '<S6>/Thruster setting' */
+for(i = 0; i < 5; i++) {
+%<SLibCG_SetBOV(0, 855, 855, 0, 10, 5, "", -1, "i", 0, "%<SLibCGIR_PV(2, 263, 263, 0, 10, 7, -1, "i", 0)>")>\
+}
+%<SLibCG_SetBOV(0, 730, 730, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 263, 263, 0, 10, 7, -1, "", 5)>")>\
+%<SLibCG_SetBOV(0, 856, 856, 0, 10, 1, "", -1, "", 0, "%<SLibCGIR_PV(2, 263, 263, 0, 10, 7, -1, "", 6)>")>\
+
+/* end of Start for SubSystem: '<S1>/DP control' */
+%<tlcStartFcnOfS10B100>\
+%<tlcStartFcnOfS10B101>\
+%<tlcStartFcnOfS10B102>\
+%<tlcStartFcnOfS10B103>\
+%<tlcStartFcnOfS10B104>\
+%<tlcStartFcnOfS10B120>\
+%<tlcStartFcnOfS10B121>\
+%<tlcStartFcnOfS10B122>\
+%<tlcStartFcnOfS10B123>\
+%<tlcStartFcnOfS10B124>\
+%<tlcStartFcnOfS10B125>\
+
+/* Start for enable SubSystem: '<S5>/CSE1' */
+%<SLibCG_SetDWV(1, 38, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+%<tlcStartFcnOfS7B0>\
+%<tlcStartFcnOfS7B6>\
+%<tlcStartFcnOfS7B7>\
+%<tlcStartFcnOfS7B8>\
+%<tlcStartFcnOfS7B9>\
+%<tlcStartFcnOfS7B10>\
+%<tlcStartFcnOfS7B11>\
+%<tlcStartFcnOfS7B12>\
+%<tlcStartFcnOfS7B13>\
+%<tlcStartFcnOfS7B14>\
+%<tlcStartFcnOfS7B15>\
+%<tlcStartFcnOfS7B16>\
+%<tlcStartFcnOfS7B17>\
+
+/* end of Start for SubSystem: '<S5>/CSE1' */
+%<tlcStartFcnOfS10B130>\
+}
+%endfunction

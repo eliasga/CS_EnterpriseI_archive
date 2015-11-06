@@ -1,0 +1,34 @@
+		#include <winresrc.h>
+		# ifdef _WIN32
+		LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+		# pragma code_page(1252)
+		# endif //_WIN32
+		VS_VERSION_INFO VERSIONINFO
+ 		FILEVERSION 1,296
+ 		PRODUCTVERSION 1,296
+ 		FILEFLAGSMASK 0x3fL
+		# ifdef _DEBUG
+ 		FILEFLAGS 0x1L
+		# else
+ 		FILEFLAGS 0x0L
+		# endif
+ 		FILEOS 0x4L
+ 		FILETYPE 0x2L
+ 		FILESUBTYPE 0x0L
+		BEGIN
+    		BLOCK "StringFileInfo"
+    		BEGIN
+        		BLOCK "040904b0"
+        		BEGIN
+        			VALUE "Comments", "Built on Fri Feb 14 09:47:35 2014 with SIT 2010"
+        			VALUE "FileVersion", "1.296"
+          			VALUE "OriginalFilename", "cse1_cv3_1straight.dll"
+           			VALUE "ProductName", "CSE1_CV3_1Straight"
+           			VALUE "ProductVersion", "1.296"
+        		END
+    		END
+    		BLOCK "VarFileInfo"
+    		BEGIN
+        		VALUE "Translation", 0x409, 1200
+    		END
+		END

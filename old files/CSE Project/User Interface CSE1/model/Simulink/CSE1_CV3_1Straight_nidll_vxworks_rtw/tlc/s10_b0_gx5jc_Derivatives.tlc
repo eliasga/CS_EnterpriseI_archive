@@ -1,0 +1,136 @@
+%implements s10_b0_gx5jc_Derivatives "C"
+
+%function Derivatives(block, system) Output
+
+{
+int32_T tmp;
+%assign tlcDerivativesFcnOfS9B11 = OpaqueTLCBlockFcn("Derivatives", 9, 11)
+%assign tlcDerivativesFcnOfS9B12 = OpaqueTLCBlockFcn("Derivatives", 9, 12)
+%assign tlcDerivativesFcnOfS10B13 = OpaqueTLCBlockFcn("Derivatives", 10, 13)
+%assign tlcDerivativesFcnOfS10B14 = OpaqueTLCBlockFcn("Derivatives", 10, 14)
+%assign tlcDerivativesFcnOfS10B15 = OpaqueTLCBlockFcn("Derivatives", 10, 15)
+%assign tlcDerivativesFcnOfS1B115 = OpaqueTLCBlockFcn("Derivatives", 1, 115)
+%assign tlcDerivativesFcnOfS1B117 = OpaqueTLCBlockFcn("Derivatives", 1, 117)
+%assign tlcDerivativesFcnOfS2B108 = OpaqueTLCBlockFcn("Derivatives", 2, 108)
+%assign tlcDerivativesFcnOfS2B111 = OpaqueTLCBlockFcn("Derivatives", 2, 111)
+%assign tlcDerivativesFcnOfS0B5 = OpaqueTLCBlockFcn("Derivatives", 0, 5)
+
+/* Derivatives for enable SubSystem: '<S5>/Linear Simulator' */
+if(%<SLibCG_SE(SLibCG_DWV(1, 33, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+
+/* Sum: '<S311>/Sum' */
+%<SLibCG_SetBOV(0, 197, 197, 0, 10, 3, "", -1, "", 0, "%<SLibCG_SE(SLibCG_BOV(0, 143, 143, 0, 10, 1, "", -1, "", 0))> - %<SLibCG_SE(SLibCG_BOV(0, 181, 181, 0, 10, 3, "", -1, "", 0))>")>\
+%<SLibCG_SetBOV(0, 197, 197, 0, 10, 3, "", -1, "", 1, "%<SLibCG_SE(SLibCG_BOV(0, 144, 144, 0, 10, 1, "", -1, "", 0))> - %<SLibCG_SE(SLibCG_BOV(0, 181, 181, 0, 10, 3, "", -1, "", 1))>")>\
+%<SLibCG_SetBOV(0, 197, 197, 0, 10, 3, "", -1, "", 2, "%<SLibCG_SE(SLibCG_BOV(0, 145, 145, 0, 10, 1, "", -1, "", 0))> - %<SLibCG_SE(SLibCG_BOV(0, 181, 181, 0, 10, 3, "", -1, "", 2))>")>\
+
+/* Product: '<S311>/Product2' */
+for(tmp = 0; tmp < 3; tmp++) {
+%<SLibCG_SetBOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0, "0.0")>\
+%<SLibCG_SetBOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0, "%<SLibCG_SE(SLibCG_BOV(0, 180, 180, 0, 10, 9, "", -1, "tmp", 0))> * %<SLibCG_SE(SLibCG_BOV(0, 197, 197, 0, 10, 3, "", -1, "", 0))> + %<SLibCG_SE(SLibCG_BOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0))>")>\
+%<SLibCG_SetBOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0, "%<SLibCG_SE(SLibCG_BOV(0, 180, 180, 0, 10, 9, "", -1, "tmp + 3", 0))> * %<SLibCG_SE(SLibCG_BOV(0, 197, 197, 0, 10, 3, "", -1, "", 1))> + %<SLibCG_SE(SLibCG_BOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0))>")>\
+%<SLibCG_SetBOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0, "%<SLibCG_SE(SLibCG_BOV(0, 180, 180, 0, 10, 9, "", -1, "tmp + 6", 0))> * %<SLibCG_SE(SLibCG_BOV(0, 197, 197, 0, 10, 3, "", -1, "", 2))> + %<SLibCG_SE(SLibCG_BOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0))>")>\
+}
+%<tlcDerivativesFcnOfS9B11>\
+%<tlcDerivativesFcnOfS9B12>\
+} else {
+%<SLibCGIRZeroOutDerivativesForSystem(9, 10, 6)>\
+}
+
+/* end of Derivatives for SubSystem: '<S5>/Linear Simulator' */
+%<tlcDerivativesFcnOfS10B13>\
+%<tlcDerivativesFcnOfS10B14>\
+%<tlcDerivativesFcnOfS10B15>\
+
+/* Derivatives for enable SubSystem: '<S1>/LgV design 2' */
+if(%<SLibCG_SE(SLibCG_DWV(1, 35, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+
+/* Derivatives for Integrator: '<S64>/Integrator2' */
+%<SLibCG_DRV(6, 9, 0, 10, 2, -1, "", 0)> = %<SLibCG_BOV(0, 722, 722, 0, 10, 2, "", -1, "", 0)>;
+%<SLibCG_DRV(6, 9, 0, 10, 2, -1, "", 1)> = %<SLibCG_BOV(0, 722, 722, 0, 10, 2, "", -1, "", 1)>;
+
+/* Derivatives for Integrator: '<S54>/Integrator' */
+%<SLibCG_DRV(6, 10, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 692, 692, 0, 10, 3, "", -1, "", 0)>;
+%<SLibCG_DRV(6, 10, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 692, 692, 0, 10, 3, "", -1, "", 1)>;
+%<SLibCG_DRV(6, 10, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 692, 692, 0, 10, 3, "", -1, "", 2)>;
+%<tlcDerivativesFcnOfS1B115>\
+%<tlcDerivativesFcnOfS1B117>\
+} else {
+%<SLibCGIRZeroOutDerivativesForSystem(1, 10, 26)>\
+}
+
+/* end of Derivatives for SubSystem: '<S1>/LgV design 2' */
+
+/* Derivatives for enable SubSystem: '<S1>/Nonlinear PID' */
+if(%<SLibCG_SE(SLibCG_DWV(1, 36, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+
+/* Derivatives for Integrator: '<S9>/zeta' */
+%<SLibCG_DRV(6, 13, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 548, 548, 0, 10, 3, "", -1, "", 0)>;
+%<SLibCG_DRV(6, 13, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 548, 548, 0, 10, 3, "", -1, "", 1)>;
+%<SLibCG_DRV(6, 13, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 548, 548, 0, 10, 3, "", -1, "", 2)>;
+
+/* Derivatives for Integrator: '<S137>/omega_q' */
+%<SLibCG_DRV(6, 14, 0, 10, 2, -1, "", 0)> = %<SLibCG_BOV(0, 578, 578, 0, 10, 2, "", -1, "", 0)>;
+%<SLibCG_DRV(6, 14, 0, 10, 2, -1, "", 1)> = %<SLibCG_BOV(0, 578, 578, 0, 10, 2, "", -1, "", 1)>;
+%<tlcDerivativesFcnOfS2B108>\
+%<tlcDerivativesFcnOfS2B111>\
+} else {
+%<SLibCGIRZeroOutDerivativesForSystem(2, 10, 27)>\
+}
+
+/* end of Derivatives for SubSystem: '<S1>/Nonlinear PID' */
+
+/* Derivatives for enable SubSystem: '<S1>/DP control' */
+if(%<SLibCG_SE(SLibCG_DWV(1, 37, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+
+/* Derivatives for Integrator: '<S17>/Integrator1' */
+%<SLibCG_DRV(6, 3, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 852, 852, 0, 10, 3, "", -1, "", 0)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator' */
+%<SLibCG_DRV(6, 4, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 850, 850, 0, 10, 3, "", -1, "", 0)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator1' */
+%<SLibCG_DRV(6, 3, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 852, 852, 0, 10, 3, "", -1, "", 1)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator' */
+%<SLibCG_DRV(6, 4, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 850, 850, 0, 10, 3, "", -1, "", 1)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator1' */
+%<SLibCG_DRV(6, 3, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 852, 852, 0, 10, 3, "", -1, "", 2)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator' */
+%<SLibCG_DRV(6, 4, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 850, 850, 0, 10, 3, "", -1, "", 2)>;
+%<tlcDerivativesFcnOfS0B5>\
+
+/* Derivatives for Integrator: '<S17>/Integrator4' */
+%<SLibCG_DRV(6, 6, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 842, 842, 0, 10, 3, "", -1, "", 0)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator2' */
+%<SLibCG_DRV(6, 7, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 851, 851, 0, 10, 3, "", -1, "", 0)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator3' */
+%<SLibCG_DRV(6, 8, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 854, 854, 0, 10, 3, "", -1, "", 0)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator4' */
+%<SLibCG_DRV(6, 6, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 842, 842, 0, 10, 3, "", -1, "", 1)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator2' */
+%<SLibCG_DRV(6, 7, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 851, 851, 0, 10, 3, "", -1, "", 1)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator3' */
+%<SLibCG_DRV(6, 8, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 854, 854, 0, 10, 3, "", -1, "", 1)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator4' */
+%<SLibCG_DRV(6, 6, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 842, 842, 0, 10, 3, "", -1, "", 2)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator2' */
+%<SLibCG_DRV(6, 7, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 851, 851, 0, 10, 3, "", -1, "", 2)>;
+
+/* Derivatives for Integrator: '<S17>/Integrator3' */
+%<SLibCG_DRV(6, 8, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 854, 854, 0, 10, 3, "", -1, "", 2)>;
+} else {
+%<SLibCGIRZeroOutDerivativesForSystem(0, 10, 84)>\
+}
+
+/* end of Derivatives for SubSystem: '<S1>/DP control' */
+}
+%endfunction

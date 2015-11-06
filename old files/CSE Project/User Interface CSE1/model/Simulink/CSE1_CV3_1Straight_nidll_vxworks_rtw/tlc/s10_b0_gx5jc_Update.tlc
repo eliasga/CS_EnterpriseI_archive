@@ -1,0 +1,83 @@
+%implements s10_b0_gx5jc_Update "C"
+
+%function Update(block, system) Output
+
+{
+int32_T tmp;
+%assign tlcUpdateFcnOfS9B11 = OpaqueTLCBlockFcn("Update", 9, 11)
+%assign tlcUpdateFcnOfS9B12 = OpaqueTLCBlockFcn("Update", 9, 12)
+%assign tlcUpdateFcnOfS10B8 = OpaqueTLCBlockFcn("Update", 10, 8)
+%assign tlcUpdateFcnOfS6B12 = OpaqueTLCBlockFcn("Update", 6, 12)
+%assign tlcUpdateFcnOfS1B115 = OpaqueTLCBlockFcn("Update", 1, 115)
+%assign tlcUpdateFcnOfS1B117 = OpaqueTLCBlockFcn("Update", 1, 117)
+%assign tlcUpdateFcnOfS2B108 = OpaqueTLCBlockFcn("Update", 2, 108)
+%assign tlcUpdateFcnOfS2B111 = OpaqueTLCBlockFcn("Update", 2, 111)
+%assign tlcUpdateFcnOfS0B5 = OpaqueTLCBlockFcn("Update", 0, 5)
+%assign tlcUpdateFcnOfS10B130 = OpaqueTLCBlockFcn("Update", 10, 130)
+
+/* Update for enable SubSystem: '<S5>/Linear Simulator' incorporates:
+ *  Update for EnablePort: '<S298>/Enable'
+ */
+if(%<SLibCG_SE(SLibCG_DWV(1, 33, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+
+/* Sum: '<S311>/Sum' */
+%<SLibCG_SetBOV(0, 197, 197, 0, 10, 3, "", -1, "", 0, "%<SLibCG_SE(SLibCG_BOV(0, 143, 143, 0, 10, 1, "", -1, "", 0))> - %<SLibCG_SE(SLibCG_BOV(0, 181, 181, 0, 10, 3, "", -1, "", 0))>")>\
+%<SLibCG_SetBOV(0, 197, 197, 0, 10, 3, "", -1, "", 1, "%<SLibCG_SE(SLibCG_BOV(0, 144, 144, 0, 10, 1, "", -1, "", 0))> - %<SLibCG_SE(SLibCG_BOV(0, 181, 181, 0, 10, 3, "", -1, "", 1))>")>\
+%<SLibCG_SetBOV(0, 197, 197, 0, 10, 3, "", -1, "", 2, "%<SLibCG_SE(SLibCG_BOV(0, 145, 145, 0, 10, 1, "", -1, "", 0))> - %<SLibCG_SE(SLibCG_BOV(0, 181, 181, 0, 10, 3, "", -1, "", 2))>")>\
+
+/* Product: '<S311>/Product2' */
+for(tmp = 0; tmp < 3; tmp++) {
+%<SLibCG_SetBOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0, "0.0")>\
+%<SLibCG_SetBOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0, "%<SLibCG_SE(SLibCG_BOV(0, 180, 180, 0, 10, 9, "", -1, "tmp", 0))> * %<SLibCG_SE(SLibCG_BOV(0, 197, 197, 0, 10, 3, "", -1, "", 0))> + %<SLibCG_SE(SLibCG_BOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0))>")>\
+%<SLibCG_SetBOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0, "%<SLibCG_SE(SLibCG_BOV(0, 180, 180, 0, 10, 9, "", -1, "tmp + 3", 0))> * %<SLibCG_SE(SLibCG_BOV(0, 197, 197, 0, 10, 3, "", -1, "", 1))> + %<SLibCG_SE(SLibCG_BOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0))>")>\
+%<SLibCG_SetBOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0, "%<SLibCG_SE(SLibCG_BOV(0, 180, 180, 0, 10, 9, "", -1, "tmp + 6", 0))> * %<SLibCG_SE(SLibCG_BOV(0, 197, 197, 0, 10, 3, "", -1, "", 2))> + %<SLibCG_SE(SLibCG_BOV(0, 198, 198, 0, 10, 3, "", -1, "tmp", 0))>")>\
+}
+%<tlcUpdateFcnOfS9B11>\
+%<tlcUpdateFcnOfS9B12>\
+}
+
+/* end of Update for SubSystem: '<S5>/Linear Simulator' */
+%<tlcUpdateFcnOfS10B8>\
+
+/* Update for enable SubSystem: '<S2>/Path-following' incorporates:
+ *  Update for EnablePort: '<S222>/Enable'
+ */
+if(%<SLibCG_SE(SLibCG_DWV(1, 34, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+%<tlcUpdateFcnOfS6B12>\
+}
+
+/* end of Update for SubSystem: '<S2>/Path-following' */
+
+/* Update for enable SubSystem: '<S1>/LgV design 2' incorporates:
+ *  Update for EnablePort: '<S7>/Enable'
+ */
+if(%<SLibCG_SE(SLibCG_DWV(1, 35, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+%<tlcUpdateFcnOfS1B115>\
+%<tlcUpdateFcnOfS1B117>\
+}
+
+/* end of Update for SubSystem: '<S1>/LgV design 2' */
+
+/* Update for enable SubSystem: '<S1>/Nonlinear PID' incorporates:
+ *  Update for EnablePort: '<S9>/Enable'
+ */
+if(%<SLibCG_SE(SLibCG_DWV(1, 36, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+%<tlcUpdateFcnOfS2B108>\
+%<tlcUpdateFcnOfS2B111>\
+}
+
+/* end of Update for SubSystem: '<S1>/Nonlinear PID' */
+
+/* Update for enable SubSystem: '<S1>/DP control' incorporates:
+ *  Update for EnablePort: '<S6>/Enable'
+ */
+if(%<SLibCG_SE(SLibCG_DWV(1, 37, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+%<tlcUpdateFcnOfS0B5>\
+}
+
+/* end of Update for SubSystem: '<S1>/DP control' */
+if(%<LibIsSampleHit(1)>) {
+%<tlcUpdateFcnOfS10B130>\
+}
+}
+%endfunction

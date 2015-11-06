@@ -1,0 +1,119 @@
+%implements s10_b0_is5jc_ForcingFunction "C"
+
+%function ForcingFunction(block, system) Output
+%assign tlcForcingFunctionFcnOfS9B11 = OpaqueTLCBlockFcn("ForcingFunction", 9, 11)
+%assign tlcForcingFunctionFcnOfS9B12 = OpaqueTLCBlockFcn("ForcingFunction", 9, 12)
+%assign tlcForcingFunctionFcnOfS10B13 = OpaqueTLCBlockFcn("ForcingFunction", 10, 13)
+%assign tlcForcingFunctionFcnOfS10B14 = OpaqueTLCBlockFcn("ForcingFunction", 10, 14)
+%assign tlcForcingFunctionFcnOfS10B15 = OpaqueTLCBlockFcn("ForcingFunction", 10, 15)
+%assign tlcForcingFunctionFcnOfS1B115 = OpaqueTLCBlockFcn("ForcingFunction", 1, 115)
+%assign tlcForcingFunctionFcnOfS1B117 = OpaqueTLCBlockFcn("ForcingFunction", 1, 117)
+%assign tlcForcingFunctionFcnOfS2B108 = OpaqueTLCBlockFcn("ForcingFunction", 2, 108)
+%assign tlcForcingFunctionFcnOfS2B111 = OpaqueTLCBlockFcn("ForcingFunction", 2, 111)
+%assign tlcForcingFunctionFcnOfS0B5 = OpaqueTLCBlockFcn("ForcingFunction", 0, 5)
+
+/* ForcingFunction for enable SubSystem: '<S5>/Linear Simulator' */
+if(%<SLibCG_SE(SLibCG_DWV(1, 33, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+%<tlcForcingFunctionFcnOfS9B11>\
+%<tlcForcingFunctionFcnOfS9B12>\
+} else {
+%<SLibCGIRZeroOutDerivativesForSystem(9, 10, 6)>\
+}
+
+/* end of ForcingFunction for SubSystem: '<S5>/Linear Simulator' */
+%<tlcForcingFunctionFcnOfS10B13>\
+%<tlcForcingFunctionFcnOfS10B14>\
+%<tlcForcingFunctionFcnOfS10B15>\
+
+/* ForcingFunction for enable SubSystem: '<S1>/LgV design 2' */
+if(%<SLibCG_SE(SLibCG_DWV(1, 35, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+
+/* ForcingFunction for Integrator: '<S64>/Integrator2' */
+%<SLibCG_DRV(6, 9, 0, 10, 2, -1, "", 0)> = %<SLibCG_BOV(0, 722, 722, 0, 10, 2, "", -1, "", 0)>;
+%<SLibCG_DRV(6, 9, 0, 10, 2, -1, "", 1)> = %<SLibCG_BOV(0, 722, 722, 0, 10, 2, "", -1, "", 1)>;
+
+/* ForcingFunction for Integrator: '<S54>/Integrator' */
+%<SLibCG_DRV(6, 10, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 692, 692, 0, 10, 3, "", -1, "", 0)>;
+%<SLibCG_DRV(6, 10, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 692, 692, 0, 10, 3, "", -1, "", 1)>;
+%<SLibCG_DRV(6, 10, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 692, 692, 0, 10, 3, "", -1, "", 2)>;
+%<tlcForcingFunctionFcnOfS1B115>\
+%<tlcForcingFunctionFcnOfS1B117>\
+} else {
+%<SLibCGIRZeroOutDerivativesForSystem(1, 10, 26)>\
+}
+
+/* end of ForcingFunction for SubSystem: '<S1>/LgV design 2' */
+
+/* ForcingFunction for enable SubSystem: '<S1>/Nonlinear PID' */
+if(%<SLibCG_SE(SLibCG_DWV(1, 36, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+
+/* ForcingFunction for Integrator: '<S9>/zeta' */
+%<SLibCG_DRV(6, 13, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 548, 548, 0, 10, 3, "", -1, "", 0)>;
+%<SLibCG_DRV(6, 13, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 548, 548, 0, 10, 3, "", -1, "", 1)>;
+%<SLibCG_DRV(6, 13, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 548, 548, 0, 10, 3, "", -1, "", 2)>;
+
+/* ForcingFunction for Integrator: '<S137>/omega_q' */
+%<SLibCG_DRV(6, 14, 0, 10, 2, -1, "", 0)> = %<SLibCG_BOV(0, 578, 578, 0, 10, 2, "", -1, "", 0)>;
+%<SLibCG_DRV(6, 14, 0, 10, 2, -1, "", 1)> = %<SLibCG_BOV(0, 578, 578, 0, 10, 2, "", -1, "", 1)>;
+%<tlcForcingFunctionFcnOfS2B108>\
+%<tlcForcingFunctionFcnOfS2B111>\
+} else {
+%<SLibCGIRZeroOutDerivativesForSystem(2, 10, 27)>\
+}
+
+/* end of ForcingFunction for SubSystem: '<S1>/Nonlinear PID' */
+
+/* ForcingFunction for enable SubSystem: '<S1>/DP control' */
+if(%<SLibCG_SE(SLibCG_DWV(1, 37, 0, 10, 1, "", -1, "", 0))> == SUBSYS_ENABLED) {
+
+/* ForcingFunction for Integrator: '<S17>/Integrator1' */
+%<SLibCG_DRV(6, 3, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 852, 852, 0, 10, 3, "", -1, "", 0)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator' */
+%<SLibCG_DRV(6, 4, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 850, 850, 0, 10, 3, "", -1, "", 0)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator1' */
+%<SLibCG_DRV(6, 3, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 852, 852, 0, 10, 3, "", -1, "", 1)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator' */
+%<SLibCG_DRV(6, 4, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 850, 850, 0, 10, 3, "", -1, "", 1)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator1' */
+%<SLibCG_DRV(6, 3, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 852, 852, 0, 10, 3, "", -1, "", 2)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator' */
+%<SLibCG_DRV(6, 4, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 850, 850, 0, 10, 3, "", -1, "", 2)>;
+%<tlcForcingFunctionFcnOfS0B5>\
+
+/* ForcingFunction for Integrator: '<S17>/Integrator4' */
+%<SLibCG_DRV(6, 6, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 842, 842, 0, 10, 3, "", -1, "", 0)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator2' */
+%<SLibCG_DRV(6, 7, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 851, 851, 0, 10, 3, "", -1, "", 0)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator3' */
+%<SLibCG_DRV(6, 8, 0, 10, 3, -1, "", 0)> = %<SLibCG_BOV(0, 854, 854, 0, 10, 3, "", -1, "", 0)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator4' */
+%<SLibCG_DRV(6, 6, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 842, 842, 0, 10, 3, "", -1, "", 1)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator2' */
+%<SLibCG_DRV(6, 7, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 851, 851, 0, 10, 3, "", -1, "", 1)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator3' */
+%<SLibCG_DRV(6, 8, 0, 10, 3, -1, "", 1)> = %<SLibCG_BOV(0, 854, 854, 0, 10, 3, "", -1, "", 1)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator4' */
+%<SLibCG_DRV(6, 6, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 842, 842, 0, 10, 3, "", -1, "", 2)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator2' */
+%<SLibCG_DRV(6, 7, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 851, 851, 0, 10, 3, "", -1, "", 2)>;
+
+/* ForcingFunction for Integrator: '<S17>/Integrator3' */
+%<SLibCG_DRV(6, 8, 0, 10, 3, -1, "", 2)> = %<SLibCG_BOV(0, 854, 854, 0, 10, 3, "", -1, "", 2)>;
+} else {
+%<SLibCGIRZeroOutDerivativesForSystem(0, 10, 84)>\
+}
+
+/* end of ForcingFunction for SubSystem: '<S1>/DP control' */
+%endfunction

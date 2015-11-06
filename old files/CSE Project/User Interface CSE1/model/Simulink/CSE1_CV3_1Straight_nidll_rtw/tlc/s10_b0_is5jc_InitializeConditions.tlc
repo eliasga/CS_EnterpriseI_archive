@@ -1,0 +1,12 @@
+%implements s10_b0_is5jc_InitializeConditions "C"
+
+%function InitializeConditions(block, system) Output
+%assign tlcInitializeConditionsFcnOfS10B8 = OpaqueTLCBlockFcn("InitializeConditions", 10, 8)
+%assign tlcInitializeConditionsFcnOfS10B13 = OpaqueTLCBlockFcn("InitializeConditions", 10, 13)
+%assign tlcInitializeConditionsFcnOfS10B14 = OpaqueTLCBlockFcn("InitializeConditions", 10, 14)
+%assign tlcInitializeConditionsFcnOfS10B15 = OpaqueTLCBlockFcn("InitializeConditions", 10, 15)
+%<tlcInitializeConditionsFcnOfS10B8>\
+%<tlcInitializeConditionsFcnOfS10B13>\
+%<tlcInitializeConditionsFcnOfS10B14>\
+%<tlcInitializeConditionsFcnOfS10B15>\
+%endfunction

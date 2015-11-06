@@ -1,0 +1,11 @@
+Bowthruster Battery	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualisys/SIT azAI0:1
+L2	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/L2/Value
+Left X	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/JS_L_X/Value
+Left Y	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/JS_L_Y/Value
+Main Battery	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualisys/SIT azAI2:1
+Power Limiter	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/LabVIEW_BT_Power/Value
+R2	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/R2/Value
+Right X	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/JS_R_X/Value
+Right Y	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/JS_R_Y/Value
+Servo Battery	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualisys/SIT azAI1:1
+VSP Speed	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/LabVIEW_VSP_Speed/Value

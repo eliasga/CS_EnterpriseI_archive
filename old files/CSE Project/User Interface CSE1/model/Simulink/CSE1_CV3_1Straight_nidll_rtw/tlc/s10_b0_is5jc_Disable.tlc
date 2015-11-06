@@ -1,0 +1,34 @@
+%implements s10_b0_is5jc_Disable "C"
+
+%function Disable(block, system) Output
+
+/* Disable for enable SubSystem: '<S5>/Linear Simulator' */
+%<SLibCG_SetDWV(1, 33, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+
+/* end of Disable for SubSystem: '<S5>/Linear Simulator' */
+
+/* Disable for enable SubSystem: '<S2>/Path-following' */
+%<SLibCG_SetDWV(1, 34, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+
+/* end of Disable for SubSystem: '<S2>/Path-following' */
+
+/* Disable for enable SubSystem: '<S1>/LgV design 2' */
+%<SLibCG_SetDWV(1, 35, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+
+/* end of Disable for SubSystem: '<S1>/LgV design 2' */
+
+/* Disable for enable SubSystem: '<S1>/Nonlinear PID' */
+%<SLibCG_SetDWV(1, 36, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+
+/* end of Disable for SubSystem: '<S1>/Nonlinear PID' */
+
+/* Disable for enable SubSystem: '<S1>/DP control' */
+%<SLibCG_SetDWV(1, 37, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+
+/* end of Disable for SubSystem: '<S1>/DP control' */
+
+/* Disable for enable SubSystem: '<S5>/CSE1' */
+%<SLibCG_SetDWV(1, 38, 0, 10, 1, "", -1, "", 0, "SUBSYS_DISABLED")>\
+
+/* end of Disable for SubSystem: '<S5>/CSE1' */
+%endfunction

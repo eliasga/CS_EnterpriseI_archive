@@ -1,0 +1,53 @@
+BT Power Limiter	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/LabVIEW_BT_Power/Value
+Bowthruster Battery	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/Battery Bow Thruster:1
+CSE1 x-position	ca_cse1_v1e_wo_losv2b/Naviagation Systems/eta_surge:1
+CSE1 y-position	ca_cse1_v1e_wo_losv2b/Naviagation Systems/eta_sway:1
+CSE1 yaw	ca_cse1_v1e_wo_losv2b/Naviagation Systems/eta_yaw:1
+Control Input Selector	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Controller Input Selector/Value
+DP K_d	ca_cse1_v1e_wo_losv2b/Control Systems/DP control/DP controller/Kd_scale/Value
+DP K_i	ca_cse1_v1e_wo_losv2b/Control Systems/DP control/DP controller/Ki_scale/Value
+DP K_p	ca_cse1_v1e_wo_losv2b/Control Systems/DP control/DP controller/Kp_scale/Value
+DP Wave Filter	ca_cse1_v1e_wo_losv2b/Control Systems/DP control/Enable Filter/Value
+Enable CSE1	ca_cse1_v1e_wo_losv2b/Plants/Enable CSE1/Value
+Enable Linear HIL	ca_cse1_v1e_wo_losv2b/Plants/Enable Linear HIL/Value
+Enable Qualisys	ca_cse1_v1e_wo_losv2b/Naviagation Systems/QS enabler/Value
+L2	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/L2/Value
+Left X	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/JS_L_X/Value
+Left Y	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/JS_L_Y/Value
+MODE	ca_cse1_v1e_wo_losv2b/Control Systems/Control Mode/Value
+Main Battery	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/Battery Main:1
+R2	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/R2/Value
+Reset DP Integrator	ca_cse1_v1e_wo_losv2b/Control Systems/DP control/DP controller/Reset_DP_integrator/Value
+Reset HIL integrator	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/Vessel Dynamics/Reset_HIL integrator/Value
+Right X	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/JS_R_X/Value
+Right Y	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/PS3 signals/JS_R_Y/Value
+SIT In 1 Frames Per Sec	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/Frames Per Sec:1
+SIT In 2 Error	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/Error:1
+SIT In 3 x [mm]	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/x coord:1
+SIT In 4 y [mm]	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/y coord:1
+SIT In 5 z [mm]	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/z coord:1
+SIT In 6 roll [deg] 	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/roll angle:1
+SIT In 7 pitch [deg]	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/pitch angle:1
+SIT In 8 yaw [deg]	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/yaw angle:1
+SIT In 9 Residual	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/Residual:1
+Servo Battery	ca_cse1_v1e_wo_losv2b/Naviagation Systems/Qualinsys 6 DOF Out/Battery Servo:1
+VSP Speed	ca_cse1_v1e_wo_losv2b/HMI/PS3 input/LabVIEW_VSP_Speed/Value
+eta_d LPF	ca_cse1_v1e_wo_losv2b/HMI/DP input/Enable eta_d LPF/Value
+eta_d_E	ca_cse1_v1e_wo_losv2b/HMI/DP input/y_d/Value
+eta_d_N	ca_cse1_v1e_wo_losv2b/HMI/DP input/x_d/Value
+eta_d_Psi	ca_cse1_v1e_wo_losv2b/HMI/DP input/psi_d/Value
+eta_surge_hil	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/eta_surge_hil:1
+eta_sway_hil	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/eta_sway_hil:1
+eta_yaw_hil	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/eta_yaw_hil:1
+etadot_surge_hil	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/etadot_surge_hil:1
+etadot_sway_hil	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/etadot_sway_hil:1
+etadot_yaw_hil	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/etadot_yaw_hil:1
+nu_surge_hil	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/nu_surge_hil:1
+nu_sway_hil	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/nu_sway_hil:1
+nu_yaw_hil	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/nu_yaw_hil:1
+psi_0	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/Vessel Dynamics/Initial eta/psi_0/Value
+r_0	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/Vessel Dynamics/Initial nu/r_0/Value
+u_0	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/Vessel Dynamics/Initial nu/u_0/Value
+v_0	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/Vessel Dynamics/Initial nu/v_0/Value
+x_0	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/Vessel Dynamics/Initial eta/x_0/Value
+y_0	ca_cse1_v1e_wo_losv2b/Plants/Linear HIL/Vessel Dynamics/Initial eta/y_0/Value

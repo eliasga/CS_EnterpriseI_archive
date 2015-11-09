@@ -1,0 +1,9 @@
+Custom device drivers must be placed in the folder:
+C:\Users\Public\Documents\National Instruments\NI VeriStand 2014\Custom Devices
+
+
+WL_joystick - PS3 controller driver
+Oqus - CSE1 position driver
+DataInput - Oculus Rift driver
+
+All custom device drivers are written by Torgeir Whal

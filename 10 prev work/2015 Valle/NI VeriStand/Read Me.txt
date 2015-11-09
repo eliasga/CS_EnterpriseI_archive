@@ -1,0 +1,146 @@
+NI Veristand Read me.
+
+NI Veristand an LabVIEW required to run software.
+
+Control system software is compiled in Simulink.
+
+HIL model connects with simulation model, while CSE1 model connects with CSE1 actuators.
+
+
+Run instructions:
+	- Compile simulink model (.out) file control system
+	- Follow instructions in lab manual 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /\       
+      /  \      
+     /,--.\     
+    /< () >\    
+   /  `--'  \   
+  /          \  
+ /            \ 
+/______________\

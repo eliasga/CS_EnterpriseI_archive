@@ -1,0 +1,11 @@
+Oculus Rift software for Master Thesis, Marine Telepresence system
+
+To use this software the following libraries are needed.
+	- Oculus Rift SDK, available from (https://developer.oculus.com/documentation/#filter=pc) 
+		- User account needed
+	- OpenCV installed (available from http://opencv.org/)
+	- The GitHub repo: https://github.com/OculusRiftInAction/OculusRiftInAction 
+		- Then follow the install instructions from their read me file (also attached in this folder)
+		
+		
+The code for HighResWebcamdemo is then substituted for the cod eof same name in the github repo, and should be able to run

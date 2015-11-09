@@ -1,0 +1,122 @@
+Software Appendix for the master thesis "Marine Telepresence System"
+Author: Eirik Valle
+Date: 08-06-2015
+
+Contents:
+- C++ Oculus Rift software:
+	- Code for running Oculus Rift application. 
+		- Oculus Rift SDK, OculusRiftInAction GitHub repository and OpenCV is necessary to run the program
+	* Visual Studio 2013 have been used as a compiler.
+- Simulink code:
+	- Offline simulation models; 
+		- MATLAB and Simulink necessary to run code
+	- HIL and CSE1 model; 
+		- MATLAB, Simulink (+ code generation toolbox) and NI Veristand necessary to run code
+	* MATLAB 2014a has been used for the code. (Matlab 2014b is not compatible for Matlab function blocks in Simulink, if they are replaced, 2014b will work!)
+
+- NI Veristand:
+	- HIL simulation project
+	- CSE1 project
+	- Custom devices:
+		- Wl_joystick: 	Necessary for PS3 controller interface.
+		- Data Input:	Oculus Rift interface
+		- Oqus:		MC lab positioning system interface
+	* NI Veristand 2014 and LabVIEW 2014 is necessary
+	
+- LabVIEW AUR lab control interface:
+	- Some example virtual instrumnets (vi) are included.It is not possible to run the software with only this code. The entire AUR lab control system is needed.
+		- Interface vi; Necessary for control over sample rate runs on Oculus Rift Computer.
+		- HMI panel vi; Client for receiving signals and initial signal processing.
+		- Oculus Rift guidance vi; Gesture based guidance algorithm as implemented in LabVIEW.
+	- Entire AUR lab software with Oculus Rift Interface is included in this distrubution (Not available through DAIM)
+	
+Detailed read me files for running the code in the respective folders
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

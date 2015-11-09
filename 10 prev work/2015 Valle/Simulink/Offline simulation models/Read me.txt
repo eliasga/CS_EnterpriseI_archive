@@ -1,0 +1,3 @@
+To run offline simulink code, first run the run_file.m
+
+then the .slx file

@@ -1,0 +1,5 @@
+Code is modelled and then compiled to .out file for VxWorks (cRIO operating system).
+
+Simulink® Coder toolbox is needed to compile code.
+
+Output is then used in NI Veristand software for HIL and model scale tests

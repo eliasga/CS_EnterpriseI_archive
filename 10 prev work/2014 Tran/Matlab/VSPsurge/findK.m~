@@ -1,0 +1,78 @@
+acs_files = dir(fullfile(pwd, '*.asc'));
+
+
+for i=1:length(acs_files); 
+
+
+
+j = importdata(acs_files(i,1).name, '\t', 37);
+
+
+
+
+f8113=j.data(:,3);
+f8114=j.data(:,4);
+
+
+str=acs_files(i,1).name([11:13]);
+
+        switch str
+            case 'pos', 
+            sign=1;
+            case 'neg'
+            sign=-1;
+        end
+
+
+
+pitch(i)=str2num(acs_files(i,1).name([5:6]))*sign*0.1;
+
+F8113(i,1)=mean(f8113);
+F8114(i,1)=mean(f8114);
+
+
+end
+
+TotalForce=F8114-F8113;
+
+% Quickfix
+A=[pitch;TotalForce']'
+A=sortrows(A,1);
+
+
+
+ForcePerPropeller=A(:,2)/2;
+
+plot(A(:,1),ForcePerPropeller,'-x','LineWidth',2,...
+                'MarkerEdgeColor','b',...
+                'MarkerFaceColor','b',...
+                'MarkerSize',10)
+            
+grid on
+hold on
+xlabel('VSP pitch');
+ylabel('Force per propeller');
+
+ [a,b]=polyfit(A(:,1),ForcePerPropeller,1);
+ 
+axesLimits1 = xlim;
+xplot1 = linspace(axesLimits1(1), axesLimits1(2));
+
+
+% Evaluate polynomial
+yplot1 = polyval(a, xplot1);
+plot(xplot1,yplot1,'r')
+
+formula=['Y=',num2str(a(1)),'x ',num2str(a(2)),' ']
+legend('Measured data',['Linear fit ' formula ])
+
+
+
+%%
+
+
+Starting=rand(1,2);
+options=optimset('Display','iter');
+Estimates=fminsearch(@myfit,Starting,options,t,Data)
+
+

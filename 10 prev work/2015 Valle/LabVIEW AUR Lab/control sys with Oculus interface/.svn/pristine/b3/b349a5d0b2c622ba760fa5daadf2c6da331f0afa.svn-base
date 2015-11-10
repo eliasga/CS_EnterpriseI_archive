@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <!--All Sensors are to be listed here-->
+  <Sensor ID="0" Name="Transponder" Type="Position" PosX="-0.75" PosY="0" PosZ="0" RotX="0" RotY="0" RotZ="0"/>
+  <Sensor ID="1" Name="DopplerVelocityLog" Type="Position" PosX="-0.75" PosY="0" PosZ="0" RotX="0" RotY="0" RotZ="45"/>
+  <Vessel Name="Minerva">
+    <TechnicalData PortToWrite="0" DOF="6" Length="1.44" Width="0.82" Height="0.80" Buoyancy="5" CenterGravity="0:0:0.15;" CenterBuoyancy="0:0:-0.12;" TimeStep="0.15" TauMax="478:256:389:151:151:151;" />
+    <PortConfiguration>
+      <Port ID="1" BaudRate="9600" DataBits="8" Parity="None" StopBits="1" FlowControl="None"/>
+      <Port ID="2" BaudRate="9600" DataBits="8" Parity="None" StopBits="1" FlowControl="None"/>
+      <Port ID="3" BaudRate="57.6" DataBits="8" Parity="None" StopBits="1" FlowControl="None"/>
+      <Port ID="4" BaudRate="19.2" DataBits="8" Parity="None" StopBits="1" FlowControl="None"/>
+      <Port ID="5" BaudRate="9600" DataBits="8" Parity="None" StopBits="1" FlowControl="None"/>
+      <Port ID="6" BaudRate="9600" DataBits="8" Parity="None" StopBits="1" FlowControl="None"/>
+      <Port ID="7" BaudRate="9600" DataBits="8" Parity="None" StopBits="1" FlowControl="None"/>
+      <Port ID="8" BaudRate="9600" DataBits="8" Parity="None" StopBits="1" FlowControl="None"/>
+    </PortConfiguration>
+    <Matrix>
+      <Mass Type="Norm" Size="6" Values="460:0:0:0:0:0;0:460:0:0:0:0;0:0:460:0:0:0;0:0:0:105.26:0:0;0:0:0:0:104.02:0;0:0:0:0:0:50.31;"/>
+      <AddedMass Type="Norm" Size="6" Values="293:0:0:0:0:0;0:302:0:0:0:0;0:0:326:0:0:0;0:0:0:52:0:0;0:0:0:0:52:0;0:0:0:0:0:57;"/>
+      <LinearDamping Type="Norm" Size="6" Values="233.6:0:0:0:0:0;0:292:0:0:0:0;0:0:64:0:0:0;0:0:0:16:0:0;0:0:0:0:30:0;0:0:0:0:0:25;"/>
+      <NonLinearDamping Type="Norm" Size="6" Values="292:0:0:0:0:0;0:584:0:0:0:0;0:0:635:0:0:0;0:0:0:84:0:0;0:0:0:0:148:0;0:0:0:0:0:100;"/>
+    </Matrix>
+    <Observer>
+      <KalmanFilter Mode="Both" Name="KalmanFilterRegular">
+        <TuningKalman>
+          <R Type="Diag" Size="12" Value="0.5:0.5:0.01:100:100:0.01:0.01:0.01:0.01:100:100:0.01;"/>
+          <Q Type="Diag" Size="18" Value="1:1:1:1:1:1:1:1:1:1:1:1:10:10:10:100:100:100;"/>
+        </TuningKalman>
+      </KalmanFilter>
+      <Passive Mode="None" Name="PassiveObserver">
+        <TuningPassive>
+          <Wave TypeOmega="Diag" SizeOmega="6" ValueOmega="0.6283:0.6283:0.6283:0.6283:0.6283:0.6283;" TypeDelta="Diag" SizeDelta="6" ValueDelta="1.0:1.0:1.0:1.0:1.0:1.0;" TypeLambda="Diag" SizeLambda="6" ValueLambda="0.1:0.1:0.1:0.1:0.1:0.1;"/>
+          <K1 Type1 ="Diag" Size1="6" Value1="0.0:0.0:0.0:0.0:0.0:0.0;" Type2="Diag" Size2="6" Value2="0.0:0.0:0.0:0.0:0.0:0.0;"/>
+          <K2 Type="Diag" Size="6" Value="1.0:1.0:1.0:1.0:1.0:1.0;"/>
+          <K3 Type="Diag" Size="6" Value="0.01:0.01:0.01:0.001:0.001:0.001;"/>
+          <K4 Type="Diag" Size="6" Value="0.1:0.1:0.1:0.01:0.01:0.01;"/>
+          <T Type="Diag" Size="6" Value="1000:1000:1000:1000:1000:1000;" />
+        </TuningPassive>
+      </Passive>
+	    <Adaptive Mode="None" Name="AdaptiveObserver">
+			  <TuningAdaptive>
+				  <Wave TypeOmega="Diag" SizeOmega="6" ValueOmega="0.5027:0.5027:0.5027:0.5027:0.5207:0.5027;" TypeOmegaL="Diag" SizeOmegaL="6" ValueOmegaL="0.3142:0.3142:0.3142:0.3142:0.3142:0.3142;" TypeOmegaH="Diag" SizeOmegaH="6" ValueOmegaH="1.2566:1.2566:1.2566:1.2566:1.2566:1.2566;" TypeDelta="Diag" SizeDelta="6" ValueDelta="1.0:1.0:1.0:1.0:1.0:1.0;" TypeLambda="Diag" SizeLambda="6" ValueLambda="0.1:0.1:0.1:0.1:0.1:0.1;"/>
+				  <K1h Type1="Diag" Size1="6" Value1="0.0:0.0:0.0:0.0:0.0:0.0;" Type2="Diag" Size2="6" Value2="0.0:0.0:0.0:0.0:0.0:0.0;"/>
+				  <K2 Type="Diag" Size="6" Value="1.0:1.0:1.0:1.0:1.0:1.0;"/>
+				  <K2l Type="Diag" Size="6" Value="1.0:1.0:1.0:1.0:1.0:1.0;"/>
+				  <K2h Type="Diag" Size="6" Value="1.0:1.0:1.0:1.0:1.0:1.0;"/>
+				  <K3 Type="Diag" Size="6" Value="0.01:0.01:0.01:0.001:0.001:0.001;"/>
+				  <K3l Type="Diag" Size="6" Value="0.01:0.01:0.01:0.001:0.001:0.001;"/>
+				  <K4 Type="Diag" Size="6" Value="0.1:0.1:0.1:0.01:0.01:0.01;"/>
+				  <K4l Type="Diag" Size="6" Value="0.1:0.1:0.1:0.01:0.01:0.01;"/>
+				  <K4h Type="Diag" Size="6" Value="0.1:0.1:0.1:0.01:0.01:0.01;"/>
+				  <T Type="Diag" Size="6" Value="1000:1000:1000:1000:1000:1000;"/>
+				  <Tf Type="Diag" Size="6" Value="1000:1000:1000:1000:1000:1000;"/>
+			  </TuningAdaptive>
+		  </Adaptive>
+      <KalmanFilterAltitude Mode="Both" Name="KalmanFilterAltitude">
+        <TuningKalman>
+          <R Type="Diag" Size="1" Value="3;" />
+          <Q Type="Diag" Size="1" Value="1;" />
+        </TuningKalman>
+      </KalmanFilterAltitude>
+      <Attitude Name="AttitudeObserver">
+        <Offset Value="0:0:0;" />
+        <MagneticNorth Value="0.28:0:0.98;" />
+        <TuningAttitude>
+          <KP Type="Diag" Size="3" Value="0.3:0.3:9;" />
+          <KI Type="Diag" Size="3" Value="0.005:0.005:0.005;" />
+        </TuningAttitude>
+      </Attitude>
+      <ParticleFilter Mode="Both" Name="ParticleFilter"> <!-- Not sure about the mode -->
+      		  <!-- ========================================== Particle  Filter =================================================================================================================================================================================== -->
+      		  <!-- ========================================== Particle  Filter =================================================================================================================================================================================== -->
+      		  <!-- ========================================== Particle  Filter =================================================================================================================================================================================== -->
+      		  <!-- ========================================== Particle  Filter =================================================================================================================================================================================== -->
+      		  <!-- ========================================== Particle  Filter =================================================================================================================================================================================== -->
+      		  <!-- ========================================== Particle  Filter =================================================================================================================================================================================== -->
+      		<TuningParticleFilter>
+      			<Number_of_Particles Value="100" />
+      			<PF_method Value="SISPF" /> <!-- UPF // RBPF -->
+      			<Prob_of_HPR_OTLR Value="" />
+      			<Prob_of_reduced_propulsion Value="" />
+      			<Prob_of_zero_propulsion Value="" />
+      			<Std_of_current Value="" />
+      			<Std_of_DVL Value="" />
+      			<T_of_DVL_bias Value="" />
+      			<Std_of_position_system_noise Value="" />
+      			<Std_of_the_Std_process_of_velocity_update Value="" />
+      			<Std_of_velocity_system_noise Value="" />
+      			<PF_T_STD_VEL Value="" />
+      			<T_of_current Value="" />
+      			<Std_of_DVL_bias Value="" />
+      			<Std_of_HPR Value="" />
+      			<Std_of_HPR_outlier Value="" />
+      			<PF_ctrl_frc_delay Value="" />
+      		</TuningParticleFilter>
+	  </ParticleFilter>
+    </Observer>
+    <Navigation>
+      <DPOperation Mode="DP">
+        <Criteria SizeRestart="6" Restart="0.5:0.5:0.5:0.1:0.1:0.1;" SizeWait="6" Wait="2:2:2:1.57:1.57:1.57;"/>
+        <Omega Type="Diag" Size="6" Value="0.3:0.3:0.3:0.3:0.3:0.3;"/>
+        <Delta Type="Diag" Size="6" Value="1.0:1.0:1.0:1.0:1.0:1.0;"/>
+      </DPOperation>
+      <SetPointSwitch>
+        <Criteria SizeRestart="6" Restart="0.5:0.5:0.5:0.1:0.1:0.1;" SizeWait="6" Wait="2:2:2:1.57:1.57:1.57;"/>
+        <Omega Type="Diag" Size="6" Value="0.3:0.3:0.3:0.3:0.3:0.3;"/>
+        <Delta Type="Diag" Size="6" Value="1.0:1.0:1.0:1.0:1.0:1.0;"/>
+        <Tolerence Value="0.05" />  
+      </SetPointSwitch>
+      <Joystick Mode="Joystick">
+        <Omega Size="6" Value="0.8:0.8:0.8:0.8:0.8:0.8;"/>
+        <Delta Size="6" Value="1:1:1:1:1:1;"/>
+      </Joystick>
+      <Altitude>
+        <Omega Value="0.4"/>
+        <Tuning>
+          <KP Value="0.2"/>
+          <KI Value="0.05"/>
+          <Kff Value="1"/>
+        </Tuning>
+      </Altitude>
+      <ConstantJerk>
+      <jav_pos Type="Norm" Size="3" Value="0.1:0.1:0.3;"/>
+      <jav_rad Type="Norm" Size="3" Value="0.15:0.15:0.25;"/>
+      <!--Insert data here if needed -->
+      </ConstantJerk>    
+      <CJSwitcher>
+            <pause_duration Value="0"/>
+      </CJSwitcher>    
+    </Navigation>
+    <Controller>
+      <PIDLinear Mode="None" Name="LinearPID">
+        <Tuning>
+          <KP Type="Norm" Size="6" Value="400:0:0:0:0:0;0:400:0:0:0:0;0:0:500:0:0:0;0:0:0:0:0:0;0:0:0:0:0:0;0:0:0:0:0:100;"/>
+          <KI Type="Norm" Size="6" Value="10:0:0:0:0:0;0:10:0:0:0:0;0:0:5:0:0:0;0:0:0:0:0:0;0:0:0:0:0:0;0:0:0:0:0:2;"/>
+          <KD Type="Norm" Size="6" Value="600:0:0:0:0:0;0:600:0:0:0:0;0:0:500:0:0:0;0:0:0:0:0:0;0:0:0:0:0:0;0:0:0:0:0:200;"/>
+        </Tuning>
+        
+      </PIDLinear>
+      <PIDNonLinear Mode="Both" Name="NonlinearPID">
+        <Tuning TypeKanti="Norm" SizeKanti="6" Kanti="2:0:0:0:0:0;0:1:0:0:0:0;0:0:2:0:0:0;0:0:0:0:0:0;0:0:0:0:0:0;0:0:0:0:0:1;" IntegralLimit="1.5:1.5:1.5:0.0873:0.0873:0.0873;" >
+          <KP Type="Norm" Size="6" Value="400:0:0:0:0:0;0:400:0:0:0:0;0:0:500:0:0:0;0:0:0:0:0:0;0:0:0:0:0:0;0:0:0:0:0:100;"/>
+          <KI Type="Norm" Size="6" Value="10:0:0:0:0:0;0:10:0:0:0:0;0:0:5:0:0:0;0:0:0:0:0:0;0:0:0:0:0:0;0:0:0:0:0:2;"/>
+          <KD Type="Norm" Size="6" Value="600:0:0:0:0:0;0:600:0:0:0:0;0:0:500:0:0:0;0:0:0:0:0:0;0:0:0:0:0:0;0:0:0:0:0:200;"/>
+          <KIS Type="Diag" Size="6" Value="80:500:0:0:0:0;"/>
+        </Tuning>
+        <SpeedController Value="N" />
+      </PIDNonLinear>
+      <LQR Mode="None" Name="LQR">
+        <Tuning TypeKanti="Norm" SizeKanti="6" Kanti="2:0:0:0:0:0;0:1:0:0:0:0;0:0:2:0:0:0;0:0:0:1:0:0;0:0:0:0:1:0;0:0:0:0:0:1;" IntegralLimit="1.5:1.5:1.5:0.262:0.262:0.262;">
+          <KI Type="Norm" Size="6" Value="10:0:0:0:0:0;0:5:0:0:0:0;0:0:2:0:0:0;0:0:0:5:0:0;0:0:0:0:5:0;0:0:0:0:0:5;"/>
+          <Q Type="Diag" Size="12" Value="0.02:0.02:0.01:0.005:0.08:0.08:0.8:0.005:0.8:0.005:0.8:0.005;"/>
+          <R Type="Diag" Size="6" Value="0.0000000438:0.0000001526:0.0000000661:0.0000004386:0.0000004386:0.0000004386;"/>
+          <KIS Type="Diag" Size="6" Value="80:500:0:0:0:0;"/>
+        </Tuning>
+        <SpeedController Value="N" />
+      </LQR>
+      <SlidingMode Mode="None" Name="SlidingMode">
+        <Tuning>
+          <KS Type="Diag" Size="6" Value="210:210:210:60:60:60;"/>
+          <KPID Type="Diag" Size="6" Value="960:160:320:160:160:160;"/>
+          <Lambda Value="0.1:0.1:0.13:0.13:0.13:0.13;"/>
+          <Phi Value="1:1:2:1.5:1.5:1.5;"/>
+          <IntegralLimit Value="1.5:1.5:1.5:0.262:0.262:0.262;"/>
+        </Tuning>
+      </SlidingMode>
+    </Controller>
+    <SensorsInstalled NumberOfSensors="2" SensorIDs="0,1"/>
+    <Thruster ID="0" Name="Lateral" Type="Fixed" PosX="0.166" PosY="0" PosZ="0.3" RotTheta="90" RotPhi="90" MaxRPM="1450" Coefficient="0.0000943:0.0000943;"/>
+    <Thruster ID="1" Name="Vertical" Type="Fixed" PosX="0" PosY="0" PosZ="0" RotTheta="0" RotPhi="0" MaxRPM="1450" Coefficient="0.0000925:0.000074;"/>
+    <Thruster ID="2" Name="Port" Type="Fixed" PosX="-0.57" PosY="-0.24" PosZ="0.3" RotTheta="-10" RotPhi="90" MaxRPM="1450" Coefficient="0.000115:0.0000328;"/>
+    <Thruster ID="3" Name="Starboard" Type="Fixed" PosX="-0.57" PosY="0.24" PosZ="0.3" RotTheta="10" RotPhi="90" MaxRPM="1450" Coefficient="0.000115:0.0000328;"/>
+  </Vessel>
+</Configuration>

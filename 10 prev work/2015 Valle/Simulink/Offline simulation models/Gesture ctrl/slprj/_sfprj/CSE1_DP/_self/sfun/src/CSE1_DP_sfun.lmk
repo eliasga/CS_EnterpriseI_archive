@@ -1,0 +1,146 @@
+CC     = "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"CSE1_DP_sfun.obj"\
+	"c1_CSE1_DP.obj"\
+	"c2_CSE1_DP.obj"\
+	"c3_CSE1_DP.obj"\
+	"c4_CSE1_DP.obj"\
+	"c5_CSE1_DP.obj"\
+	"c6_CSE1_DP.obj"\
+	"c7_CSE1_DP.obj"\
+	"c8_CSE1_DP.obj"\
+	"c9_CSE1_DP.obj"\
+	"c10_CSE1_DP.obj"\
+	"c11_CSE1_DP.obj"\
+	"c12_CSE1_DP.obj"\
+	"c13_CSE1_DP.obj"\
+	"c14_CSE1_DP.obj"\
+	"c15_CSE1_DP.obj"\
+	"c16_CSE1_DP.obj"\
+	"c17_CSE1_DP.obj"\
+	"c18_CSE1_DP.obj"\
+	"c19_CSE1_DP.obj"\
+	"c22_CSE1_DP.obj"\
+	"c23_CSE1_DP.obj"\
+	"c24_CSE1_DP.obj"\
+	"c25_CSE1_DP.obj"\
+	"c26_CSE1_DP.obj"\
+	"c27_CSE1_DP.obj"\
+	"c28_CSE1_DP.obj"\
+	"c29_CSE1_DP.obj"\
+	"c30_CSE1_DP.obj"\
+	"c31_CSE1_DP.obj"\
+	"c32_CSE1_DP.obj"\
+	"c33_CSE1_DP.obj"\
+	"c34_CSE1_DP.obj"\
+	"c35_CSE1_DP.obj"\
+	"c36_CSE1_DP.obj"\
+	"c37_CSE1_DP.obj"\
+	"c38_CSE1_DP.obj"\
+	"c39_CSE1_DP.obj"\
+	"CSE1_DP_sfun_registry.obj"\
+	"lccstub.obj"\
+	"CSE1_DP_sfun.def"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\sf_runtime.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmwsl_log_load_blocks.lib"\
+	"C:\Program Files\MATLAB\R2014a\lib\win64\libippmwipt.lib"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014a\extern\include"  -I"C:\Program Files\MATLAB\R2014a\simulink\include"  -I"C:\Program Files\MATLAB\R2014a\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2014a\rtw\c\src"  -I"C:\Users\Eirik Valle\Dropbox\NTNU\Master\Resultater\Offline Simulation Results\Gesture ctrl\slprj\_sfprj\CSE1_DP\_self\sfun\src" 
+ 
+
+CSE1_DP_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o CSE1_DP_sfun.mexw64 @CSE1_DP_sfun.lmko
+CSE1_DP_sfun.obj :	"CSE1_DP_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "CSE1_DP_sfun.c"
+c1_CSE1_DP.obj :	"c1_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_CSE1_DP.c"
+c2_CSE1_DP.obj :	"c2_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_CSE1_DP.c"
+c3_CSE1_DP.obj :	"c3_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_CSE1_DP.c"
+c4_CSE1_DP.obj :	"c4_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_CSE1_DP.c"
+c5_CSE1_DP.obj :	"c5_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_CSE1_DP.c"
+c6_CSE1_DP.obj :	"c6_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_CSE1_DP.c"
+c7_CSE1_DP.obj :	"c7_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c7_CSE1_DP.c"
+c8_CSE1_DP.obj :	"c8_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c8_CSE1_DP.c"
+c9_CSE1_DP.obj :	"c9_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c9_CSE1_DP.c"
+c10_CSE1_DP.obj :	"c10_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c10_CSE1_DP.c"
+c11_CSE1_DP.obj :	"c11_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c11_CSE1_DP.c"
+c12_CSE1_DP.obj :	"c12_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c12_CSE1_DP.c"
+c13_CSE1_DP.obj :	"c13_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c13_CSE1_DP.c"
+c14_CSE1_DP.obj :	"c14_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c14_CSE1_DP.c"
+c15_CSE1_DP.obj :	"c15_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c15_CSE1_DP.c"
+c16_CSE1_DP.obj :	"c16_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c16_CSE1_DP.c"
+c17_CSE1_DP.obj :	"c17_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c17_CSE1_DP.c"
+c18_CSE1_DP.obj :	"c18_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c18_CSE1_DP.c"
+c19_CSE1_DP.obj :	"c19_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c19_CSE1_DP.c"
+c22_CSE1_DP.obj :	"c22_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c22_CSE1_DP.c"
+c23_CSE1_DP.obj :	"c23_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c23_CSE1_DP.c"
+c24_CSE1_DP.obj :	"c24_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c24_CSE1_DP.c"
+c25_CSE1_DP.obj :	"c25_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c25_CSE1_DP.c"
+c26_CSE1_DP.obj :	"c26_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c26_CSE1_DP.c"
+c27_CSE1_DP.obj :	"c27_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c27_CSE1_DP.c"
+c28_CSE1_DP.obj :	"c28_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c28_CSE1_DP.c"
+c29_CSE1_DP.obj :	"c29_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c29_CSE1_DP.c"
+c30_CSE1_DP.obj :	"c30_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c30_CSE1_DP.c"
+c31_CSE1_DP.obj :	"c31_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c31_CSE1_DP.c"
+c32_CSE1_DP.obj :	"c32_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c32_CSE1_DP.c"
+c33_CSE1_DP.obj :	"c33_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c33_CSE1_DP.c"
+c34_CSE1_DP.obj :	"c34_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c34_CSE1_DP.c"
+c35_CSE1_DP.obj :	"c35_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c35_CSE1_DP.c"
+c36_CSE1_DP.obj :	"c36_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c36_CSE1_DP.c"
+c37_CSE1_DP.obj :	"c37_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c37_CSE1_DP.c"
+c38_CSE1_DP.obj :	"c38_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c38_CSE1_DP.c"
+c39_CSE1_DP.obj :	"c39_CSE1_DP.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c39_CSE1_DP.c"
+CSE1_DP_sfun_registry.obj :	"CSE1_DP_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "CSE1_DP_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\mex\lccstub.c"

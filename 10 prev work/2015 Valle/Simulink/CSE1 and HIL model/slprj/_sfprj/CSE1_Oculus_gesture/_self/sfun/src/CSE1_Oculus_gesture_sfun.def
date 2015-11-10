@@ -1,0 +1,3 @@
+LIBRARY CSE1_Oculus_gesture_sfun.mexw64
+EXPORTS
+mexFunction

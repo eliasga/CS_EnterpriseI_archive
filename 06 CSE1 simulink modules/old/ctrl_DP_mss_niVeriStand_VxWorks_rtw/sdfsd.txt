@@ -1,0 +1,60 @@
+Targets/Controller/Custom Devices/WL_Joystick/ArrowDown	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/ArrowDown
+Targets/Controller/Custom Devices/WL_Joystick/ArrowLeft	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/ArrowLeft
+Targets/Controller/Custom Devices/WL_Joystick/ArrowRight	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/ArrowRight
+Targets/Controller/Custom Devices/WL_Joystick/ArrowUP	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/ArrowUp
+Targets/Controller/Custom Devices/WL_Joystick/Circle	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/Circle
+Targets/Controller/Custom Devices/WL_Joystick/Cross	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/Cross
+Targets/Controller/Simulation Models/Models/Oqus2SI/Outports/SI_psi	Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Inports/Ctrl_PSI
+Targets/Controller/Simulation Models/Models/Oqus2SI/Outports/SI_X	Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Inports/Ctrl_X
+Targets/Controller/Simulation Models/Models/Oqus2SI/Outports/SI_Y	Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Inports/Ctrl_Y
+Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Outports/Ctrl_alpha_1	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Ctrl_alpha_1
+Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Outports/Ctrl_alpha_2	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Ctrl_alpha_2
+Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Outports/Ctrl_omega_vsp1	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Ctrl_omega_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Outports/Ctrl_omega_vsp2	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Ctrl_omega_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Outports/Ctrl_U_1	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Ctrl_u_1
+Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Outports/Ctrl_U_2	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Ctrl_u_2
+Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Outports/Ctrl_U_BT	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Ctrl_u_BT2
+Targets/Controller/Custom Devices/WL_Joystick/L1	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/L1
+Targets/Controller/Custom Devices/WL_Joystick/L2_cont	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/L2_cont
+Targets/Controller/Custom Devices/WL_Joystick/L2_discrete	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/L2_discrete
+Targets/Controller/Custom Devices/WL_Joystick/L3	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/L3
+Targets/Controller/Custom Devices/Oqus/Pictch	Targets/Controller/Simulation Models/Models/Oqus2SI/Inports/Oqus_Pitch
+Targets/Controller/Custom Devices/Oqus/Roll	Targets/Controller/Simulation Models/Models/Oqus2SI/Inports/Oqus_Roll
+Targets/Controller/Custom Devices/Oqus/X	Targets/Controller/Simulation Models/Models/Oqus2SI/Inports/Oqus_X
+Targets/Controller/Custom Devices/Oqus/Y	Targets/Controller/Simulation Models/Models/Oqus2SI/Inports/Oqus_Y
+Targets/Controller/Custom Devices/Oqus/Yaw	Targets/Controller/Simulation Models/Models/Oqus2SI/Inports/Oqus_Yaw
+Targets/Controller/Custom Devices/Oqus/Z	Targets/Controller/Simulation Models/Models/Oqus2SI/Inports/Oqus_Z
+Targets/Controller/Simulation Models/Models/u_alpha2pwm/Outports/pwm_BT	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 0
+Targets/Controller/Simulation Models/Models/u_alpha2pwm/Outports/pwm_VSP1	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 1
+Targets/Controller/Simulation Models/Models/u_alpha2pwm/Outports/pwm_VSP2	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 2
+Targets/Controller/Simulation Models/Models/u_alpha2pwm/Outports/pwm_servo1	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 4
+Targets/Controller/Simulation Models/Models/u_alpha2pwm/Outports/pwm_servo2	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 5
+Targets/Controller/Simulation Models/Models/u_alpha2pwm/Outports/pwm_servo3	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 6
+Targets/Controller/Simulation Models/Models/u_alpha2pwm/Outports/pwm_servo4	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 7
+Targets/Controller/Custom Devices/WL_Joystick/PosXLeft	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/PosXLeft
+Targets/Controller/Custom Devices/WL_Joystick/PosXRight	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/PosXRight
+Targets/Controller/Custom Devices/WL_Joystick/PosYLeft	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/PosYLeft
+Targets/Controller/Custom Devices/WL_Joystick/PosYRight	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/PosYRight
+Targets/Controller/Custom Devices/WL_Joystick/R1	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/R1
+Targets/Controller/Custom Devices/WL_Joystick/R2_cont	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/R2_cont
+Targets/Controller/Custom Devices/WL_Joystick/R2_discrete	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/R2_discrete
+Targets/Controller/Custom Devices/WL_Joystick/R3	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/R3
+Targets/Controller/Custom Devices/WL_Joystick/Start	Targets/Controller/Simulation Models/Models/ctrl_DP_mss/Inports/DP controller/Reset_integrator
+Targets/Controller/Custom Devices/WL_Joystick/Select	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/Select
+Targets/Controller/Custom Devices/WL_Joystick/Triangle	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Sixaxis_Switch signal
+Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Outports/alpha_1	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Sixaxis_alpha_1
+Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Outports/alpha_2	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Sixaxis_alpha_2
+Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Outports/omega_VSP	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Sixaxis_omega_VSP
+Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Outports/u_1	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Sixaxis_u_1
+Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Outports/u_2	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Sixaxis_u_2
+Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Outports/u_BT	Targets/Controller/Simulation Models/Models/Flip_switch/Inports/Sixaxis_u_BT
+Targets/Controller/Custom Devices/WL_Joystick/Square	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/Square
+Targets/Controller/Custom Devices/WL_Joystick/Start	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/Start
+Targets/Controller/Custom Devices/WL_Joystick/Triangle	Targets/Controller/Simulation Models/Models/sixaxis2u_alpha/Inports/Triangle
+Targets/Controller/Simulation Models/Models/Flip_switch/Outports/alpha_1	Targets/Controller/Simulation Models/Models/u_alpha2pwm/Inports/alpha_VSP1
+Targets/Controller/Simulation Models/Models/Flip_switch/Outports/alpha_2	Targets/Controller/Simulation Models/Models/u_alpha2pwm/Inports/alpha_VSP2
+Targets/Controller/Simulation Models/Models/Flip_switch/Outports/omega_VSP_1	Targets/Controller/Simulation Models/Models/u_alpha2pwm/Inports/omega_VSP1
+Targets/Controller/Simulation Models/Models/Flip_switch/Outports/omega_VSP_2	Targets/Controller/Simulation Models/Models/u_alpha2pwm/Inports/omega_VSP2
+Targets/Controller/Simulation Models/Models/Flip_switch/Outports/U_BT	Targets/Controller/Simulation Models/Models/u_alpha2pwm/Inports/u_BT
+Targets/Controller/Simulation Models/Models/Flip_switch/Outports/u_1	Targets/Controller/Simulation Models/Models/u_alpha2pwm/Inports/u_VSP1
+Targets/Controller/Simulation Models/Models/Flip_switch/Outports/u_2	Targets/Controller/Simulation Models/Models/u_alpha2pwm/Inports/u_VSP2

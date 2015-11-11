@@ -1,0 +1,110 @@
+Targets/Controller/Custom Devices/WL_Joystick/ArrowDown	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Inports/ArrowDown
+Targets/Controller/Custom Devices/WL_Joystick/ArrowUP	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Inports/ArrowUp
+Targets/Controller/Custom Devices/WL_Joystick/Circle	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/sixaxis/Circle
+Targets/Controller/Custom Devices/WL_Joystick/Cross	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/sixaxis/Cross
+Targets/Controller/Simulation Models/Models/ctrl_DP/Outports/DP_alpha1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/alpha_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_DP/Outports/DP_alpha2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/alpha_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_DP/Outports/DP_omega_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/omega_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_DP/Outports/DP_omega_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/omega_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_DP/Outports/DP_u_BT	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/u_BT
+Targets/Controller/Simulation Models/Models/ctrl_DP/Outports/DP_u_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/u_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_DP/Outports/DP_u_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_DP_basic/u_VSP2
+Targets/Controller/User Channels/NPO observer/Gains/K_2_psi	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/Observer Gains/K_2_psi
+Targets/Controller/User Channels/NPO observer/Gains/K_2_x	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/Observer Gains/K_2_x
+Targets/Controller/User Channels/NPO observer/Gains/K_2_y	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/Observer Gains/K_2_y
+Targets/Controller/User Channels/NPO observer/Gains/K_3_psi	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/Observer Gains/K_3_psi
+Targets/Controller/User Channels/NPO observer/Gains/K_3_x	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/Observer Gains/K_3_x
+Targets/Controller/User Channels/NPO observer/Gains/K_3_y	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/Observer Gains/K_3_y
+Targets/Controller/User Channels/NPO observer/Gains/K_4_psi	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/Observer Gains/K_4_psi
+Targets/Controller/User Channels/NPO observer/Gains/K_4_x	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/Observer Gains/K_4_x
+Targets/Controller/User Channels/NPO observer/Gains/K_4_y	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/Observer Gains/K_4_y
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_d_psi	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_d_psi
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_d_x	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_d_x
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_d_y	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_d_y
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_ff_r	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_ff_r
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_ff_r_dot	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_ff_r_dot
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_ff_u	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_ff_u
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_ff_u_dot	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_ff_u_dot
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_ff_v	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_ff_v
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_ff_v_dot	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_ff_v_dot
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_i_psi	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_i_psi
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_i_x	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_i_x
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_i_y	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_i_y
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_p_psil	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_p_psi
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_p_x	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_p_x
+Targets/Controller/User Channels/DP ctrl/Ctrl gains/K_p_y	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Control Gains/K_p_y
+Targets/Controller/Custom Devices/WL_Joystick/L2_cont	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Inports/L2_continuous
+Targets/Controller/Custom Devices/WL_Joystick/L2_cont	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Inports/L2_continuous
+Targets/Controller/Custom Devices/Oqus/Pictch	Targets/Controller/Simulation Models/Models/QTM2SI/Inports/Pitch
+Targets/Controller/Custom Devices/WL_Joystick/PosXLeft	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Inports/PosXLeft
+Targets/Controller/Custom Devices/WL_Joystick/PosXLeft	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Inports/PosXLeft
+Targets/Controller/Custom Devices/WL_Joystick/PosXRight	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Inports/PosXRight
+Targets/Controller/Custom Devices/WL_Joystick/PosYLeft	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Inports/PosYLeft
+Targets/Controller/Custom Devices/WL_Joystick/PosYLeft	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Inports/PosYLeft
+Targets/Controller/Custom Devices/WL_Joystick/PosYRight	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Inports/PosYRight
+Targets/Controller/Custom Devices/WL_Joystick/R2_cont	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Inports/R2_continuous
+Targets/Controller/Custom Devices/WL_Joystick/R2_cont	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Inports/R2_continuous
+Targets/Controller/Custom Devices/Oqus/Roll	Targets/Controller/Simulation Models/Models/QTM2SI/Inports/Roll
+Targets/Controller/Custom Devices/WL_Joystick/Square	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/sixaxis/Square
+Targets/Controller/Custom Devices/WL_Joystick/Start	Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Inports/Start
+Targets/Controller/Custom Devices/WL_Joystick/Triangle	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/sixaxis/Triangle
+Targets/Controller/Custom Devices/Oqus/X	Targets/Controller/Simulation Models/Models/QTM2SI/Inports/X
+Targets/Controller/Custom Devices/Oqus/Y	Targets/Controller/Simulation Models/Models/QTM2SI/Inports/Y
+Targets/Controller/Custom Devices/Oqus/Yaw	Targets/Controller/Simulation Models/Models/QTM2SI/Inports/Yaw
+Targets/Controller/Custom Devices/Oqus/Z	Targets/Controller/Simulation Models/Models/QTM2SI/Inports/Z
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/alpha_VSP1	Targets/Controller/Simulation Models/Models/uao2pwm/Inports/alpha_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/alpha_VSP1	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/u input/u_alpha
+Targets/Controller/Simulation Models/Models/ctrl_student/Outports/alpha_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_student/alpha_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/alpha_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/alpha_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/alpha_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/alpha_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_student/Outports/alpha_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_student/alpha_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/alpha_VSP2	Targets/Controller/Simulation Models/Models/uao2pwm/Inports/alpha_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/alpha_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/alpha_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/alpha_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/alpha_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/omega_VSP1	Targets/Controller/Simulation Models/Models/uao2pwm/Inports/omega_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_student/Outports/omega_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_student/omega_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/omega_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/omega_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/omega_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/omega_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/omega_VSP2	Targets/Controller/Simulation Models/Models/uao2pwm/Inports/omega_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/omega_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/omega_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_student/Outports/omega_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_student/omega_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/omega_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/omega_VSP2
+Targets/Controller/Simulation Models/Models/QTM2SI/Outports/psi	Targets/Controller/Simulation Models/Models/ctrl_student/Inports/psi
+Targets/Controller/Simulation Models/Models/QTM2SI/Outports/psi	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/psi
+Targets/Controller/Simulation Models/Models/QTM2SI/Outports/psi	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/eta input/psi
+Targets/Controller/Simulation Models/Models/uao2pwm/Outports/pwm_BT	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 0
+Targets/Controller/Simulation Models/Models/uao2pwm/Outports/pwm_VSP1	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 1
+Targets/Controller/Simulation Models/Models/uao2pwm/Outports/pwm_VSP2	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 2
+Targets/Controller/Simulation Models/Models/uao2pwm/Outports/pwm_servo1	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 4
+Targets/Controller/Simulation Models/Models/uao2pwm/Outports/pwm_servo2	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 5
+Targets/Controller/Simulation Models/Models/uao2pwm/Outports/pwm_servo3	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 6
+Targets/Controller/Simulation Models/Models/uao2pwm/Outports/pwm_servo4	Targets/Controller/Hardware/Chassis/FPGA/RIO0/Output/PWM/PWM Out 7
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/u_BT	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_BT
+Targets/Controller/Simulation Models/Models/ctrl_student/Outports/u_BT	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_student/u_BT
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_BT	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/u input/u_BT
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_BT	Targets/Controller/Simulation Models/Models/uao2pwm/Inports/u_BT
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/u_BT	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_BT
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/u_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_VSP1	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/u input/u_VSP
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_VSP1	Targets/Controller/Simulation Models/Models/uao2pwm/Inports/u_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_student/Outports/u_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_student/u_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/u_VSP1	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_VSP1
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2thruster/Outports/u_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2thruster/u_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_student/Outports/u_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_student/u_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_VSP2	Targets/Controller/Simulation Models/Models/uao2pwm/Inports/u_VSP2
+Targets/Controller/Simulation Models/Models/ctrl_sixaxis2force/Outports/u_VSP2	Targets/Controller/Simulation Models/Models/ctrl_switch/Inports/ctrl_sixaxis2force/u_VSP2
+Targets/Controller/User Channels/DP ctrl/Guidance Gains/w_d_psi	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Guidance gains/w_d_psi
+Targets/Controller/User Channels/DP ctrl/Guidance Gains/w_d_x	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Guidance gains/w_d_x
+Targets/Controller/User Channels/DP ctrl/Guidance Gains/w_d_y	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Guidance gains/w_d_y
+Targets/Controller/Simulation Models/Models/QTM2SI/Outports/x	Targets/Controller/Simulation Models/Models/ctrl_student/Inports/x
+Targets/Controller/Simulation Models/Models/QTM2SI/Outports/x	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/x
+Targets/Controller/Simulation Models/Models/QTM2SI/Outports/x	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/eta input/x
+Targets/Controller/Simulation Models/Models/QTM2SI/Outports/y	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/y
+Targets/Controller/Simulation Models/Models/QTM2SI/Outports/y	Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Inports/eta input/y
+Targets/Controller/Simulation Models/Models/QTM2SI/Outports/y	Targets/Controller/Simulation Models/Models/ctrl_student/Inports/y
+Targets/Controller/User Channels/DP ctrl/Guidance Gains/zeta_psi	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Guidance gains/zeta_psi
+Targets/Controller/User Channels/DP ctrl/Guidance Gains/zeta_x	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Guidance gains/zeta_x
+Targets/Controller/User Channels/DP ctrl/Guidance Gains/zeta_y	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/Guidance gains/zeta_y
+Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Outports/nu_hat output/r_hat	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/r_hat
+Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Outports/nu_hat output/u_hat	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/u_hat
+Targets/Controller/Simulation Models/Models/NonlinearPassiveObserver/Outports/nu_hat output/v_hat	Targets/Controller/Simulation Models/Models/ctrl_DP/Inports/Input/v_hat

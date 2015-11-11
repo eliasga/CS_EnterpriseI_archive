@@ -1,0 +1,3 @@
+LIBRARY ctrl_student_sfun.mexw64
+EXPORTS
+mexFunction

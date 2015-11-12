@@ -178,101 +178,11 @@
 			<Description />
 			<Properties />
 			<Errors />
-			<Section Name="CSE1.nivssdf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\07 CSE1 VeriStand projects\CSE1\CSE1.nivssdf</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="CSE1.nivsscreen" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\07 CSE1 VeriStand projects\CSE1\CSE1.nivsscreen</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="CSE1.nivscf" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\07 CSE1 VeriStand projects\CSE1\CSE1.nivscf</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
 			<Section Name="WL Joystick Engine - VxWorks.llb" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
 						<String>C:\Users\Public\Documents\National Instruments\NI VeriStand 2014\Custom Devices\WL_Joystick\WL Joystick Engine - VxWorks.llb</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="QTM2SI.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\QTM2SI_niVeriStand_VxWorks_rtw\QTM2SI.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="ctrl_sixaxis2thruster.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_sixaxis2thruster_niVeriStand_VxWorks_rtw\ctrl_sixaxis2thruster.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="ctrl_sixaxis2force.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_sixaxis2force_niVeriStand_VxWorks_rtw\ctrl_sixaxis2force.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="ctrl_DP_basic.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_DP_basic_niVeriStand_VxWorks_rtw\ctrl_DP_basic.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="ctrl_student.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_student_niVeriStand_VxWorks_rtw\ctrl_student.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="ctrl_switch.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_switch_niVeriStand_VxWorks_rtw\ctrl_switch.out</String>
-					</Property>
-				</Properties>
-				<Errors />
-			</Section>
-			<Section Name="uao2pwm.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
-				<Description />
-				<Properties>
-					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\uao2pwm_niVeriStand_VxWorks_rtw\uao2pwm.out</String>
 					</Property>
 				</Properties>
 				<Errors />
@@ -286,11 +196,101 @@
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="cRIO-9113 Custom Personality.fpgaconfig" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+			<Section Name="CSE1.nivssdf (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\mclab\Dropbox\TMR4243 - LAB\07 CSE1 VeriStand projects\CSE1\FPGA IO\cRIO-9113 Custom Personality.fpgaconfig</String>
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\07 CSE1 VeriStand projects\cse1\CSE1.nivssdf</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="CSE1.nivsscreen (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\07 CSE1 VeriStand projects\cse1\CSE1.nivsscreen</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="CSE1.nivscf (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\07 CSE1 VeriStand projects\cse1\CSE1.nivscf</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="cRIO-9113 Custom Personality.fpgaconfig (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\07 CSE1 VeriStand projects\cse1\FPGA IO\cRIO-9113 Custom Personality.fpgaconfig</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="QTM2SI.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\QTM2SI_niVeriStand_VxWorks_rtw\QTM2SI.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="ctrl_sixaxis2thruster.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_sixaxis2thruster_niVeriStand_VxWorks_rtw\ctrl_sixaxis2thruster.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="ctrl_sixaxis2force.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_sixaxis2force_niVeriStand_VxWorks_rtw\ctrl_sixaxis2force.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="ctrl_DP_basic.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_DP_basic_niVeriStand_VxWorks_rtw\ctrl_DP_basic.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="ctrl_student.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_student_niVeriStand_VxWorks_rtw\ctrl_student.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="ctrl_switch.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_switch_niVeriStand_VxWorks_rtw\ctrl_switch.out</String>
+					</Property>
+				</Properties>
+				<Errors />
+			</Section>
+			<Section Name="uao2pwm.out (1)" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+				<Description />
+				<Properties>
+					<Property Name="Path">
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\uao2pwm_niVeriStand_VxWorks_rtw\uao2pwm.out</String>
 					</Property>
 				</Properties>
 				<Errors />

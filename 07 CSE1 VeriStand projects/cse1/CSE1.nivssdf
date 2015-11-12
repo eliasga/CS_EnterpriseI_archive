@@ -10,7 +10,7 @@
 				<String>CSE1</String>
 			</Property>
 			<Property Name="Version">
-				<String>1.0.0.26</String>
+				<String>1.0.0.27</String>
 			</Property>
 			<Property Name="Creator">
 				<String />
@@ -1090,7 +1090,7 @@
 									<I32>125060</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3507713667</Double>
+									<Double>3530187987.5749288</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -1129,7 +1129,7 @@
 									<U32>6012</U32>
 								</Property>
 								<Property Name="DLL Path">
-									<DependentFile Type="Absolute" Path="C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\QTM2SI_niVeriStand_VxWorks_rtw\QTM2SI.out">
+									<DependentFile Type="Absolute" Path="C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\QTM2SI_niVeriStand_VxWorks_rtw\QTM2SI.out">
 										<Version />
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\QTM2SI.out</RTDestination>
@@ -1421,7 +1421,7 @@
 									<I32>136560</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3507714021</Double>
+									<Double>3530187988.2359948</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -1460,7 +1460,7 @@
 									<U32>6012</U32>
 								</Property>
 								<Property Name="DLL Path">
-									<DependentFile Type="Absolute" Path="C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_sixaxis2thruster_niVeriStand_VxWorks_rtw\ctrl_sixaxis2thruster.out">
+									<DependentFile Type="Absolute" Path="C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_sixaxis2thruster_niVeriStand_VxWorks_rtw\ctrl_sixaxis2thruster.out">
 										<Version />
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\ctrl_sixaxis2thruster.out</RTDestination>
@@ -1821,7 +1821,7 @@
 									<I32>124629</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3508670715</Double>
+									<Double>3530187988.0579767</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -1860,7 +1860,7 @@
 									<U32>6012</U32>
 								</Property>
 								<Property Name="DLL Path">
-									<DependentFile Type="Absolute" Path="C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_sixaxis2force_niVeriStand_VxWorks_rtw\ctrl_sixaxis2force.out">
+									<DependentFile Type="Absolute" Path="C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_sixaxis2force_niVeriStand_VxWorks_rtw\ctrl_sixaxis2force.out">
 										<Version />
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\ctrl_sixaxis2force.out</RTDestination>
@@ -2131,7 +2131,7 @@
 									<I32>250810</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3509432739.6935697</Double>
+									<Double>3530187987.7109423</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -2170,7 +2170,7 @@
 									<U32>6012</U32>
 								</Property>
 								<Property Name="DLL Path">
-									<DependentFile Type="Absolute" Path="C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_DP_basic_niVeriStand_VxWorks_rtw\ctrl_DP_basic.out">
+									<DependentFile Type="Absolute" Path="C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_DP_basic_niVeriStand_VxWorks_rtw\ctrl_DP_basic.out">
 										<Version />
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\ctrl_DP_basic.out</RTDestination>
@@ -3163,7 +3163,7 @@
 									<I32>136951</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3509614288</Double>
+									<Double>3530187988.3790088</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -3202,7 +3202,7 @@
 									<U32>6012</U32>
 								</Property>
 								<Property Name="DLL Path">
-									<DependentFile Type="Absolute" Path="C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_student_niVeriStand_VxWorks_rtw\ctrl_student.out">
+									<DependentFile Type="Absolute" Path="C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_student_niVeriStand_VxWorks_rtw\ctrl_student.out">
 										<Version />
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\ctrl_student.out</RTDestination>
@@ -3535,7 +3535,7 @@
 									<I32>172889</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3509610988</Double>
+									<Double>3530187988.5280237</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -3574,7 +3574,7 @@
 									<U32>6012</U32>
 								</Property>
 								<Property Name="DLL Path">
-									<DependentFile Type="Absolute" Path="C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\ctrl_switch_niVeriStand_VxWorks_rtw\ctrl_switch.out">
+									<DependentFile Type="Absolute" Path="C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\ctrl_switch_niVeriStand_VxWorks_rtw\ctrl_switch.out">
 										<Version />
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\ctrl_switch.out</RTDestination>
@@ -4454,7 +4454,7 @@
 									<I32>138531</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3507726286</Double>
+									<Double>3530187991.721343</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -4493,7 +4493,7 @@
 									<U32>6012</U32>
 								</Property>
 								<Property Name="DLL Path">
-									<DependentFile Type="Absolute" Path="C:\Users\mclab\Dropbox\TMR4243 - LAB\06 CSE1 simulink modules\uao2pwm_niVeriStand_VxWorks_rtw\uao2pwm.out">
+									<DependentFile Type="Absolute" Path="C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\06 CSE1 simulink modules\uao2pwm_niVeriStand_VxWorks_rtw\uao2pwm.out">
 										<Version />
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\uao2pwm.out</RTDestination>

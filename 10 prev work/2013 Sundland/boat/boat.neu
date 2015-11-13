@@ -1,0 +1,2873 @@
+#UGC:2 NEUTRAL 1404 780 800 0 0 32 3100 2009280 00000000 \
+#- VERS 0 0                                                          \
+#- HOST                                                              \
+#- LINK                                                              \
+#- DBID                                                              \
+#- REVS 0,                                                           \
+#- RELL 0,                                                           \
+#- UOBJ_ID 0 0 0                                                     \
+#- MACH                                                              \
+#-END_OF_UGC_HEADER
+#Pro/ENGINEER  TM  (c)  by Parametric Technology Corporation  All Rights Reserved.
+0 Neutral_part ->
+1 revnum 0
+1 accuracy 0.0012
+1 outline [2][3]
+2 outline[0] 3*0.
+2 outline[1] 3*0.
+1 accuracy_is_relative 1
+1 mass_props NULL
+1 time_stamp NULL
+1 colors ->
+2 color_tab [2]
+3 color_tab 
+4 color_rgb [3]
+5 color_rgb 1.,0.501960813999176,0.250980406999588
+4 ambient 0.
+4 diffuse 0.
+4 specular 0.
+4 spec_coef 0.
+4 transmission 0.
+4 highlight [3]
+5 highlight 3*0.
+4 reflection 0.
+4 bump NULL
+4 decal NULL
+4 texture NULL
+3 color_tab 
+4 color_rgb [3]
+5 color_rgb 3*0.752941012382507
+4 ambient 1.
+4 diffuse 1.
+4 specular 1.
+4 spec_coef 0.4
+4 transmission 0.
+4 highlight [3]
+5 highlight 3*1.
+4 reflection 0.
+4 bump NULL
+4 decal NULL
+4 texture NULL
+2 element_colors [33]
+3 element_colors 
+4 element_id 109
+4 color_inds [2]
+5 color_inds 2*0
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 110
+4 color_inds [2]
+5 color_inds 2*0
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 111
+4 color_inds [2]
+5 color_inds 2*0
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 112
+4 color_inds [2]
+5 color_inds 2*0
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 113
+4 color_inds [2]
+5 color_inds 2*0
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 114
+4 color_inds [2]
+5 color_inds 2*0
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 1
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 2
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 3
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 4
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 5
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 6
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 7
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 8
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 9
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 10
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 11
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 12
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 13
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 14
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 15
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 16
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 17
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 18
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 19
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 20
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 21
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 22
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 23
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 24
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 25
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 26
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+3 element_colors 
+4 element_id 27
+4 color_inds [2]
+5 color_inds 2*1
+4 surf_pl [2]
+5 surf_pl 
+6 surfprop_ptr NULL
+5 surf_pl 
+6 surfprop_ptr NULL
+1 surfaces [27]
+2 surfaces 
+3 id 1
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [6]
+6 edge_ids 33,32,31,30,29,28
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 0.,1.,0.
+4 e2 [3]
+5 e2 -0.052335956242944,0.,-0.998629534754574
+4 e3 [3]
+5 e3 -0.998629534754574,0.,0.052335956242944
+4 origin [3]
+5 origin 60.033173201779242,710.813814251732765,0.
+2 surfaces 
+3 id 2
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 36,35,31,34
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 0.,-0.052335956242943,-0.998629534754574
+4 e3 [3]
+5 e3 0.,-0.998629534754574,0.052335956242943
+4 origin [3]
+5 origin 60.033173201779242,641.984797197793341,0.
+2 surfaces 
+3 id 3
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 39,38,36,37
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 0.,-1.,0.
+4 e2 [3]
+5 e2 0.052335956242944,0.,-0.998629534754574
+4 e3 [3]
+5 e3 0.998629534754574,0.,0.052335956242944
+4 origin [3]
+5 origin 113.258460782738254,641.984797197793341,0.
+2 surfaces 
+3 id 4
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [6]
+6 edge_ids 43,42,39,41,33,40
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 1.,2*0.
+4 e2 [3]
+5 e2 0.,0.052335956242943,-0.998629534754574
+4 e3 [3]
+5 e3 0.,0.998629534754574,0.052335956242943
+4 origin [3]
+5 origin 113.258460782738254,710.813814251732765,0.
+2 surfaces 
+3 id 5
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 32,41,37,34
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 0.,-1.,0.
+4 e3 [3]
+5 e3 2*0.,1.
+4 origin [3]
+5 origin 86.645816992258759,676.399305724763167,130.
+2 surfaces 
+3 id 6
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 46,45,44,43
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 2*0.,-1.
+4 e2 [3]
+5 e2 -0.,1.,0.
+4 e3 [3]
+5 e3 1.,2*0.
+4 origin [3]
+5 origin 85.,834.303595648716737,0.
+2 surfaces 
+3 id 7
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 49,48,47,30
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 1.,2*0.
+4 e2 [3]
+5 e2 0.,1.,0.
+4 e3 [3]
+5 e3 2*0.,1.
+4 origin [3]
+5 origin -58.021230769128479,484.956965284353373,0.
+2 surfaces 
+3 id 8
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [13]
+6 edge_ids 44,59,58,57,56,55,54,53,52,51,50,38,42
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 1.,2*0.
+4 e2 [3]
+5 e2 0.,1.,0.
+4 e3 [3]
+5 e3 2*0.,1.
+4 origin [3]
+5 origin -58.021230769128479,484.956965284353373,0.
+2 surfaces 
+3 id 9
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [6]
+6 edge_ids 48,64,63,62,61,60
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 0.,1.,0.
+4 e2 [3]
+5 e2 -0.052335956242944,0.,0.998629534754574
+4 e3 [3]
+5 e3 0.998629534754574,0.,0.052335956242944
+4 origin [3]
+5 origin -60.033173201779242,710.813814251732765,0.
+2 surfaces 
+3 id 10
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [6]
+6 edge_ids 62,68,67,57,66,65
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 0.,-0.052335956242943,0.998629534754574
+4 e3 [3]
+5 e3 0.,0.998629534754574,0.052335956242943
+4 origin [3]
+5 origin -113.258460782738254,710.813814251732765,0.
+2 surfaces 
+3 id 11
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 64,71,70,69
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 1.,2*0.
+4 e2 [3]
+5 e2 0.,0.052335956242943,0.998629534754574
+4 e3 [3]
+5 e3 0.,-0.998629534754574,0.052335956242943
+4 origin [3]
+5 origin -60.033173201779242,641.984797197793341,0.
+2 surfaces 
+3 id 12
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 70,56,67,72
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 0.,-1.,0.
+4 e2 [3]
+5 e2 0.052335956242944,0.,0.998629534754574
+4 e3 [3]
+5 e3 -0.998629534754574,0.,0.052335956242944
+4 origin [3]
+5 origin -113.258460782738254,641.984797197793341,0.
+2 surfaces 
+3 id 13
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 72,68,63,69
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 1.,2*0.
+4 e2 [3]
+5 e2 0.,1.,0.
+4 e3 [3]
+5 e3 2*0.,1.
+4 origin [3]
+5 origin -86.645816992258759,676.399305724763167,130.
+2 surfaces 
+3 id 14
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 58,74,73,66
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 2*0.,-1.
+4 e2 [3]
+5 e2 -0.,-1.,0.
+4 e3 [3]
+5 e3 -1.,2*0.
+4 origin [3]
+5 origin -85.,834.303595648716737,0.
+2 surfaces 
+3 id 15
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 47,60,75,29
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 2*0.,-1.
+4 e2 [3]
+5 e2 1.,2*0.
+4 e3 [3]
+5 e3 0.,-1.,0.
+4 origin [3]
+5 origin 85.000000000000028,674.303595648716737,0.
+2 surfaces 
+3 id 16
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 74,59,45,76
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 2*0.,1.
+4 e2 [3]
+5 e2 1.,2*0.
+4 e3 [3]
+5 e3 0.,1.,0.
+4 origin [3]
+5 origin 0.,834.303595648716737,0.
+2 surfaces 
+3 id 17
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [8]
+6 edge_ids 28,75,61,65,73,76,46,40
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 1.,2*0.
+4 e2 [3]
+5 e2 0.,1.,0.
+4 e3 [3]
+5 e3 2*0.,1.
+4 origin [3]
+5 origin 42.500000000000007,754.303595648716737,80.
+2 surfaces 
+3 id 18
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient -1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 80,79,78,77
+3 surface_type 45
+3 surface(bspl_srf) ->
+4 degree [2]
+5 degree 2*3
+4 u_params [8]
+5 u_params 4*0.,4*1.
+4 v_params [8]
+5 v_params 4*0.,4*0.500000000000001
+4 c_pnts [48]
+5 c_pnts 96.889309902137839,-0.000000000000028,-130.000000000000085,
+5 101.574424918448187,-0.000000000000024,-108.3333333333334,
+5 106.259539934758521,-0.000000000000019,-86.6666666666667,110.94465495106887,
+5 -0.000000000000014,-65.000000000000014,113.669587694454108,
+5 23.167372866758562,-130.000000000000114,115.557989745378421,
+5 30.804539615414814,-108.333333333333428,117.446391796302692,
+5 38.441706364071031,-86.6666666666667,119.334793847227004,46.07887311272728,
+5 -65.000000000000014,125.000000000000071,86.598355443546055,
+5 -130.000000000000114,125.000000000000028,95.162087322520364,
+5 -108.3333333333334,125.000000000000014,103.72581920149473,
+5 -86.666666666666728,124.999999999999986,112.289551080469039,
+5 -65.000000000000014,125.000000000000085,141.435219582643981,
+5 -130.000000000000114,125.000000000000057,152.357869664884674,
+5 -108.333333333333414,125.000000000000028,163.280519747125339,
+5 -86.666666666666714,125.,174.203169829366004,-65.000000000000014
+2 surfaces 
+3 id 19
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient -1
+3 loops [1]
+4 loops 
+5 edge_ids [6]
+6 edge_ids 51,84,83,80,82,81
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 0.000000000000001,0.,-1.
+4 e2 [3]
+5 e2 -0.,-1.,0.
+4 e3 [3]
+5 e3 -1.,0.,-0.000000000000001
+4 origin [3]
+5 origin 125.000000000000085,141.435219582643981,-130.000000000000114
+2 surfaces 
+3 id 20
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient -1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 84,52,86,85
+3 surface_type 45
+3 surface(bspl_srf) ->
+4 degree [2]
+5 degree 2*3
+4 u_params [20]
+5 u_params 4*0.,0.071428571428571,0.142857142857143,0.214285714285714,
+5 0.285714285714286,0.428571428571429,0.523809523809524,0.571428571428571,
+5 0.666666666666667,0.714285714285714,0.785714285714286,0.857142857142857,
+5 0.928571428571429,4*1.
+4 v_params [8]
+5 v_params 4*0.,4*1.
+4 c_pnts [192]
+5 c_pnts 125.000000000000142,526.183590622483962,-130.000000000000114,
+5 125.000000000000128,601.911107631305185,-86.666666666666785,
+5 125.000000000000128,677.638624640126409,-43.333333333333442,
+5 125.000000000000114,753.366141648947632,-0.000000000000112,
+5 125.000000000000142,535.34426612343259,-130.000000000000114,
+5 124.999970405274453,610.735958541236187,-86.666666666666785,
+5 125.000029594725817,686.123988566901971,-43.333333333333442,
+5 125.000000000000128,761.515680984705568,-0.000000000000112,
+5 124.531151807504884,555.322227006467983,-130.000000000000057,
+5 124.534698562588716,629.633545316607069,-86.666666666666785,
+5 124.539107960876919,703.948540790614857,-43.333333333333414,
+5 124.542654715960751,778.259859100754056,-0.000000000000111,
+5 122.269523326029315,589.865522786642714,-130.000000000000114,
+5 122.356596565336687,661.269399604831733,-86.666666666666714,
+5 122.44313023389914,732.671021367896174,-43.333333333333506,
+5 122.530203473206512,804.074898186085079,-0.000000000000109,
+5 118.478790562853803,628.274799741550169,-130.000000000000114,
+5 118.728683731310639,695.513015202899965,-86.666666666666856,
+5 118.979844111498494,762.754690909208648,-43.333333333333371,
+5 119.22973727995533,829.992906370558558,-0.000000000000106,
+5 111.588868678537168,683.238144696269728,-130.000000000000114,
+5 112.108403087846099,743.483684858906486,-86.666666666666714,
+5 112.628985140558115,803.729607362849379,-43.333333333333499,
+5 113.148519549867046,863.975147525486136,-0.000000000000101,
+5 101.706598663383815,746.164615058835921,-130.000000000000028,
+5 102.431684095085984,797.024910014398642,-86.666666666666742,
+5 103.156470729750225,847.880631762473968,-43.333333333333385,
+5 103.881556161452394,898.74092671803669,-0.000000000000093,
+5 91.058967092666762,801.049821849366595,-130.000000000000114,
+5 91.577959153702736,842.981655292823461,-86.666666666666785,
+5 92.097043268753225,884.914034628432773,-43.333333333333414,
+5 92.616035329789185,926.84586807188964,-0.000000000000083,81.432987850649255,
+5 843.005804431766023,-130.000000000000028,81.57599891576092,
+5 877.929915012425909,-86.666666666666686,81.718384311863943,
+5 912.851612726612871,-43.333333333333428,81.861395376975622,
+5 947.775723307272756,-0.000000000000073,73.046178308585013,
+5 872.76548896072768,-130.000000000000085,72.749988830161641,
+5 902.624865758925807,-86.666666666666785,72.453080024127431,
+5 932.485577504722869,-43.333333333333364,72.156890545704059,
+5 962.344954302920996,-0.000000000000064,62.401011158918735,
+5 900.546691989731926,-130.000000000000057,61.590645598907386,
+5 925.683641087479145,-86.666666666666728,60.781409754346257,
+5 950.817280432027587,-43.333333333333393,59.971044194334915,
+5 975.954229529774921,-0.000000000000054,51.780846291203943,
+5 920.675402467189656,-130.000000000000085,50.582305996879839,
+5 942.414106743351454,-86.666666666666785,49.382482269544639,
+5 964.155308602117316,-43.33333333333335,48.183941975220534,
+5 985.894012878279113,-0.000000000000043,37.692014885978466,
+5 936.689035194493954,-130.,36.32665448647429,955.791796917166039,
+5 -86.666666666666686,34.962025665864758,974.894007390977094,
+5 -43.33333333333335,33.596665266360588,993.996769113649066,-0.00000000000003,
+5 20.827621493914354,946.004803281275599,-130.000000000000085,
+5 19.764146070155657,963.637715394339466,-86.666666666666686,
+5 18.699749670334967,981.271694627174611,-43.333333333333428,
+5 17.636274246576271,998.904606740238478,-0.000000000000016,7.357195225108983,
+5 947.938257405564627,-130.,6.919042421436497,965.292151198899091,
+5 -86.666666666666728,6.482510053513593,982.646106206665195,
+5 -43.333333333333279,6.044357249841106,999.999999999999773,
+5 -0.000000000000005,-0.000000000000082,947.938257405564627,-130.,
+5 -0.000000000000046,965.292171603709676,-86.666666666666686,
+5 -0.00000000000001,982.646085801854724,-43.333333333333329,0.000000000000027,
+5 999.999999999999773,-0.
+2 surfaces 
+3 id 21
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [8]
+6 edge_ids 55,71,49,35,50,81,88,87
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 1.,0.,-0.
+4 e2 [3]
+5 e2 0.,0.707106781186547,0.707106781186548
+4 e3 [3]
+5 e3 0.,-0.707106781186548,0.707106781186547
+4 origin [3]
+5 origin 0.,641.984797197793341,0.
+2 surfaces 
+3 id 22
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient 1
+3 loops [1]
+4 loops 
+5 edge_ids [6]
+6 edge_ids 88,82,77,91,90,89
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 1.,0.,-0.
+4 e2 [3]
+5 e2 0.,1.,0.
+4 e3 [3]
+5 e3 0.,-0.,1.
+4 origin [3]
+5 origin -0.000000000000029,576.984797197793341,-64.999999999999972
+2 surfaces 
+3 id 23
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient -1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 78,93,92,91
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 2*0.,1.
+4 e2 [3]
+5 e2 1.,2*0.
+4 e3 [3]
+5 e3 -0.,1.,-0.
+4 origin [3]
+5 origin 2*0.,-130.
+2 surfaces 
+3 id 24
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient -1
+3 loops [1]
+4 loops 
+5 edge_ids [7]
+6 edge_ids 79,83,85,96,95,94,93
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 1.,2*0.
+4 e2 [3]
+5 e2 0.,1.,-0.
+4 e3 [3]
+5 e3 -0.,0.,1.
+4 origin [3]
+5 origin -52.108864244314447,466.031927729960898,-130.
+2 surfaces 
+3 id 25
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient -1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 92,94,97,90
+3 surface_type 45
+3 surface(bspl_srf) ->
+4 degree [2]
+5 degree 2*3
+4 u_params [8]
+5 u_params 4*0.,4*1.
+4 v_params [8]
+5 v_params 4*0.,4*0.500000000000001
+4 c_pnts [48]
+5 c_pnts -96.889309902137967,-0.000000000000028,-130.,-101.574424918448301,
+5 -0.000000000000024,-108.3333333333333,-106.259539934758607,
+5 -0.000000000000019,-86.6666666666666,-110.944654951068912,
+5 -0.000000000000014,-64.999999999999915,-113.669587694454236,
+5 23.167372866758562,-130.,-115.557989745378507,30.804539615414814,
+5 -108.333333333333286,-117.446391796302777,38.441706364071031,
+5 -86.666666666666629,-119.334793847227047,46.07887311272728,
+5 -64.999999999999915,-125.000000000000199,86.598355443546055,-130.,
+5 -125.000000000000142,95.162087322520364,-108.333333333333314,
+5 -125.000000000000114,103.72581920149473,-86.666666666666586,
+5 -125.000000000000057,112.289551080469039,-64.999999999999915,
+5 -125.000000000000213,141.435219582643981,-130.,-125.000000000000156,
+5 152.357869664884674,-108.3333333333333,-125.000000000000128,
+5 163.280519747125339,-86.6666666666666,-125.000000000000071,
+5 174.203169829366004,-64.999999999999915
+2 surfaces 
+3 id 26
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient -1
+3 loops [1]
+4 loops 
+5 edge_ids [6]
+6 edge_ids 89,97,95,98,54,87
+3 surface_type 34
+3 surface(plane) ->
+4 e1 [3]
+5 e1 -0.000000000000002,0.,-1.
+4 e2 [3]
+5 e2 -0.,1.,0.
+4 e3 [3]
+5 e3 1.,0.,-0.000000000000002
+4 origin [3]
+5 origin -125.000000000000213,141.435219582643981,-130.
+2 surfaces 
+3 id 27
+3 uv_min [2]
+4 uv_min 2*0.
+3 uv_max [2]
+4 uv_max 2*0.
+3 xyz_min [3]
+4 xyz_min 3*0.
+3 xyz_max [3]
+4 xyz_max 3*0.
+3 orient -1
+3 loops [1]
+4 loops 
+5 edge_ids [4]
+6 edge_ids 86,53,98,96
+3 surface_type 45
+3 surface(bspl_srf) ->
+4 degree [2]
+5 degree 2*3
+4 u_params [20]
+5 u_params 4*0.,0.071428571428571,0.142857142857143,0.214285714285714,
+5 0.285714285714286,0.428571428571429,0.523809523809524,0.571428571428571,
+5 0.666666666666667,0.714285714285714,0.785714285714286,0.857142857142857,
+5 0.928571428571429,4*1.
+4 v_params [8]
+5 v_params 4*0.,4*1.
+4 c_pnts [192]
+5 c_pnts -125.00000000000027,526.183590622483962,-130.,-125.000000000000213,
+5 601.911107631305185,-86.666666666666686,-125.000000000000156,
+5 677.638624640126409,-43.333333333333329,-125.000000000000114,
+5 753.366141648947632,0.,-125.00000000000027,535.34426612343259,-130.,
+5 -124.999970405274553,610.735958541236187,-86.666666666666686,
+5 -125.000029594725831,686.123988566901971,-43.333333333333329,
+5 -125.000000000000128,761.515680984705568,0.,-124.531151807505069,
+5 555.322227006468211,-130.000000000000028,-124.534698562588844,
+5 629.633545316607297,-86.666666666666714,-124.539107960877004,
+5 703.94854079061497,-43.333333333333314,-124.542654715960794,
+5 778.25985910075417,0.,-122.269523326029372,589.865522786642373,-130.,
+5 -122.356596565336702,661.269399604831392,-86.666666666666643,
+5 -122.443130233899197,732.671021367895946,-43.333333333333364,
+5 -122.530203473206512,804.074898186084852,0.,-118.47879056285386,
+5 628.274799741549941,-130.000000000000028,-118.728683731310639,
+5 695.513015202899624,-86.666666666666714,-118.979844111498551,
+5 762.754690909208648,-43.333333333333314,-119.22973727995533,
+5 829.99290637055833,0.,-111.588868678537239,683.238144696269046,
+5 -129.999999999999972,-112.108403087846128,743.483684858905917,
+5 -86.6666666666666,-112.628985140558086,803.729607362848924,
+5 -43.333333333333357,-113.14851954986699,863.975147525485681,0.,
+5 -101.706598663383915,746.164615058835921,-130.,-102.431684095086041,
+5 797.024910014398642,-86.666666666666686,-103.156470729750311,
+5 847.880631762474081,-43.333333333333329,-103.881556161452423,
+5 898.740926718036803,0.,-91.058967092666862,801.049821849366253,-130.,
+5 -91.577959153702793,842.98165529282312,-86.666666666666686,
+5 -92.097043268753225,884.914034628432546,-43.333333333333329,
+5 -92.616035329789156,926.845868071889299,0.,-81.432987850649354,
+5 843.005804431765682,-129.999999999999943,-81.575998915760977,
+5 877.929915012425681,-86.666666666666643,-81.718384311863986,
+5 912.851612726612416,-43.333333333333314,-81.861395376975594,
+5 947.775723307272415,0.,-73.046178308585098,872.765488960727453,
+5 -129.999999999999972,-72.749988830161683,902.62486575892558,
+5 -86.666666666666643,-72.453080024127445,932.485577504722301,
+5 -43.33333333333335,-72.15689054570403,962.344954302920542,0.,
+5 -62.401011158918834,900.546691989731585,-129.999999999999972,
+5 -61.59064559890745,925.683641087478918,-86.666666666666686,
+5 -60.781409754346285,950.817280432027133,-43.333333333333314,
+5 -59.971044194334901,975.954229529774466,0.,-51.78084629120405,
+5 920.675402467189542,-130.000000000000028,-50.58230599687991,
+5 942.41410674335134,-86.6666666666667,-49.382482269544667,
+5 964.155308602116861,-43.333333333333321,-48.183941975220527,
+5 985.894012878278659,0.,-37.692014885978566,936.68903519449384,
+5 -129.999999999999972,-36.326654486474354,955.791796917165925,
+5 -86.666666666666686,-34.962025665864779,974.894007390976753,
+5 -43.3333333333333,-33.596665266360567,993.996769113648725,0.,
+5 -20.827621493914457,946.004803281275599,-130.000000000000028,
+5 -19.764146070155721,963.637715394339466,-86.666666666666643,
+5 -18.699749670334992,981.271694627174384,-43.333333333333393,
+5 -17.636274246576257,998.904606740238137,0.,-7.357195225109098,
+5 947.938257405564627,-130.,-6.919042421436573,965.292151198899091,
+5 -86.666666666666714,-6.482510053513631,982.646106206665195,
+5 -43.333333333333279,-6.044357249841106,999.999999999999773,0.,
+5 -0.000000000000034,947.938257405564627,-130.,-0.000000000000031,
+5 965.292171603709676,-86.666666666666686,-0.000000000000029,
+5 982.646085801854724,-43.333333333333329,-0.000000000000027,
+5 999.999999999999773,0.
+1 edges [71]
+2 edges 
+3 id 28
+3 surface_ids [2]
+4 surface_ids 1,17
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 64.225795544422539,674.303595648716737,80.
+4 end2 [3]
+5 end2 64.225795544422539,706.621191909089362,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 29
+3 surface_ids [2]
+4 surface_ids 1,15
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 60.033173201779242,674.303595648716737,0.
+4 end2 [3]
+5 end2 64.225795544422539,674.303595648716737,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 30
+3 surface_ids [2]
+4 surface_ids 1,7
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 60.033173201779242,641.984797197793341,0.
+4 end2 [3]
+5 end2 60.033173201779242,674.303595648716737,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 31
+3 surface_ids [2]
+4 surface_ids 1,2
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 60.033173201779242,641.984797197793341,0.
+4 end2 [3]
+5 end2 66.846184508574595,648.797808504588374,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 32
+3 surface_ids [2]
+4 surface_ids 1,5
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 66.846184508574595,704.000802944937504,130.
+4 end2 [3]
+5 end2 66.846184508574595,648.797808504588374,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 33
+3 surface_ids [2]
+4 surface_ids 1,4
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 64.225795544422539,706.621191909089362,80.
+4 end2 [3]
+5 end2 66.846184508574595,704.000802944937504,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 34
+3 surface_ids [2]
+4 surface_ids 2,5
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 66.846184508574595,648.797808504588374,130.
+4 end2 [3]
+5 end2 106.445449475942894,648.797808504588602,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 35
+3 surface_ids [2]
+4 surface_ids 2,21
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 113.258460782738254,641.984797197793341,0.
+4 end2 [3]
+5 end2 60.033173201779242,641.984797197793341,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 36
+3 surface_ids [2]
+4 surface_ids 2,3
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 113.258460782738254,641.984797197793341,0.
+4 end2 [3]
+5 end2 106.445449475942894,648.797808504588602,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 37
+3 surface_ids [2]
+4 surface_ids 3,5
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 106.445449475942894,648.797808504588602,130.
+4 end2 [3]
+5 end2 106.445449475942894,704.000802944937618,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 38
+3 surface_ids [2]
+4 surface_ids 3,8
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 113.258460782738254,710.813814251732765,0.
+4 end2 [3]
+5 end2 113.258460782738254,641.984797197793341,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 39
+3 surface_ids [2]
+4 surface_ids 3,4
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 113.258460782738254,710.813814251732765,0.
+4 end2 [3]
+5 end2 106.445449475942894,704.000802944937618,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 40
+3 surface_ids [2]
+4 surface_ids 4,17
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 64.225795544422539,706.621191909089362,80.
+4 end2 [3]
+5 end2 85.000000000000028,706.621191909089475,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 41
+3 surface_ids [2]
+4 surface_ids 4,5
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 106.445449475942894,704.000802944937618,130.
+4 end2 [3]
+5 end2 66.846184508574595,704.000802944937504,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 42
+3 surface_ids [2]
+4 surface_ids 4,8
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 85.000000000000014,710.813814251732765,0.
+4 end2 [3]
+5 end2 113.258460782738254,710.813814251732765,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 43
+3 surface_ids [2]
+4 surface_ids 4,6
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 85.000000000000028,706.621191909089475,80.
+4 end2 [3]
+5 end2 85.000000000000014,710.813814251732765,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 44
+3 surface_ids [2]
+4 surface_ids 6,8
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 85.,834.303595648716737,0.
+4 end2 [3]
+5 end2 85.000000000000014,710.813814251732765,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 45
+3 surface_ids [2]
+4 surface_ids 6,16
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 85.,834.303595648716737,0.
+4 end2 [3]
+5 end2 85.,834.303595648716737,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 46
+3 surface_ids [2]
+4 surface_ids 6,17
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 85.,834.303595648716737,80.
+4 end2 [3]
+5 end2 85.000000000000028,706.621191909089475,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 47
+3 surface_ids [2]
+4 surface_ids 7,15
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 60.033173201779242,674.303595648716737,0.
+4 end2 [3]
+5 end2 -60.033173201779242,674.303595648716737,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 48
+3 surface_ids [2]
+4 surface_ids 7,9
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -60.033173201779242,674.303595648716737,0.
+4 end2 [3]
+5 end2 -60.033173201779242,641.984797197793341,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 49
+3 surface_ids [2]
+4 surface_ids 7,21
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 60.033173201779242,641.984797197793341,0.
+4 end2 [3]
+5 end2 -60.033173201779242,641.984797197793341,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 50
+3 surface_ids [2]
+4 surface_ids 8,21
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 125.000000000000114,641.984797197793341,-0.000000000000052
+4 end2 [3]
+5 end2 113.258460782738254,641.984797197793341,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 51
+3 surface_ids [2]
+4 surface_ids 8,19
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 125.000000000000114,641.984797197793341,-0.000000000000052
+4 end2 [3]
+5 end2 125.000000000000114,753.366141648947632,-0.000000000000112
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 52
+3 surface_ids [2]
+4 surface_ids 8,20
+3 direction [2]
+4 direction -1,1
+3 curve_type 19
+3 curve(b_spline) ->
+4 degree 4
+4 params [10]
+5 params 5*-1.,5*0.
+4 c_pnts [15]
+5 c_pnts 125.000000000000114,753.366141648947632,-0.000000000000112,
+5 125.00000000000027,838.936304674405392,-0.000000000000112,
+5 102.577057681913516,946.390163892198188,-0.000000000000092,
+5 63.465751123331387,999.999999999999773,-0.000000000000057,0.000000000000027,
+5 999.999999999999773,-0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 53
+3 surface_ids [2]
+4 surface_ids 8,27
+3 direction [2]
+4 direction 1,-1
+3 curve_type 19
+3 curve(b_spline) ->
+4 degree 4
+4 params [10]
+5 params 5*-1.,5*0.
+4 c_pnts [15]
+5 c_pnts -125.000000000000114,753.366141648947632,0.,-125.00000000000027,
+5 838.936304674405392,0.,-102.577057681913516,946.390163892198188,0.,
+5 -63.465751123331387,999.999999999999773,0.,-0.000000000000027,
+5 999.999999999999773,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 54
+3 surface_ids [2]
+4 surface_ids 8,26
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -125.000000000000114,641.984797197793341,0.000000000000059
+4 end2 [3]
+5 end2 -125.000000000000114,753.366141648947632,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 55
+3 surface_ids [2]
+4 surface_ids 8,21
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -113.258460782738254,641.984797197793341,0.
+4 end2 [3]
+5 end2 -125.000000000000114,641.984797197793341,0.000000000000059
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 56
+3 surface_ids [2]
+4 surface_ids 8,12
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -113.258460782738254,641.984797197793341,0.
+4 end2 [3]
+5 end2 -113.258460782738254,710.813814251732765,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 57
+3 surface_ids [2]
+4 surface_ids 8,10
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -113.258460782738254,710.813814251732765,0.
+4 end2 [3]
+5 end2 -85.000000000000028,710.813814251732765,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 58
+3 surface_ids [2]
+4 surface_ids 8,14
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -85.000000000000028,710.813814251732765,0.
+4 end2 [3]
+5 end2 -85.,834.303595648716737,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 59
+3 surface_ids [2]
+4 surface_ids 8,16
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -85.,834.303595648716737,0.
+4 end2 [3]
+5 end2 85.,834.303595648716737,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 60
+3 surface_ids [2]
+4 surface_ids 9,15
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -64.225795544422539,674.303595648716737,80.
+4 end2 [3]
+5 end2 -60.033173201779242,674.303595648716737,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 61
+3 surface_ids [2]
+4 surface_ids 9,17
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -64.225795544422539,706.621191909089362,80.
+4 end2 [3]
+5 end2 -64.225795544422539,674.303595648716737,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 62
+3 surface_ids [2]
+4 surface_ids 9,10
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -64.225795544422539,706.621191909089362,80.
+4 end2 [3]
+5 end2 -66.846184508574595,704.000802944937504,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 63
+3 surface_ids [2]
+4 surface_ids 9,13
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -66.846184508574595,704.000802944937504,130.
+4 end2 [3]
+5 end2 -66.846184508574595,648.797808504588374,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 64
+3 surface_ids [2]
+4 surface_ids 9,11
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -60.033173201779242,641.984797197793341,0.
+4 end2 [3]
+5 end2 -66.846184508574595,648.797808504588374,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 65
+3 surface_ids [2]
+4 surface_ids 10,17
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -85.000000000000028,706.621191909089475,80.
+4 end2 [3]
+5 end2 -64.225795544422539,706.621191909089362,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 66
+3 surface_ids [2]
+4 surface_ids 10,14
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -85.000000000000028,710.813814251732765,0.
+4 end2 [3]
+5 end2 -85.000000000000028,706.621191909089475,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 67
+3 surface_ids [2]
+4 surface_ids 10,12
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -113.258460782738254,710.813814251732765,0.
+4 end2 [3]
+5 end2 -106.445449475942894,704.000802944937618,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 68
+3 surface_ids [2]
+4 surface_ids 10,13
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -106.445449475942894,704.000802944937618,130.
+4 end2 [3]
+5 end2 -66.846184508574595,704.000802944937504,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 69
+3 surface_ids [2]
+4 surface_ids 11,13
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -66.846184508574595,648.797808504588374,130.
+4 end2 [3]
+5 end2 -106.445449475942894,648.797808504588602,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 70
+3 surface_ids [2]
+4 surface_ids 11,12
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -113.258460782738254,641.984797197793341,0.
+4 end2 [3]
+5 end2 -106.445449475942894,648.797808504588602,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 71
+3 surface_ids [2]
+4 surface_ids 11,21
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -60.033173201779242,641.984797197793341,0.
+4 end2 [3]
+5 end2 -113.258460782738254,641.984797197793341,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 72
+3 surface_ids [2]
+4 surface_ids 12,13
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -106.445449475942894,648.797808504588602,130.
+4 end2 [3]
+5 end2 -106.445449475942894,704.000802944937618,130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 73
+3 surface_ids [2]
+4 surface_ids 14,17
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -85.,834.303595648716737,80.
+4 end2 [3]
+5 end2 -85.000000000000028,706.621191909089475,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 74
+3 surface_ids [2]
+4 surface_ids 14,16
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -85.,834.303595648716737,0.
+4 end2 [3]
+5 end2 -85.,834.303595648716737,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 75
+3 surface_ids [2]
+4 surface_ids 15,17
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -64.225795544422539,674.303595648716737,80.
+4 end2 [3]
+5 end2 64.225795544422539,674.303595648716737,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 76
+3 surface_ids [2]
+4 surface_ids 16,17
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -85.,834.303595648716737,80.
+4 end2 [3]
+5 end2 85.,834.303595648716737,80.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 77
+3 surface_ids [2]
+4 surface_ids 18,22
+3 direction [2]
+4 direction -1,1
+3 curve_type 19
+3 curve(b_spline) ->
+4 degree 3
+4 params [8]
+5 params 4*-16.842450950825167,4*0.
+4 c_pnts [12]
+5 c_pnts 125.,174.203169829366004,-65.000000000000028,124.999999999999986,
+5 112.289551080469053,-65.000000000000028,119.334793847227004,
+5 46.078873112727273,-65.000000000000028,110.94465495106887,
+5 -0.000000000000014,-65.000000000000028
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 78
+3 surface_ids [2]
+4 surface_ids 18,23
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 96.889309902137839,-0.000000000000028,-130.000000000000085
+4 end2 [3]
+5 end2 110.94465495106887,-0.000000000000014,-65.000000000000043
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 79
+3 surface_ids [2]
+4 surface_ids 18,24
+3 direction [2]
+4 direction -1,1
+3 curve_type 19
+3 curve(b_spline) ->
+4 degree 3
+4 params [8]
+5 params 4*0.,4*1.
+4 c_pnts [12]
+5 c_pnts 96.889309902137839,-0.000000000000028,-130.000000000000085,
+5 113.669587694454108,23.167372866758562,-130.000000000000114,
+5 125.000000000000071,86.598355443546055,-130.000000000000114,
+5 125.000000000000085,141.435219582643981,-130.000000000000114
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 80
+3 surface_ids [2]
+4 surface_ids 18,19
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 125.000000000000085,141.435219582643981,-130.000000000000114
+4 end2 [3]
+5 end2 125.000000000000014,174.203169829365976,-65.000000000000043
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 81
+3 surface_ids [2]
+4 surface_ids 19,21
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 125.000000000000114,641.984797197793341,-0.000000000000052
+4 end2 [3]
+5 end2 125.000000000000171,576.984797197793341,-65.000000000000014
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 82
+3 surface_ids [2]
+4 surface_ids 19,22
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 125.000000000000171,576.984797197793341,-65.000000000000014
+4 end2 [3]
+5 end2 125.000000000000014,174.203169829365976,-65.000000000000043
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 83
+3 surface_ids [2]
+4 surface_ids 19,24
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 125.000000000000085,141.435219582643981,-130.000000000000114
+4 end2 [3]
+5 end2 125.000000000000142,526.183590622483962,-130.000000000000114
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 84
+3 surface_ids [2]
+4 surface_ids 19,20
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 125.000000000000142,526.183590622483962,-130.000000000000114
+4 end2 [3]
+5 end2 125.000000000000114,753.366141648947632,-0.000000000000112
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 85
+3 surface_ids [2]
+4 surface_ids 20,24
+3 direction [2]
+4 direction -1,1
+3 curve_type 19
+3 curve(b_spline) ->
+4 degree 4
+4 params [10]
+5 params 5*0.,5*1.
+4 c_pnts [15]
+5 c_pnts 125.000000000000142,526.183590622483962,-130.000000000000114,
+5 125.000000000000213,663.928812912210105,-130.000000000000114,
+5 78.371468784373974,853.571762961532386,-130.000000000000057,
+5 77.250549863645105,947.938257405564286,-130.000000000000057,
+5 -0.000000000000082,947.938257405564627,-130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 86
+3 surface_ids [2]
+4 surface_ids 20,27
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -0.000000000000058,947.9382574055644,-130.
+4 end2 [3]
+5 end2 0.,1000.,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 87
+3 surface_ids [2]
+4 surface_ids 21,26
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -125.000000000000114,641.984797197793341,0.000000000000059
+4 end2 [3]
+5 end2 -125.000000000000227,576.984797197793341,-64.999999999999901
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 88
+3 surface_ids [2]
+4 surface_ids 21,22
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -125.000000000000227,576.984797197793341,-64.999999999999901
+4 end2 [3]
+5 end2 125.000000000000171,576.984797197793341,-65.000000000000014
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 89
+3 surface_ids [2]
+4 surface_ids 22,26
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -125.000000000000227,576.984797197793341,-64.999999999999901
+4 end2 [3]
+5 end2 -125.000000000000071,174.203169829365976,-64.999999999999929
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 90
+3 surface_ids [2]
+4 surface_ids 22,25
+3 direction [2]
+4 direction -1,1
+3 curve_type 19
+3 curve(b_spline) ->
+4 degree 3
+4 params [8]
+5 params 4*-16.842450950825167,4*0.
+4 c_pnts [12]
+5 c_pnts -125.000000000000071,174.203169829366004,-64.999999999999929,
+5 -125.000000000000057,112.289551080469053,-64.999999999999929,
+5 -119.334793847227047,46.078873112727273,-64.999999999999929,
+5 -110.944654951068912,-0.000000000000014,-64.999999999999929
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 91
+3 surface_ids [2]
+4 surface_ids 22,23
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -110.944654951068912,-0.000000000000014,-64.999999999999943
+4 end2 [3]
+5 end2 110.94465495106887,-0.000000000000014,-65.000000000000043
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 92
+3 surface_ids [2]
+4 surface_ids 23,25
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -96.889309902137967,-0.000000000000028,-130.
+4 end2 [3]
+5 end2 -110.944654951068912,-0.000000000000014,-64.999999999999943
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 93
+3 surface_ids [2]
+4 surface_ids 23,24
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 96.889309902137839,-0.000000000000028,-130.000000000000085
+4 end2 [3]
+5 end2 -96.889309902137967,-0.000000000000028,-130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 94
+3 surface_ids [2]
+4 surface_ids 24,25
+3 direction [2]
+4 direction -1,1
+3 curve_type 19
+3 curve(b_spline) ->
+4 degree 3
+4 params [8]
+5 params 4*0.,4*1.
+4 c_pnts [12]
+5 c_pnts -96.889309902137967,-0.000000000000028,-130.,-113.669587694454236,
+5 23.167372866758562,-130.,-125.000000000000199,86.598355443546055,-130.,
+5 -125.000000000000213,141.435219582643981,-130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 95
+3 surface_ids [2]
+4 surface_ids 24,26
+3 direction [2]
+4 direction -1,1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -125.000000000000213,141.435219582643981,-130.
+4 end2 [3]
+5 end2 -125.00000000000027,526.183590622483962,-130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 96
+3 surface_ids [2]
+4 surface_ids 24,27
+3 direction [2]
+4 direction -1,1
+3 curve_type 19
+3 curve(b_spline) ->
+4 degree 4
+4 params [10]
+5 params 5*0.,5*1.
+4 c_pnts [15]
+5 c_pnts -125.00000000000027,526.183590622483962,-130.,-125.000000000000341,
+5 663.928812912210105,-130.,-78.371468784374088,853.571762961532386,-130.,
+5 -77.250549863645233,947.938257405564286,-130.,-0.000000000000034,
+5 947.938257405564627,-130.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 97
+3 surface_ids [2]
+4 surface_ids 25,26
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -125.000000000000213,141.435219582643981,-130.
+4 end2 [3]
+5 end2 -125.000000000000071,174.203169829365976,-64.999999999999929
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+2 edges 
+3 id 98
+3 surface_ids [2]
+4 surface_ids 26,27
+3 direction [2]
+4 direction 1,-1
+3 curve_type 2
+3 curve(line) ->
+4 end1 [3]
+5 end1 -125.00000000000027,526.183590622483962,-130.
+4 end2 [3]
+5 end2 -125.000000000000114,753.366141648947632,0.
+3 uv_curves[0] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+3 uv_curves[1] ->
+4 id 0
+4 curve_type 0
+4 flip 1
+1 datum_curves [6]
+2 datum_curves ->
+3 id 109
+3 is_composite 0
+3 name Line_109
+3 curve(simple) ->
+4 id -1
+4 curve_type 2
+4 curve(line) ->
+5 end1 [3]
+6 end1 -125.000000000000227,576.984797197793455,-64.999999999999901
+5 end2 [3]
+6 end2 125.000000000000213,576.984797197793341,-65.000000000000028
+4 flip 1
+2 datum_curves ->
+3 id 110
+3 is_composite 0
+3 name Line_110
+3 curve(simple) ->
+4 id -1
+4 curve_type 2
+4 curve(line) ->
+5 end1 [3]
+6 end1 125.000000000000213,576.984797197793341,-65.000000000000028
+5 end2 [3]
+6 end2 125.,174.203169829366004,-65.000000000000043
+4 flip 1
+2 datum_curves ->
+3 id 111
+3 is_composite 0
+3 name BSpline_111
+3 curve(simple) ->
+4 id -1
+4 curve_type 19
+4 curve(b_spline) ->
+5 degree 3
+5 params [10]
+6 params 4*-16.842450950825167,2*-7.84272052752429,4*0.
+5 c_pnts [18]
+6 c_pnts 125.,174.203169829366004,-65.000000000000043,125.,
+6 143.619340920288437,-65.000000000000057,123.614639693764275,
+6 111.592491788646839,-65.000000000000057,118.943507754633771,
+6 54.646578281052655,-65.000000000000057,115.627720926073039,
+6 25.719526876910095,-65.000000000000057,110.944654951068884,0.,
+6 -65.000000000000057
+4 flip 1
+2 datum_curves ->
+3 id 112
+3 is_composite 0
+3 name Line_112
+3 curve(simple) ->
+4 id -1
+4 curve_type 2
+4 curve(line) ->
+5 end1 [3]
+6 end1 -110.944654951068912,0.,-64.999999999999943
+5 end2 [3]
+6 end2 110.944654951068884,0.,-65.000000000000057
+4 flip 1
+2 datum_curves ->
+3 id 113
+3 is_composite 0
+3 name BSpline_113
+3 curve(simple) ->
+4 id -1
+4 curve_type 19
+4 curve(b_spline) ->
+5 degree 3
+5 params [10]
+6 params 4*-16.842450950825167,2*-7.84272052752429,4*0.
+5 c_pnts [18]
+6 c_pnts -125.000000000000071,174.203169829365976,-64.999999999999929,
+6 -125.000000000000057,143.619340920288437,-64.999999999999929,
+6 -123.61463969376436,111.592491788646839,-64.999999999999943,
+6 -118.943507754633856,54.646578281052669,-64.999999999999943,
+6 -115.627720926073096,25.719526876910095,-64.999999999999943,
+6 -110.944654951068912,0.,-64.999999999999943
+4 flip 1
+2 datum_curves ->
+3 id 114
+3 is_composite 0
+3 name Line_114
+3 curve(simple) ->
+4 id -1
+4 curve_type 2
+4 curve(line) ->
+5 end1 [3]
+6 end1 -125.000000000000227,576.984797197793455,-64.999999999999901
+5 end2 [3]
+6 end2 -125.000000000000071,174.203169829365976,-64.999999999999929
+4 flip 1
+1 datum_planes [8]
+2 datum_planes ->
+3 id 100
+3 name Work_Plane1
+3 plane ->
+4 e1 [3]
+5 e1 1.,2*0.
+4 e2 [3]
+5 e2 0.,1.,0.
+4 e3 [3]
+5 e3 2*0.,1.
+4 origin [3]
+5 origin 2*0.,-130.
+2 datum_planes ->
+3 id 101
+3 name Work_Plane2
+3 plane ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 2*0.,1.
+4 e3 [3]
+5 e3 0.,1.,0.
+4 origin [3]
+5 origin 3*0.
+2 datum_planes ->
+3 id 102
+3 name Work_Plane3
+3 plane ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 2*0.,1.
+4 e3 [3]
+5 e3 0.,1.,0.
+4 origin [3]
+5 origin 0.,200.,0.
+2 datum_planes ->
+3 id 103
+3 name Work_Plane4
+3 plane ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 2*0.,1.
+4 e3 [3]
+5 e3 0.,1.,0.
+4 origin [3]
+5 origin 0.,400.,0.
+2 datum_planes ->
+3 id 104
+3 name Work_Plane5
+3 plane ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 2*0.,1.
+4 e3 [3]
+5 e3 0.,1.,0.
+4 origin [3]
+5 origin -125.000000000000284,526.183590622483507,-130.
+2 datum_planes ->
+3 id 105
+3 name Work_Plane6
+3 plane ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 2*0.,1.
+4 e3 [3]
+5 e3 0.,1.,0.
+4 origin [3]
+5 origin -125.000000000000142,753.366141648948314,0.
+2 datum_planes ->
+3 id 106
+3 name Work_Plane7
+3 plane ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 2*0.,1.
+4 e3 [3]
+5 e3 0.,1.,0.
+4 origin [3]
+5 origin -81.298194832059608,947.938419228655107,0.
+2 datum_planes ->
+3 id 107
+3 name Work_Plane8
+3 plane ->
+4 e1 [3]
+5 e1 -1.,2*0.
+4 e2 [3]
+5 e2 2*0.,1.
+4 e3 [3]
+5 e3 0.,1.,0.
+4 origin [3]
+5 origin -21.687142241605436,989.124142328008816,-130.
+1 units [2]
+2 units 
+3 factor 0.039370078740157
+3 name MM
+3 unit_type 0
+2 units 
+3 factor 2.204634140964307
+3 name KILOGRAM
+3 unit_type 1
+1 layers [1]
+2 layers ->
+3 id 0
+3 name DTMS
+3 user_id 0
+3 ids [8]
+4 ids 100,101,102,103,104,105,106,107
+3 operation 3
+1 item_names [8]
+2 item_names ->
+3 name Work_Plane1
+3 obj_id 100
+3 obj_type 5
+2 item_names ->
+3 name Work_Plane2
+3 obj_id 101
+3 obj_type 5
+2 item_names ->
+3 name Work_Plane3
+3 obj_id 102
+3 obj_type 5
+2 item_names ->
+3 name Work_Plane4
+3 obj_id 103
+3 obj_type 5
+2 item_names ->
+3 name Work_Plane5
+3 obj_id 104
+3 obj_type 5
+2 item_names ->
+3 name Work_Plane6
+3 obj_id 105
+3 obj_type 5
+2 item_names ->
+3 name Work_Plane7
+3 obj_id 106
+3 obj_type 5
+2 item_names ->
+3 name Work_Plane8
+3 obj_id 107
+3 obj_type 5
+1 model_class NULL
+1 angular_dim_tolerance 0.
+1 linear_dim_tolerance 0.
+1 log NULL
+1 active_comb_state_id 0
+#END_OF_UGC

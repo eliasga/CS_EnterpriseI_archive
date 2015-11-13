@@ -1,0 +1,32 @@
+K_d	modell/DP controller/DP controller/Kd_scale/Value
+K_i	modell/DP controller/DP controller/Ki_scale/Value
+K_p	modell/DP controller/DP controller/Kp_scale/Value
+L2	modell/PS3 Sixaxis/PS3_L2/Value
+Left X	modell/PS3 Sixaxis/PS3_L_JS_X/Value
+Left Y	modell/PS3 Sixaxis/PS3_L_JS_Y/Value
+MODE	modell/MODE/Value
+Power Limiter	modell/LabView Out/BT_saturation/Value
+R2	modell/PS3 Sixaxis/PS3_R2/Value
+Regulation Error East	modell/DP controller/DP controller/Reg_e_E_hil:1
+Regulation Error North	modell/DP controller/DP controller/Reg_e_N_hil:1
+Regulation Error Yaw	modell/DP controller/DP controller/Reg_e_Psi_hil:1
+Reset States	modell/HIL model/reset_eta_hil/Value
+Right X	modell/PS3 Sixaxis/PS3_R_JS_X/Value
+Right Y	modell/PS3 Sixaxis/PS3_R_JS_Y/Value
+Tau_1	modell/HIL model/tau_surge_hil:1
+Tau_2	modell/HIL model/tau_sway_hil:1
+Tau_6	modell/HIL model/tau_yaw_hil:1
+VSP Speeds	modell/LabView Out/VSP_speeds/Value
+Vis E	modell/Plotter/Demux:2
+Vis N	modell/Plotter/Demux:1
+Vis Psi	modell/Plotter/Demux:3
+Vis X	modell/Plotter/Demux2:1
+Vis Y	modell/Plotter/Demux2:2
+eta_d_E	modell/LabView Out/eta_d_E/Value
+eta_d_N	modell/LabView Out/eta_d_N/Value
+eta_d_Psi	modell/LabView Out/eta_d_Psi/Value
+u1	modell/HIL model/u1_hil:1
+u2	modell/HIL model/u2_hil:1
+u3	modell/HIL model/u3_hil:1
+u4	modell/HIL model/u4_hil:1
+u5	modell/HIL model/u5_hil:1

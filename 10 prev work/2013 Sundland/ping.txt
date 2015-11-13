@@ -1,0 +1,5 @@
+
+Ping statistics for 192.168.0.30:
+    Packets: Sent = 700, Received = 700, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 13ms, Average = 1ms

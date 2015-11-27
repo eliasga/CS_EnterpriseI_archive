@@ -3,9 +3,9 @@
  *
  * Code generation for model "ctrl_student".
  *
- * Model version              : 1.44
+ * Model version              : 1.51
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Thu Mar 19 13:51:16 2015
+ * C source code generated on : Fri Nov 27 15:21:37 2015
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -25,6 +25,64 @@ DW_ctrl_student_T ctrl_student_DW;
 /* Real-time model */
 RT_MODEL_ctrl_student_T ctrl_student_M_;
 RT_MODEL_ctrl_student_T *const ctrl_student_M = &ctrl_student_M_;
+
+/* Forward declaration for local functions */
+static void ctrl_student_mldivide(const real_T A[9], const real_T B[3], real_T
+  Y[3]);
+
+/* Function for MATLAB Function: '<Root>/Thrust allocation' */
+static void ctrl_student_mldivide(const real_T A[9], const real_T B[3], real_T
+  Y[3])
+{
+  real_T b_A[9];
+  int32_T r1;
+  int32_T r2;
+  int32_T r3;
+  real_T maxval;
+  real_T a21;
+  int32_T rtemp;
+  memcpy(&b_A[0], &A[0], 9U * sizeof(real_T));
+  r1 = 0;
+  r2 = 1;
+  r3 = 2;
+  maxval = fabs(A[0]);
+  a21 = fabs(A[1]);
+  if (a21 > maxval) {
+    maxval = a21;
+    r1 = 1;
+    r2 = 0;
+  }
+
+  if (fabs(A[2]) > maxval) {
+    r1 = 2;
+    r2 = 1;
+    r3 = 0;
+  }
+
+  b_A[r2] = A[r2] / A[r1];
+  b_A[r3] /= b_A[r1];
+  b_A[3 + r2] -= b_A[3 + r1] * b_A[r2];
+  b_A[3 + r3] -= b_A[3 + r1] * b_A[r3];
+  b_A[6 + r2] -= b_A[6 + r1] * b_A[r2];
+  b_A[6 + r3] -= b_A[6 + r1] * b_A[r3];
+  if (fabs(b_A[3 + r3]) > fabs(b_A[3 + r2])) {
+    rtemp = r2;
+    r2 = r3;
+    r3 = rtemp;
+  }
+
+  b_A[3 + r3] /= b_A[3 + r2];
+  b_A[6 + r3] -= b_A[3 + r3] * b_A[6 + r2];
+  Y[1] = B[r2] - B[r1] * b_A[r2];
+  Y[2] = (B[r3] - B[r1] * b_A[r3]) - b_A[3 + r3] * Y[1];
+  Y[2] /= b_A[6 + r3];
+  Y[0] = B[r1] - b_A[6 + r1] * Y[2];
+  Y[1] -= b_A[6 + r2] * Y[2];
+  Y[1] /= b_A[3 + r2];
+  Y[0] -= b_A[3 + r1] * Y[1];
+  Y[0] /= b_A[r1];
+}
+
 real_T rt_atan2d_snf(real_T u0, real_T u1)
 {
   real_T y;
@@ -64,81 +122,16 @@ real_T rt_atan2d_snf(real_T u0, real_T u1)
 /* Model output function */
 static void ctrl_student_output(void)
 {
-  real_T u_VSP_x;
-  real_T z;
-  real_T tmp[9];
+  real_T u[3];
+  static const real_T b[9] = { 1.165, 0.0, 0.0, 0.0, 1.165, 0.0, 0.0, 0.0, 2.629
+  };
+
+  static const real_T c[9] = { 1.0, 0.0, 0.0, 0.0, 1.0, -0.4575, 0.0, 1.0,
+    0.3875 };
+
+  real_T tmp[3];
+  real_T tmp_0[9];
   int32_T i;
-  real_T u_idx_1;
-  real_T u_idx_2;
-
-  /* MATLAB Function: '<S1>/Differentiate and filter' incorporates:
-   *  Memory: '<S1>/Memory'
-   *  Memory: '<S1>/Memory1'
-   *  SignalConversion: '<S6>/TmpSignal ConversionAt SFunction Inport1'
-   */
-  /* MATLAB Function 'Differentiate and rotate/Differentiate and filter': '<S6>:1' */
-  /*  derivative */
-  /* '<S6>:1:5' */
-  ctrl_student_B.eta_dot[0] = (ctrl_student_B.x -
-    ctrl_student_DW.Memory_PreviousInput[0]) / 0.01;
-  ctrl_student_B.eta_dot[1] = (ctrl_student_B.y -
-    ctrl_student_DW.Memory_PreviousInput[1]) / 0.01;
-  ctrl_student_B.eta_dot[2] = (ctrl_student_B.psi -
-    ctrl_student_DW.Memory_PreviousInput[2]) / 0.01;
-
-  /*  filter */
-  /* '<S6>:1:9' */
-  ctrl_student_B.eta_dot[0] = 0.01 * ctrl_student_B.eta_dot[0] + 0.99 *
-    ctrl_student_DW.Memory1_PreviousInput[0];
-  ctrl_student_B.eta_dot[1] = 0.01 * ctrl_student_B.eta_dot[1] + 0.99 *
-    ctrl_student_DW.Memory1_PreviousInput[1];
-  ctrl_student_B.eta_dot[2] = 0.01 * ctrl_student_B.eta_dot[2] + 0.99 *
-    ctrl_student_DW.Memory1_PreviousInput[2];
-
-  /* MATLAB Function: '<S1>/Rotate' */
-  /* MATLAB Function 'Differentiate and rotate/Rotate': '<S8>:1' */
-  /* '<S8>:1:3' */
-  /* '<S8>:1:6' */
-  tmp[0] = cos(ctrl_student_B.psi);
-  tmp[3] = sin(ctrl_student_B.psi);
-  tmp[6] = 0.0;
-  tmp[1] = -sin(ctrl_student_B.psi);
-  tmp[4] = cos(ctrl_student_B.psi);
-  tmp[7] = 0.0;
-  tmp[2] = 0.0;
-  tmp[5] = 0.0;
-  tmp[8] = 1.0;
-  for (i = 0; i < 3; i++) {
-    ctrl_student_B.nu[i] = 0.0;
-    ctrl_student_B.nu[i] += tmp[i] * ctrl_student_B.eta_dot[0];
-    ctrl_student_B.nu[i] += tmp[i + 3] * ctrl_student_B.eta_dot[1];
-    ctrl_student_B.nu[i] += tmp[i + 6] * ctrl_student_B.eta_dot[2];
-  }
-
-  /* End of MATLAB Function: '<S1>/Rotate' */
-
-  /* MATLAB Function: '<S1>/Differentiate and filter1' incorporates:
-   *  Memory: '<S1>/Memory2'
-   *  Memory: '<S1>/Memory3'
-   */
-  /* MATLAB Function 'Differentiate and rotate/Differentiate and filter1': '<S7>:1' */
-  /*  derivative */
-  /* '<S7>:1:5' */
-  ctrl_student_B.nu_dot[0] = (ctrl_student_B.nu[0] -
-    ctrl_student_DW.Memory2_PreviousInput[0]) / 0.01;
-  ctrl_student_B.nu_dot[1] = (ctrl_student_B.nu[1] -
-    ctrl_student_DW.Memory2_PreviousInput[1]) / 0.01;
-  ctrl_student_B.nu_dot[2] = (ctrl_student_B.nu[2] -
-    ctrl_student_DW.Memory2_PreviousInput[2]) / 0.01;
-
-  /*  filter */
-  /* '<S7>:1:9' */
-  ctrl_student_B.nu_dot[0] = 0.01 * ctrl_student_B.nu_dot[0] + 0.99 *
-    ctrl_student_DW.Memory3_PreviousInput[0];
-  ctrl_student_B.nu_dot[1] = 0.01 * ctrl_student_B.nu_dot[1] + 0.99 *
-    ctrl_student_DW.Memory3_PreviousInput[1];
-  ctrl_student_B.nu_dot[2] = 0.01 * ctrl_student_B.nu_dot[2] + 0.99 *
-    ctrl_student_DW.Memory3_PreviousInput[2];
 
   /* MATLAB Function: '<Root>/Thrust allocation' incorporates:
    *  Constant: '<Root>/Constant'
@@ -150,17 +143,14 @@ static void ctrl_student_output(void)
   /*  Extended thrust coefficient matrix */
   /*  tau = T*K*u inverse */
   /* '<S3>:1:23' */
-  u_idx_1 = 0.0 - 0.0 * 0.0;
-  u_idx_2 = ((0.0 - 0.0 * 0.0) - u_idx_1 * -0.4575) / 2.221505;
-  u_idx_1 -= u_idx_2 * 2.629;
-  z = u_idx_1 / 1.165;
-  u_idx_1 /= 1.165;
-  u_idx_1 = (0.0 - u_idx_2 * 0.0) - u_idx_1 * 0.0;
+  u[0] = 0.0;
+  u[1] = 0.0;
+  u[2] = 0.0;
+  ctrl_student_mldivide(c, u, tmp);
+  ctrl_student_mldivide(b, tmp, u);
 
   /* '<S3>:1:25' */
   /* '<S3>:1:27' */
-  u_VSP_x = u_idx_1 / 1.165;
-
   /* '<S3>:1:28' */
   /* '<S3>:1:29' */
   /* '<S3>:1:30' */
@@ -172,9 +162,9 @@ static void ctrl_student_output(void)
     ctrl_student_B.omega_VSP = 0.0;
   }
 
-  ctrl_student_B.u_BT = u_idx_2;
-  ctrl_student_B.u_VSP = sqrt(u_VSP_x * u_VSP_x + z * z);
-  ctrl_student_B.alpha_VSP = rt_atan2d_snf(z, u_idx_1 / 1.165);
+  ctrl_student_B.u_BT = u[2];
+  ctrl_student_B.u_VSP = sqrt(u[0] * u[0] + u[1] * u[1]);
+  ctrl_student_B.alpha_VSP = rt_atan2d_snf(u[1], u[0]);
 
   /* End of MATLAB Function: '<Root>/Thrust allocation' */
 
@@ -199,30 +189,128 @@ static void ctrl_student_output(void)
     (ctrl_student_B.alpha_VSP <= 3.1415926535897931) && (-1.0 <=
     ctrl_student_B.omega_VSP) && (ctrl_student_B.omega_VSP <= 1.0) && (-1.0 <=
     ctrl_student_B.omega_VSP) && (ctrl_student_B.omega_VSP <= 1.0));
+
+  /* Delay: '<S1>/Delay' incorporates:
+   *  SignalConversion: '<S1>/TmpSignal ConversionAtDelayInport2'
+   */
+  if (ctrl_student_DW.icLoad != 0) {
+    ctrl_student_DW.Delay_DSTATE[0] = ctrl_student_B.x_m;
+    ctrl_student_DW.Delay_DSTATE[1] = ctrl_student_B.y_m;
+    ctrl_student_DW.Delay_DSTATE[2] = ctrl_student_B.psi_m;
+  }
+
+  /* MATLAB Function: '<S1>/Low pass filter' incorporates:
+   *  Constant: '<S1>/Low pass Gain 1'
+   *  Delay: '<S1>/Delay'
+   *  SignalConversion: '<S9>/TmpSignal ConversionAt SFunction Inport2'
+   */
+  /* MATLAB Function 'Derivative filter/Low pass filter': '<S9>:1' */
+  /* '<S9>:1:3' */
+  ctrl_student_B.eta_filtered[0] = (1.0 - ctrl_student_P.LowpassGain1_Value) *
+    ctrl_student_DW.Delay_DSTATE[0] + ctrl_student_P.LowpassGain1_Value *
+    ctrl_student_B.x_m;
+  ctrl_student_B.eta_filtered[1] = (1.0 - ctrl_student_P.LowpassGain1_Value) *
+    ctrl_student_DW.Delay_DSTATE[1] + ctrl_student_P.LowpassGain1_Value *
+    ctrl_student_B.y_m;
+  ctrl_student_B.eta_filtered[2] = (1.0 - ctrl_student_P.LowpassGain1_Value) *
+    ctrl_student_DW.Delay_DSTATE[2] + ctrl_student_P.LowpassGain1_Value *
+    ctrl_student_B.psi_m;
+
+  /* MATLAB Function: '<S1>/Low pass filter 2' incorporates:
+   *  Constant: '<S1>/Low pass Gain 2'
+   *  Constant: '<S1>/sample time'
+   *  Delay: '<S1>/Delay'
+   *  MATLAB Function: '<S1>/Discrete derivative'
+   *  Memory: '<S1>/Memory3'
+   */
+  /* MATLAB Function 'Derivative filter/Discrete derivative': '<S8>:1' */
+  /* '<S8>:1:3' */
+  /* MATLAB Function 'Derivative filter/Low pass filter 2': '<S10>:1' */
+  /* '<S10>:1:3' */
+  ctrl_student_B.eta_dot_filtered[0] = (ctrl_student_B.eta_filtered[0] -
+    ctrl_student_DW.Delay_DSTATE[0]) / ctrl_student_P.sampletime_Value *
+    ctrl_student_P.LowpassGain2_Value + (1.0 - ctrl_student_P.LowpassGain2_Value)
+    * ctrl_student_DW.Memory3_PreviousInput[0];
+  ctrl_student_B.eta_dot_filtered[1] = (ctrl_student_B.eta_filtered[1] -
+    ctrl_student_DW.Delay_DSTATE[1]) / ctrl_student_P.sampletime_Value *
+    ctrl_student_P.LowpassGain2_Value + (1.0 - ctrl_student_P.LowpassGain2_Value)
+    * ctrl_student_DW.Memory3_PreviousInput[1];
+  ctrl_student_B.eta_dot_filtered[2] = (ctrl_student_B.eta_filtered[2] -
+    ctrl_student_DW.Delay_DSTATE[2]) / ctrl_student_P.sampletime_Value *
+    ctrl_student_P.LowpassGain2_Value + (1.0 - ctrl_student_P.LowpassGain2_Value)
+    * ctrl_student_DW.Memory3_PreviousInput[2];
+
+  /* MATLAB Function: '<S1>/Rotation matrix' incorporates:
+   *  SignalConversion: '<S1>/TmpSignal ConversionAtDelayInport2'
+   */
+  /* MATLAB Function 'Derivative filter/Rotation matrix': '<S11>:1' */
+  /* '<S11>:1:3' */
+  /* '<S11>:1:6' */
+  tmp_0[0] = cos(ctrl_student_B.psi_m);
+  tmp_0[3] = sin(ctrl_student_B.psi_m);
+  tmp_0[6] = 0.0;
+  tmp_0[1] = -sin(ctrl_student_B.psi_m);
+  tmp_0[4] = cos(ctrl_student_B.psi_m);
+  tmp_0[7] = 0.0;
+  tmp_0[2] = 0.0;
+  tmp_0[5] = 0.0;
+  tmp_0[8] = 1.0;
+  for (i = 0; i < 3; i++) {
+    ctrl_student_B.nu[i] = 0.0;
+    ctrl_student_B.nu[i] += tmp_0[i] * ctrl_student_B.eta_dot_filtered[0];
+    ctrl_student_B.nu[i] += tmp_0[i + 3] * ctrl_student_B.eta_dot_filtered[1];
+    ctrl_student_B.nu[i] += tmp_0[i + 6] * ctrl_student_B.eta_dot_filtered[2];
+  }
+
+  /* End of MATLAB Function: '<S1>/Rotation matrix' */
+
+  /* MATLAB Function: '<S1>/Differentiate and filter1' incorporates:
+   *  Memory: '<S1>/Memory1'
+   *  Memory: '<S1>/Memory2'
+   */
+  /* MATLAB Function 'Derivative filter/Differentiate and filter1': '<S7>:1' */
+  /*  derivative */
+  /* '<S7>:1:5' */
+  ctrl_student_B.nu_dot[0] = (ctrl_student_B.nu[0] -
+    ctrl_student_DW.Memory2_PreviousInput[0]) / 0.01;
+  ctrl_student_B.nu_dot[1] = (ctrl_student_B.nu[1] -
+    ctrl_student_DW.Memory2_PreviousInput[1]) / 0.01;
+  ctrl_student_B.nu_dot[2] = (ctrl_student_B.nu[2] -
+    ctrl_student_DW.Memory2_PreviousInput[2]) / 0.01;
+
+  /*  filter */
+  /* '<S7>:1:9' */
+  ctrl_student_B.nu_dot[0] = 0.01 * ctrl_student_B.nu_dot[0] + 0.99 *
+    ctrl_student_DW.Memory1_PreviousInput[0];
+  ctrl_student_B.nu_dot[1] = 0.01 * ctrl_student_B.nu_dot[1] + 0.99 *
+    ctrl_student_DW.Memory1_PreviousInput[1];
+  ctrl_student_B.nu_dot[2] = 0.01 * ctrl_student_B.nu_dot[2] + 0.99 *
+    ctrl_student_DW.Memory1_PreviousInput[2];
 }
 
 /* Model update function */
 static void ctrl_student_update(void)
 {
-  /* Update for Memory: '<S1>/Memory' */
-  ctrl_student_DW.Memory_PreviousInput[0] = ctrl_student_B.x;
-  ctrl_student_DW.Memory_PreviousInput[1] = ctrl_student_B.y;
-  ctrl_student_DW.Memory_PreviousInput[2] = ctrl_student_B.psi;
+  /* Update for Delay: '<S1>/Delay' */
+  ctrl_student_DW.icLoad = 0U;
+  ctrl_student_DW.Delay_DSTATE[0] = ctrl_student_B.eta_filtered[0];
+  ctrl_student_DW.Delay_DSTATE[1] = ctrl_student_B.eta_filtered[1];
+  ctrl_student_DW.Delay_DSTATE[2] = ctrl_student_B.eta_filtered[2];
 
-  /* Update for Memory: '<S1>/Memory1' */
-  ctrl_student_DW.Memory1_PreviousInput[0] = ctrl_student_B.eta_dot[0];
-  ctrl_student_DW.Memory1_PreviousInput[1] = ctrl_student_B.eta_dot[1];
-  ctrl_student_DW.Memory1_PreviousInput[2] = ctrl_student_B.eta_dot[2];
+  /* Update for Memory: '<S1>/Memory3' */
+  ctrl_student_DW.Memory3_PreviousInput[0] = ctrl_student_B.eta_dot_filtered[0];
+  ctrl_student_DW.Memory3_PreviousInput[1] = ctrl_student_B.eta_dot_filtered[1];
+  ctrl_student_DW.Memory3_PreviousInput[2] = ctrl_student_B.eta_dot_filtered[2];
 
   /* Update for Memory: '<S1>/Memory2' */
   ctrl_student_DW.Memory2_PreviousInput[0] = ctrl_student_B.nu[0];
   ctrl_student_DW.Memory2_PreviousInput[1] = ctrl_student_B.nu[1];
   ctrl_student_DW.Memory2_PreviousInput[2] = ctrl_student_B.nu[2];
 
-  /* Update for Memory: '<S1>/Memory3' */
-  ctrl_student_DW.Memory3_PreviousInput[0] = ctrl_student_B.nu_dot[0];
-  ctrl_student_DW.Memory3_PreviousInput[1] = ctrl_student_B.nu_dot[1];
-  ctrl_student_DW.Memory3_PreviousInput[2] = ctrl_student_B.nu_dot[2];
+  /* Update for Memory: '<S1>/Memory1' */
+  ctrl_student_DW.Memory1_PreviousInput[0] = ctrl_student_B.nu_dot[0];
+  ctrl_student_DW.Memory1_PreviousInput[1] = ctrl_student_B.nu_dot[1];
+  ctrl_student_DW.Memory1_PreviousInput[2] = ctrl_student_B.nu_dot[2];
 
   /* Update absolute time for base rate */
   /* The "clockTick0" counts the number of times the code of this task has
@@ -245,25 +333,23 @@ static void ctrl_student_update(void)
 /* Model initialize function */
 void ctrl_student_initialize(void)
 {
-  /* InitializeConditions for Memory: '<S1>/Memory' */
-  ctrl_student_DW.Memory_PreviousInput[0] = ctrl_student_P.Memory_X0[0];
-  ctrl_student_DW.Memory_PreviousInput[1] = ctrl_student_P.Memory_X0[1];
-  ctrl_student_DW.Memory_PreviousInput[2] = ctrl_student_P.Memory_X0[2];
+  /* InitializeConditions for Delay: '<S1>/Delay' */
+  ctrl_student_DW.icLoad = 1U;
 
-  /* InitializeConditions for Memory: '<S1>/Memory1' */
-  ctrl_student_DW.Memory1_PreviousInput[0] = ctrl_student_P.Memory1_X0[0];
-  ctrl_student_DW.Memory1_PreviousInput[1] = ctrl_student_P.Memory1_X0[1];
-  ctrl_student_DW.Memory1_PreviousInput[2] = ctrl_student_P.Memory1_X0[2];
+  /* InitializeConditions for Memory: '<S1>/Memory3' */
+  ctrl_student_DW.Memory3_PreviousInput[0] = ctrl_student_P.Memory3_X0[0];
+  ctrl_student_DW.Memory3_PreviousInput[1] = ctrl_student_P.Memory3_X0[1];
+  ctrl_student_DW.Memory3_PreviousInput[2] = ctrl_student_P.Memory3_X0[2];
 
   /* InitializeConditions for Memory: '<S1>/Memory2' */
   ctrl_student_DW.Memory2_PreviousInput[0] = ctrl_student_P.Memory2_X0[0];
   ctrl_student_DW.Memory2_PreviousInput[1] = ctrl_student_P.Memory2_X0[1];
   ctrl_student_DW.Memory2_PreviousInput[2] = ctrl_student_P.Memory2_X0[2];
 
-  /* InitializeConditions for Memory: '<S1>/Memory3' */
-  ctrl_student_DW.Memory3_PreviousInput[0] = ctrl_student_P.Memory3_X0[0];
-  ctrl_student_DW.Memory3_PreviousInput[1] = ctrl_student_P.Memory3_X0[1];
-  ctrl_student_DW.Memory3_PreviousInput[2] = ctrl_student_P.Memory3_X0[2];
+  /* InitializeConditions for Memory: '<S1>/Memory1' */
+  ctrl_student_DW.Memory1_PreviousInput[0] = ctrl_student_P.Memory1_X0[0];
+  ctrl_student_DW.Memory1_PreviousInput[1] = ctrl_student_P.Memory1_X0[1];
+  ctrl_student_DW.Memory1_PreviousInput[2] = ctrl_student_P.Memory1_X0[2];
 }
 
 /* Model terminate function */
@@ -395,9 +481,9 @@ RT_MODEL_ctrl_student_T *ctrl_student(void)
   ctrl_student_M->Sizes.numU = (0);    /* Number of model inputs */
   ctrl_student_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   ctrl_student_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  ctrl_student_M->Sizes.numBlocks = (29);/* Number of blocks */
-  ctrl_student_M->Sizes.numBlockIO = (11);/* Number of block outputs */
-  ctrl_student_M->Sizes.numBlockPrms = (80);/* Sum of parameter "widths" */
+  ctrl_student_M->Sizes.numBlocks = (38);/* Number of blocks */
+  ctrl_student_M->Sizes.numBlockIO = (13);/* Number of block outputs */
+  ctrl_student_M->Sizes.numBlockPrms = (81);/* Sum of parameter "widths" */
   return ctrl_student_M;
 }
 
@@ -476,7 +562,7 @@ double NIRT_GetValueByDataType(void* ptr,int subindex, int type, int Complex)
    case 20:
     return NIRT_GetValueByDataType(ptr,subindex,3,Complex);
 
-   case 24:
+   case 21:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
 
    case 25:
@@ -484,6 +570,15 @@ double NIRT_GetValueByDataType(void* ptr,int subindex, int type, int Complex)
 
    case 26:
     return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 27:
+    return NIRT_GetValueByDataType(ptr,subindex,7,Complex);
+
+   case 28:
+    return NIRT_GetValueByDataType(ptr,subindex,0,Complex);
+
+   case 29:
+    return NIRT_GetValueByDataType(ptr,subindex,7,Complex);
   }
 
   // return ((double *)ptr)[subindex];
@@ -564,7 +659,7 @@ long NIRT_SetValueByDataType(void* ptr,int subindex, double value, int type, int
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,3,Complex);
 
-   case 24:
+   case 21:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
 
@@ -575,6 +670,18 @@ long NIRT_SetValueByDataType(void* ptr,int subindex, double value, int type, int
    case 26:
     //Type is matrix. Call SetValueByDataType on its contained type
     return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 27:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,7,Complex);
+
+   case 28:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,0,Complex);
+
+   case 29:
+    //Type is matrix. Call SetValueByDataType on its contained type
+    return NIRT_SetValueByDataType(ptr,subindex,value,7,Complex);
   }
 
   //No matching datatype conversion
@@ -587,23 +694,23 @@ void SetExternalInputs(double* data, int* TaskSampleHit)
 {
   int index = 0, count = 0;
 
-  // x
+  // pose measured/x_m
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_student_B.x, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_B.x_m, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // y
+  // pose measured/y_m
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_student_B.y, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_B.y_m, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
 
-  // psi
+  // pose measured/psi_m
   if (TaskSampleHit[0]) {
-    NIRT_SetValueByDataType(&ctrl_student_B.psi, 0, data[index++], 0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_B.psi_m, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
@@ -717,42 +824,54 @@ int NI_InitExternalOutputs()
 // by default, all elements (inclulding	scalars) have 2 dimensions [1,1]
 static NI_Parameter NI_ParamList[] DataSection(".NIVS.paramlist") =
 {
-  { 0, "ctrl_student/Differentiate and rotate/Memory/X0", offsetof
-    (P_ctrl_student_T, Memory_X0), 25, 3, 2, 0, 0 },
+  { 0, "ctrl_student/Constant/Value", offsetof(P_ctrl_student_T, Constant_Value),
+    25, 1, 2, 0, 0 },
 
-  { 1, "ctrl_student/Differentiate and rotate/Memory1/X0", offsetof
-    (P_ctrl_student_T, Memory1_X0), 25, 3, 2, 2, 0 },
+  { 1, "ctrl_student/Derivative filter/Low pass Gain 2/Value", offsetof
+    (P_ctrl_student_T, LowpassGain2_Value), 25, 1, 2, 2, 0 },
 
-  { 2, "ctrl_student/Differentiate and rotate/Memory2/X0", offsetof
-    (P_ctrl_student_T, Memory2_X0), 25, 3, 2, 4, 0 },
+  { 2, "ctrl_student/Derivative filter/sample time/Value", offsetof
+    (P_ctrl_student_T, sampletime_Value), 25, 1, 2, 4, 0 },
 
-  { 3, "ctrl_student/Differentiate and rotate/Memory3/X0", offsetof
-    (P_ctrl_student_T, Memory3_X0), 25, 3, 2, 6, 0 },
+  { 3, "ctrl_student/Derivative filter/Low pass Gain 1/Value", offsetof
+    (P_ctrl_student_T, LowpassGain1_Value), 25, 1, 2, 6, 0 },
 
-  { 4, "ctrl_student/Constant/Value", offsetof(P_ctrl_student_T, Constant_Value),
-    24, 1, 2, 8, 0 },
+  { 4, "ctrl_student/Derivative filter/Memory3/X0", offsetof(P_ctrl_student_T,
+    Memory3_X0), 26, 3, 2, 8, 0 },
+
+  { 5, "ctrl_student/Derivative filter/Memory2/X0", offsetof(P_ctrl_student_T,
+    Memory2_X0), 26, 3, 2, 10, 0 },
+
+  { 6, "ctrl_student/Derivative filter/Memory1/X0", offsetof(P_ctrl_student_T,
+    Memory1_X0), 26, 3, 2, 12, 0 },
+
+  { 7, "ctrl_student/Derivative filter/Delay/DelayLength", offsetof
+    (P_ctrl_student_T, Delay_DelayLength), 27, 1, 2, 14, 0 },
 };
 
-static int NI_ParamListSize DataSection(".NIVS.paramlistsize") = 5;
+static int NI_ParamListSize DataSection(".NIVS.paramlistsize") = 8;
 static int NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
 {
-  1, 3,                                /* Parameter at index 0 */
-  1, 3,                                /* Parameter at index 1 */
-  1, 3,                                /* Parameter at index 2 */
-  1, 3,                                /* Parameter at index 3 */
-  1, 1,                                /* Parameter at index 4 */
+  1, 1,                                /* Parameter at index 0 */
+  1, 1,                                /* Parameter at index 1 */
+  1, 1,                                /* Parameter at index 2 */
+  1, 1,                                /* Parameter at index 3 */
+  1, 3,                                /* Parameter at index 4 */
+  1, 3,                                /* Parameter at index 5 */
+  1, 3,                                /* Parameter at index 6 */
+  1, 1,                                /* Parameter at index 7 */
 };
 
 static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
 {
-  { 0, "ctrl_student/x", 0, "", offsetof(B_ctrl_student_T, x)+0*sizeof(real_T),
-    BLOCKIO_SIG, 0, 1, 2, 0, 0 },
+  { 0, "ctrl_student/pose measured/x_m", 0, "", offsetof(B_ctrl_student_T, x_m)+
+    0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 0, 0 },
 
-  { 1, "ctrl_student/y", 0, "", offsetof(B_ctrl_student_T, y)+0*sizeof(real_T),
-    BLOCKIO_SIG, 0, 1, 2, 2, 0 },
+  { 1, "ctrl_student/pose measured/y_m", 0, "", offsetof(B_ctrl_student_T, y_m)+
+    0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 2, 0 },
 
-  { 2, "ctrl_student/psi", 0, "", offsetof(B_ctrl_student_T, psi)+0*sizeof
-    (real_T), BLOCKIO_SIG, 0, 1, 2, 4, 0 },
+  { 2, "ctrl_student/pose measured/psi_m", 0, "", offsetof(B_ctrl_student_T,
+    psi_m)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 4, 0 },
 
   { 3, "ctrl_student/Thrust allocation", 0, "u_BT", offsetof(B_ctrl_student_T,
     u_BT)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 6, 0 },
@@ -768,62 +887,74 @@ static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
     (B_ctrl_student_T, omega_VSP)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 12, 0
   },
 
-  { 7, "ctrl_student/Differentiate and rotate/Rotate", 0, "nu(1,1)", offsetof
+  { 7, "ctrl_student/Derivative filter/Rotation matrix", 0, "nu(1,1)", offsetof
     (B_ctrl_student_T, nu)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 14, 0 },
 
-  { 8, "ctrl_student/Differentiate and rotate/Rotate", 0, "nu(1,2)", offsetof
+  { 8, "ctrl_student/Derivative filter/Rotation matrix", 0, "nu(1,2)", offsetof
     (B_ctrl_student_T, nu)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 16, 0 },
 
-  { 9, "ctrl_student/Differentiate and rotate/Rotate", 0, "nu(1,3)", offsetof
+  { 9, "ctrl_student/Derivative filter/Rotation matrix", 0, "nu(1,3)", offsetof
     (B_ctrl_student_T, nu)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 18, 0 },
 
-  { 10, "ctrl_student/Differentiate and rotate/Differentiate and filter1", 0,
+  { 10, "ctrl_student/Derivative filter/Low pass filter 2", 0,
+    "eta_dot_filtered(1,1)", offsetof(B_ctrl_student_T, eta_dot_filtered)+0*
+    sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 20, 0 },
+
+  { 11, "ctrl_student/Derivative filter/Low pass filter 2", 0,
+    "eta_dot_filtered(1,2)", offsetof(B_ctrl_student_T, eta_dot_filtered)+1*
+    sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 22, 0 },
+
+  { 12, "ctrl_student/Derivative filter/Low pass filter 2", 0,
+    "eta_dot_filtered(1,3)", offsetof(B_ctrl_student_T, eta_dot_filtered)+2*
+    sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 24, 0 },
+
+  { 13, "ctrl_student/Derivative filter/Low pass filter", 0, "eta_filtered(1,1)",
+    offsetof(B_ctrl_student_T, eta_filtered)+0*sizeof(real_T), BLOCKIO_SIG, 17,
+    1, 2, 26, 0 },
+
+  { 14, "ctrl_student/Derivative filter/Low pass filter", 0, "eta_filtered(1,2)",
+    offsetof(B_ctrl_student_T, eta_filtered)+1*sizeof(real_T), BLOCKIO_SIG, 17,
+    1, 2, 28, 0 },
+
+  { 15, "ctrl_student/Derivative filter/Low pass filter", 0, "eta_filtered(1,3)",
+    offsetof(B_ctrl_student_T, eta_filtered)+2*sizeof(real_T), BLOCKIO_SIG, 17,
+    1, 2, 30, 0 },
+
+  { 16, "ctrl_student/Derivative filter/Differentiate and filter1", 0,
     "nu_dot(1,1)", offsetof(B_ctrl_student_T, nu_dot)+0*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 20, 0 },
+    BLOCKIO_SIG, 17, 1, 2, 32, 0 },
 
-  { 11, "ctrl_student/Differentiate and rotate/Differentiate and filter1", 0,
+  { 17, "ctrl_student/Derivative filter/Differentiate and filter1", 0,
     "nu_dot(1,2)", offsetof(B_ctrl_student_T, nu_dot)+1*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 22, 0 },
+    BLOCKIO_SIG, 17, 1, 2, 34, 0 },
 
-  { 12, "ctrl_student/Differentiate and rotate/Differentiate and filter1", 0,
+  { 18, "ctrl_student/Derivative filter/Differentiate and filter1", 0,
     "nu_dot(1,3)", offsetof(B_ctrl_student_T, nu_dot)+2*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 24, 0 },
+    BLOCKIO_SIG, 17, 1, 2, 36, 0 },
 
-  { 13, "ctrl_student/Differentiate and rotate/Differentiate and filter", 0,
-    "eta_dot(1,1)", offsetof(B_ctrl_student_T, eta_dot)+0*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 26, 0 },
-
-  { 14, "ctrl_student/Differentiate and rotate/Differentiate and filter", 0,
-    "eta_dot(1,2)", offsetof(B_ctrl_student_T, eta_dot)+1*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 28, 0 },
-
-  { 15, "ctrl_student/Differentiate and rotate/Differentiate and filter", 0,
-    "eta_dot(1,3)", offsetof(B_ctrl_student_T, eta_dot)+2*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 30, 0 },
-
-  { 16, "ctrl_student/control limit checking", 0, "fault", offsetof
-    (B_ctrl_student_T, fault)+0*sizeof(boolean_T), BLOCKIO_SIG, 8, 1, 2, 32, 0 },
+  { 19, "ctrl_student/control limit checking", 0, "fault", offsetof
+    (B_ctrl_student_T, fault)+0*sizeof(boolean_T), BLOCKIO_SIG, 8, 1, 2, 38, 0 },
 
   { -1, "", -1, "", 0, 0, 0 }
 };
 
-static int NI_SigListSize DataSection(".NIVS.siglistsize") = 17;
+static int NI_SigListSize DataSection(".NIVS.siglistsize") = 20;
 static int NI_VirtualBlockSources[1][1];
 static int NI_VirtualBlockOffsets[1][1];
 static int NI_VirtualBlockLengths[1][1];
 static int NI_SigDimList[] DataSection(".NIVS.sigdimlist") =
 {
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  1, 1, 1, 1, 1, 1, 1, 1, };
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, };
 
 static long NI_ExtListSize DataSection(".NIVS.extlistsize") = 11;
 static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 {
-  { 0, "x", 0, EXT_IN, 1, 1, 1 },
+  { 0, "pose measured/x_m", 0, EXT_IN, 1, 1, 1 },
 
-  { 1, "y", 0, EXT_IN, 1, 1, 1 },
+  { 1, "pose measured/y_m", 0, EXT_IN, 1, 1, 1 },
 
-  { 2, "psi", 0, EXT_IN, 1, 1, 1 },
+  { 2, "pose measured/psi_m", 0, EXT_IN, 1, 1, 1 },
 
   { 0, "control input u exceeds bounds", 0, EXT_OUT, 1, 1, 1 },
 
@@ -857,8 +988,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "ctrl_student";
-static char* NI_CompiledModelVersion = "1.44";
-static char* NI_CompiledModelDateTime = "Thu Mar 19 13:51:15 2015";
+static char* NI_CompiledModelVersion = "1.51";
+static char* NI_CompiledModelDateTime = "Fri Nov 27 15:21:37 2015";
 static char* NI_builder DataSection(".NIVS.builder") =
   "NI VeriStand 2014.0.0.82 (2014) RTW Build";
 static char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
@@ -1420,7 +1551,7 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
   if (numContStates && numDiscStates && numClockTicks) {
     if (*numContStates < 0 || *numDiscStates < 0 || *numClockTicks < 0) {
       *numContStates = 0;
-      *numDiscStates = 236;
+      *numDiscStates = 237;
       *numClockTicks = NUMST - TID01EQ;
       return NI_OK;
     }
@@ -1428,61 +1559,15 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
 
   if (discStates && discStatesNames) {
     idx = 0;
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.x_DWORK1, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.x_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.y_DWORK1, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.y_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.psi_DWORK1, 0, 0,
-      0);
-    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.psi_DWORK1");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory_PreviousInput, 0, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory_PreviousInput, 1, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory_PreviousInput, 2, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory1_PreviousInput, 0, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory1_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory1_PreviousInput, 1, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory1_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory1_PreviousInput, 2, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory1_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory2_PreviousInput, 0, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory2_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory2_PreviousInput, 1, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory2_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory2_PreviousInput, 2, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory2_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory3_PreviousInput, 0, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory3_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory3_PreviousInput, 1, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory3_PreviousInput");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&ctrl_student_DW.Memory3_PreviousInput, 2, 17, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&ctrl_student_DW.Memory3_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.Delay_DSTATE, 0,
+      17, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.Delay_DSTATE");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.Delay_DSTATE, 1,
+      17, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.Delay_DSTATE");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.Delay_DSTATE, 2,
+      17, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.Delay_DSTATE");
     discStates[idx] = NIRT_GetValueByDataType
       (&ctrl_student_DW.controlinputuexceedsbounds_DWOR, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
@@ -1508,28 +1593,55 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.u_VSP2_DWORK1, 0,
       0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.u_VSP2_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.x_m_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.x_m_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.y_m_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.y_m_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.psi_m_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.psi_m_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_student_DW.Memory3_PreviousInput, 0, 17, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_student_DW.Memory3_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_student_DW.Memory3_PreviousInput, 1, 17, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_student_DW.Memory3_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_student_DW.Memory3_PreviousInput, 2, 17, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_student_DW.Memory3_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_student_DW.Memory2_PreviousInput, 0, 17, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_student_DW.Memory2_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_student_DW.Memory2_PreviousInput, 1, 17, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_student_DW.Memory2_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_student_DW.Memory2_PreviousInput, 2, 17, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_student_DW.Memory2_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_student_DW.Memory1_PreviousInput, 0, 17, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_student_DW.Memory1_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_student_DW.Memory1_PreviousInput, 1, 17, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_student_DW.Memory1_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType
+      (&ctrl_student_DW.Memory1_PreviousInput, 2, 17, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&ctrl_student_DW.Memory1_PreviousInput");
     discStates[idx] = NIRT_GetValueByDataType
       (&ctrl_student_DW.NIVeriStandSignalProbe_DWORK2, 0, 6, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&ctrl_student_DW.NIVeriStandSignalProbe_DWORK2");
-    for (count = 0; count < 13; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.x_DWORK2, count,
-        19, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.x_DWORK2");
-    }
-
-    for (count = 0; count < 13; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.y_DWORK2, count,
-        19, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.y_DWORK2");
-    }
-
-    for (count = 0; count < 13; count++) {
-      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.psi_DWORK2,
-        count, 19, 0);
-      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.psi_DWORK2");
-    }
-
     for (count = 0; count < 13; count++) {
       discStates[idx] = NIRT_GetValueByDataType
         (&ctrl_student_DW.controlinputuexceedsbounds_DW_j, count, 19, 0);
@@ -1584,6 +1696,26 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
     }
 
     for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.x_m_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.x_m_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.y_m_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.y_m_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.psi_m_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.psi_m_DWORK2");
+    }
+
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.icLoad, 0, 3, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.icLoad");
+    for (count = 0; count < 13; count++) {
       discStates[idx] = NIRT_GetValueByDataType
         (&ctrl_student_DW.NIVeriStandSignalProbe_DWORK1, count, 19, 0);
       strcpy(discStatesNames + (idx++ * 100),
@@ -1612,36 +1744,12 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
   long count, idx;
   if (discStates) {
     idx = 0;
-    NIRT_SetValueByDataType(&ctrl_student_DW.x_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.y_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.psi_DWORK1, 0, discStates[idx++], 0,
-      0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory_PreviousInput, 0,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory_PreviousInput, 1,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory_PreviousInput, 2,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory1_PreviousInput, 0,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory1_PreviousInput, 1,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory1_PreviousInput, 2,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory2_PreviousInput, 0,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory2_PreviousInput, 1,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory2_PreviousInput, 2,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory3_PreviousInput, 0,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory3_PreviousInput, 1,
-      discStates[idx++], 17, 0);
-    NIRT_SetValueByDataType(&ctrl_student_DW.Memory3_PreviousInput, 2,
-      discStates[idx++], 17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Delay_DSTATE, 0, discStates[idx++],
+      17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Delay_DSTATE, 1, discStates[idx++],
+      17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Delay_DSTATE, 2, discStates[idx++],
+      17, 0);
     NIRT_SetValueByDataType(&ctrl_student_DW.controlinputuexceedsbounds_DWOR, 0,
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_student_DW.alpha_VSP2_DWORK1, 0,
@@ -1658,23 +1766,32 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
       0, 0);
     NIRT_SetValueByDataType(&ctrl_student_DW.u_VSP2_DWORK1, 0, discStates[idx++],
       0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.x_m_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.y_m_DWORK1, 0, discStates[idx++], 0,
+      0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.psi_m_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Memory3_PreviousInput, 0,
+      discStates[idx++], 17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Memory3_PreviousInput, 1,
+      discStates[idx++], 17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Memory3_PreviousInput, 2,
+      discStates[idx++], 17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Memory2_PreviousInput, 0,
+      discStates[idx++], 17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Memory2_PreviousInput, 1,
+      discStates[idx++], 17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Memory2_PreviousInput, 2,
+      discStates[idx++], 17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Memory1_PreviousInput, 0,
+      discStates[idx++], 17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Memory1_PreviousInput, 1,
+      discStates[idx++], 17, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.Memory1_PreviousInput, 2,
+      discStates[idx++], 17, 0);
     NIRT_SetValueByDataType(&ctrl_student_DW.NIVeriStandSignalProbe_DWORK2, 0,
       discStates[idx++], 6, 0);
-    for (count = 0; count < 13; count++) {
-      NIRT_SetValueByDataType(&ctrl_student_DW.x_DWORK2, count, discStates[idx++],
-        19, 0);
-    }
-
-    for (count = 0; count < 13; count++) {
-      NIRT_SetValueByDataType(&ctrl_student_DW.y_DWORK2, count, discStates[idx++],
-        19, 0);
-    }
-
-    for (count = 0; count < 13; count++) {
-      NIRT_SetValueByDataType(&ctrl_student_DW.psi_DWORK2, count, discStates[idx
-        ++], 19, 0);
-    }
-
     for (count = 0; count < 13; count++) {
       NIRT_SetValueByDataType(&ctrl_student_DW.controlinputuexceedsbounds_DW_j,
         count, discStates[idx++], 19, 0);
@@ -1715,6 +1832,22 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
         discStates[idx++], 19, 0);
     }
 
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.x_m_DWORK2, count, discStates[idx
+        ++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.y_m_DWORK2, count, discStates[idx
+        ++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.psi_m_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    NIRT_SetValueByDataType(&ctrl_student_DW.icLoad, 0, discStates[idx++], 3, 0);
     for (count = 0; count < 13; count++) {
       NIRT_SetValueByDataType(&ctrl_student_DW.NIVeriStandSignalProbe_DWORK1,
         count, discStates[idx++], 19, 0);

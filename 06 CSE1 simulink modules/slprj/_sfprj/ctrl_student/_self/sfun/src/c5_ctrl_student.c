@@ -208,13 +208,13 @@ static void sf_gateway_c5_ctrl_student(SFc5_ctrl_studentInstanceStruct
   c5_b_nu = (real_T (*)[3])ssGetInputPortSignal(chartInstance->S, 0);
   _SFD_SYMBOL_SCOPE_PUSH(0U, 0U);
   _sfTime_ = sf_get_time(chartInstance->S);
-  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 3U, chartInstance->c5_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 2U, chartInstance->c5_sfEvent);
   for (c5_i2 = 0; c5_i2 < 3; c5_i2++) {
     _SFD_DATA_RANGE_CHECK((*c5_b_nu)[c5_i2], 0U);
   }
 
   chartInstance->c5_sfEvent = CALL_EVENT;
-  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 3U, chartInstance->c5_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 2U, chartInstance->c5_sfEvent);
   for (c5_i3 = 0; c5_i3 < 3; c5_i3++) {
     c5_nu[c5_i3] = (*c5_b_nu)[c5_i3];
   }
@@ -281,7 +281,7 @@ static void sf_gateway_c5_ctrl_student(SFc5_ctrl_studentInstanceStruct
     (*c5_b_nu_dot)[c5_i13] = c5_nu_dot[c5_i13];
   }
 
-  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 3U, chartInstance->c5_sfEvent);
+  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 2U, chartInstance->c5_sfEvent);
   _SFD_SYMBOL_SCOPE_POP();
   _SFD_CHECK_FOR_STATE_INCONSISTENCY(_ctrl_studentMachineNumber_,
     chartInstance->chartNumber, chartInstance->instanceNumber);

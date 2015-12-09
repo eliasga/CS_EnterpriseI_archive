@@ -56,7 +56,7 @@ BUILD_SUCCESS	= ... Created
 CPU             = PPC603
 
 MODEL           		:= ctrl_student
-MODULES         		:= NIVeriStand_main.c ctrl_student_data.c rtGetInf.c rtGetNaN.c rt_logging.c rt_nonfinite.c 
+MODULES         		:= NIVeriStand_main.c ctrl_student_data.c rtGetInf.c rtGetNaN.c rt_logging.c rt_nonfinite.c rt_zcfcn.c 
 MAKEFILE        		:= ctrl_student.mk
 MATLAB_ROOT     		:= C:\Program Files\MATLAB\R2014a
 ALT_MATLAB_ROOT 		:= C:\PROGRA~1\MATLAB\R2014a
@@ -65,9 +65,9 @@ ALT_MATLAB_BIN  		:= C:\PROGRA~1\MATLAB\R2014a\bin
 S_FUNCTIONS     		:= 
 S_FUNCTIONS_LIB 		:= 
 SOLVER          		:= 
-NUMST           		:= 1
-TID01EQ         		:= 0
-NCSTATES        		:= 0
+NUMST           		:= 2
+TID01EQ         		:= 1
+NCSTATES        		:= 9
 BUILDARGS       		:=  NIDEBUG=0 NIOPT="Default" OPTS=""
 MULTITASKING    		:= 0
 EXT_MODE        		:= 0
@@ -152,8 +152,8 @@ MATLAB_INCLUDES := $(MATLAB_INCLUDES) -I$(MATLAB_ROOT)\rtw\c\src\ext_mode\common
 # Additional file include paths
 
 
-MATLAB_INCLUDES := $(MATLAB_INCLUDES) -IC:\Users\mclab\DOCUME~1\GitHub\CS_ENT~1\06CSE1~1\ctrl_student_niVeriStand_VxWorks_rtw
-MATLAB_INCLUDES := $(MATLAB_INCLUDES) -IC:\Users\mclab\DOCUME~1\GitHub\CS_ENT~1\06CSE1~1
+MATLAB_INCLUDES := $(MATLAB_INCLUDES) -IC:\Users\mclab\DOCUME~1\GitHub\CS_ENT~1\02SIMU~1\ctrl_student_niVeriStand_VxWorks_rtw
+MATLAB_INCLUDES := $(MATLAB_INCLUDES) -IC:\Users\mclab\DOCUME~1\GitHub\CS_ENT~1\02SIMU~1
 
 INCLUDE := -I$(RELATIVE_PATH_TO_ANCHOR) $(MATLAB_INCLUDES) $(MODELREF_INC_PATH) -I$(NIVERISTAND_ROOT)/ModelInterface/ $(COMPILER_INCLUDES) -I.
 ifneq "$(SHARED_SRC_DIR)" ""

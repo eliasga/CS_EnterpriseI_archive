@@ -10,7 +10,7 @@
 				<String>CSE1</String>
 			</Property>
 			<Property Name="Version">
-				<String>1.0.0.36</String>
+				<String>1.0.0.38</String>
 			</Property>
 			<Property Name="Creator">
 				<String />
@@ -3160,10 +3160,10 @@
 									<Double>10000</Double>
 								</Property>
 								<Property Name="DLL Size">
-									<I32>141477</I32>
+									<I32>197823</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3531478908.25519</Double>
+									<Double>3532509306.2473545</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -3207,7 +3207,7 @@
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\ctrl_student.out</RTDestination>
 										<SupportedTarget>VxWorks</SupportedTarget>
-										<MD5>358cec48c692f013d9b9a22fc289ce27</MD5>
+										<MD5>5a378e5fed189ae355947ecdf6b2c3bf</MD5>
 									</DependentFile>
 								</Property>
 								<Property Name="GlobalParameterScopes">
@@ -3338,6 +3338,31 @@
 										</DefaultValue>
 									</Channel>
 								</Section>
+								<Section Name="Observer" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
+									<Description />
+									<Properties />
+									<Errors />
+									<Section Name="Nonlinear Passisve Observer" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
+										<Description />
+										<Properties />
+										<Errors />
+										<Channel Name="reset" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/Nonlinear Passisve Observer/reset</String>
+												</Property>
+												<Property Name="Index">
+													<I32>3</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+									</Section>
+								</Section>
 							</Section>
 							<Section Name="Outports" TypeGUID="03D3B9F3-1485-13A6-5698C14838D6AA3C">
 								<Description />
@@ -3354,7 +3379,7 @@
 												<String>u/alpha_VSP2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>4</I32>
+												<I32>5</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3369,7 +3394,7 @@
 												<String>u/omega_VSP1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>5</I32>
+												<I32>6</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3384,7 +3409,7 @@
 												<String>u/omega_VSP2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>6</I32>
+												<I32>7</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3399,7 +3424,7 @@
 												<String>u/alpha_VSP1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>7</I32>
+												<I32>8</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3414,7 +3439,7 @@
 												<String>u/u_BT</String>
 											</Property>
 											<Property Name="Index">
-												<I32>8</I32>
+												<I32>9</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3429,7 +3454,7 @@
 												<String>u/u_VSP1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>9</I32>
+												<I32>10</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3444,7 +3469,7 @@
 												<String>u/u_VSP2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>10</I32>
+												<I32>11</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3486,21 +3511,201 @@
 										<Description />
 										<Properties />
 										<Errors />
+										<Channel Name="b_x_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/b_hat/b_x_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>12</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="b_y_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/b_hat/b_y_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>13</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="b_psi_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/b_hat/b_psi_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>14</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
 									</Section>
 									<Section Name="eta_hat" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
 										<Description />
 										<Properties />
 										<Errors />
+										<Channel Name="x_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/eta_hat/x_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>15</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="y_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/eta_hat/y_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>16</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="psi_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/eta_hat/psi_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>17</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
 									</Section>
 									<Section Name="nu_dot_hat" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
 										<Description />
 										<Properties />
 										<Errors />
+										<Channel Name="u_dot_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/nu_dot_hat/u_dot_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>18</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="v_dot_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/nu_dot_hat/v_dot_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>19</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="r_dot_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/nu_dot_hat/r_dot_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>20</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
 									</Section>
 									<Section Name="nu_hat" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
 										<Description />
 										<Properties />
 										<Errors />
+										<Channel Name="u_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/nu_hat/u_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>21</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="v_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/nu_hat/v_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>22</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="r_hat" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/nu_hat/r_hat</String>
+												</Property>
+												<Property Name="Index">
+													<I32>23</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
 									</Section>
 								</Section>
 								<Channel Name="control input u exceeds bounds" TypeGUID="03D3B995-1485-13A6-56ABA0860ADF91DF" RowDim="1" ColDim="1" Units="" BitFields="5">
@@ -3510,7 +3715,7 @@
 											<String>control input u exceeds bounds</String>
 										</Property>
 										<Property Name="Index">
-											<I32>3</I32>
+											<I32>4</I32>
 										</Property>
 									</Properties>
 									<Errors />

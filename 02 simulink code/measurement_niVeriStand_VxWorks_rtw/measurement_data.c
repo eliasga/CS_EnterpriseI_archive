@@ -11,9 +11,9 @@
  *
  * Code generation for model "measurement".
  *
- * Model version              : 1.8
+ * Model version              : 1.9
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Fri Nov 27 15:17:10 2015
+ * C source code generated on : Wed Dec 16 16:08:37 2015
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -62,6 +62,24 @@ P_measurement_T measurement_P = {
   1.0,                                 /* Expression: btype
                                         * Referenced by: '<Root>/Sampling frequency'
                                         */
+  -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  3.0,                                 /* Expression: portnum
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  1.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S1>/counter'
                                         */
@@ -85,24 +103,6 @@ P_measurement_T measurement_P = {
                                         */
   123.0,                               /* Expression: 123
                                         * Referenced by: '<S10>/White Noise'
-                                        */
-  -1.0,                                /* Expression: width
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  1.0,                                 /* Expression: dtype
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  3.0,                                 /* Expression: portnum
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  -1.0,                                /* Expression: stime
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  1.0,                                 /* Expression: stype
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  1.0,                                 /* Expression: btype
-                                        * Referenced by: '<Root>/Noise power heading'
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S8>/White Noise'
@@ -171,6 +171,24 @@ P_measurement_T measurement_P = {
                                         * Referenced by: '<S2>/Hold'
                                         */
   -1.0,                                /* Expression: width
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  1.0,                                 /* Expression: dtype
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  4.0,                                 /* Expression: portnum
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  -1.0,                                /* Expression: stime
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  1.0,                                 /* Expression: stype
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  1.0,                                 /* Expression: btype
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  -1.0,                                /* Expression: width
                                         * Referenced by: '<S5>/x_m'
                                         */
   1.0,                                 /* Expression: dtype
@@ -237,6 +255,18 @@ typedef struct {
 NI_ParamSizeWidth P_measurement_T_sizes[] DataSection(".NIVS.defaultparamsizes")
   = {
   { sizeof(P_measurement_T), 1 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
+
+  { sizeof(real_T), 1, 0 },
 
   { sizeof(real_T), 1, 0 },
 

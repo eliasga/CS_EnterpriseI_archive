@@ -3,9 +3,9 @@
  *
  * Code generation for model "measurement".
  *
- * Model version              : 1.8
+ * Model version              : 1.9
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Fri Nov 27 15:17:10 2015
+ * C source code generated on : Wed Dec 16 16:08:37 2015
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -779,6 +779,8 @@ typedef struct {
   real_T x;                            /* '<S4>/x' */
   real_T psi;                          /* '<S4>/psi' */
   real_T y;                            /* '<S4>/y' */
+  real_T enable;                       /* '<Root>/enable' */
+  real_T Switch[3];                    /* '<Root>/Switch' */
   real_T output[3];                    /* '<S2>/MATLAB Function1' */
   real_T count;                        /* '<S1>/MATLAB Function' */
 } B_measurement_T;
@@ -787,15 +789,16 @@ typedef struct {
 typedef struct {
   real_T Noisepowerposition_DWORK1;    /* '<Root>/Noise power position' */
   real_T Samplingfrequency_DWORK1;     /* '<Root>/Sampling frequency' */
+  real_T Noisepowerheading_DWORK1;     /* '<Root>/Noise power heading' */
   real_T counter_PreviousInput;        /* '<S1>/counter' */
   real_T NextOutput;                   /* '<S9>/White Noise' */
   real_T NextOutput_n;                 /* '<S10>/White Noise' */
-  real_T Noisepowerheading_DWORK1;     /* '<Root>/Noise power heading' */
   real_T NextOutput_c;                 /* '<S8>/White Noise' */
   real_T x_DWORK1;                     /* '<S4>/x' */
   real_T psi_DWORK1;                   /* '<S4>/psi' */
   real_T y_DWORK1;                     /* '<S4>/y' */
   real_T Hold_PreviousInput[3];        /* '<S2>/Hold' */
+  real_T enable_DWORK1;                /* '<Root>/enable' */
   real_T x_m_DWORK1;                   /* '<S5>/x_m' */
   real_T y_m_DWORK1;                   /* '<S5>/y_m' */
   real_T psi_m_DWORK1;                 /* '<S5>/psi_m' */
@@ -808,6 +811,7 @@ typedef struct {
   uint8_T x_DWORK2[12];                /* '<S4>/x' */
   uint8_T psi_DWORK2[12];              /* '<S4>/psi' */
   uint8_T y_DWORK2[12];                /* '<S4>/y' */
+  uint8_T enable_DWORK2[12];           /* '<Root>/enable' */
   uint8_T x_m_DWORK2[12];              /* '<S5>/x_m' */
   uint8_T y_m_DWORK2[12];              /* '<S5>/y_m' */
   uint8_T psi_m_DWORK2[12];            /* '<S5>/psi_m' */
@@ -859,6 +863,24 @@ struct P_measurement_T_ {
   real_T Samplingfrequency_P6;         /* Expression: btype
                                         * Referenced by: '<Root>/Sampling frequency'
                                         */
+  real_T Noisepowerheading_P1;         /* Expression: width
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  real_T Noisepowerheading_P2;         /* Expression: dtype
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  real_T Noisepowerheading_P3;         /* Expression: portnum
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  real_T Noisepowerheading_P4;         /* Expression: stime
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  real_T Noisepowerheading_P5;         /* Expression: stype
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
+  real_T Noisepowerheading_P6;         /* Expression: btype
+                                        * Referenced by: '<Root>/Noise power heading'
+                                        */
   real_T counter_X0;                   /* Expression: 0
                                         * Referenced by: '<S1>/counter'
                                         */
@@ -882,24 +904,6 @@ struct P_measurement_T_ {
                                         */
   real_T WhiteNoise_Seed_k;            /* Expression: 123
                                         * Referenced by: '<S10>/White Noise'
-                                        */
-  real_T Noisepowerheading_P1;         /* Expression: width
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  real_T Noisepowerheading_P2;         /* Expression: dtype
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  real_T Noisepowerheading_P3;         /* Expression: portnum
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  real_T Noisepowerheading_P4;         /* Expression: stime
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  real_T Noisepowerheading_P5;         /* Expression: stype
-                                        * Referenced by: '<Root>/Noise power heading'
-                                        */
-  real_T Noisepowerheading_P6;         /* Expression: btype
-                                        * Referenced by: '<Root>/Noise power heading'
                                         */
   real_T WhiteNoise_Mean_n;            /* Expression: 0
                                         * Referenced by: '<S8>/White Noise'
@@ -966,6 +970,24 @@ struct P_measurement_T_ {
                                         */
   real_T Hold_X0;                      /* Expression: 0
                                         * Referenced by: '<S2>/Hold'
+                                        */
+  real_T enable_P1;                    /* Expression: width
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P2;                    /* Expression: dtype
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P3;                    /* Expression: portnum
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P4;                    /* Expression: stime
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P5;                    /* Expression: stype
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P6;                    /* Expression: btype
+                                        * Referenced by: '<Root>/enable'
                                         */
   real_T x_m_P1;                       /* Expression: width
                                         * Referenced by: '<S5>/x_m'

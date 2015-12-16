@@ -304,11 +304,11 @@
 				</Properties>
 				<Errors />
 			</Section>
-			<Section Name="power.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
+			<Section Name="mech_elec.out" TypeGUID="369b9797-43bd-4cdf-8352-81032feed666">
 				<Description />
 				<Properties>
 					<Property Name="Path">
-						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\02 simulink code\power_niVeriStand_VxWorks_rtw\power.out</String>
+						<String>C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\02 simulink code\mech_elec_niVeriStand_VxWorks_rtw\mech_elec.out</String>
 					</Property>
 				</Properties>
 				<Errors />

@@ -3,9 +3,9 @@
  *
  * Code generation for model "measurement".
  *
- * Model version              : 1.8
+ * Model version              : 1.9
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Fri Nov 27 15:17:10 2015
+ * C source code generated on : Wed Dec 16 16:08:37 2015
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

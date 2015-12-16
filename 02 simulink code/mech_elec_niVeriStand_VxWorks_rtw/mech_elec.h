@@ -3,9 +3,9 @@
  *
  * Code generation for model "mech_elec".
  *
- * Model version              : 1.26
+ * Model version              : 1.28
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Wed Dec 16 15:40:31 2015
+ * C source code generated on : Wed Dec 16 16:25:17 2015
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -138,11 +138,11 @@
 #endif
 
 #ifndef rtmGetIntgData
-# define rtmGetIntgData(rtm)           ()
+# define rtmGetIntgData(rtm)           ((rtm)->ModelData.intgData)
 #endif
 
 #ifndef rtmSetIntgData
-# define rtmSetIntgData(rtm, val)      ()
+# define rtmSetIntgData(rtm, val)      ((rtm)->ModelData.intgData = (val))
 #endif
 
 #ifndef rtmGetMdlRefGlobalTID
@@ -290,19 +290,19 @@
 #endif
 
 #ifndef rtmGetOdeF
-# define rtmGetOdeF(rtm)               ()
+# define rtmGetOdeF(rtm)               ((rtm)->ModelData.odeF)
 #endif
 
 #ifndef rtmSetOdeF
-# define rtmSetOdeF(rtm, val)          ()
+# define rtmSetOdeF(rtm, val)          ((rtm)->ModelData.odeF = (val))
 #endif
 
 #ifndef rtmGetOdeY
-# define rtmGetOdeY(rtm)               ()
+# define rtmGetOdeY(rtm)               ((rtm)->ModelData.odeY)
 #endif
 
 #ifndef rtmSetOdeY
-# define rtmSetOdeY(rtm, val)          ()
+# define rtmSetOdeY(rtm, val)          ((rtm)->ModelData.odeY = (val))
 #endif
 
 #ifndef rtmGetOffsetTimeArray
@@ -690,7 +690,7 @@
 #endif
 
 #ifndef rtmIsContinuousTask
-# define rtmIsContinuousTask(rtm, tid) 0
+# define rtmIsContinuousTask(rtm, tid) ((tid) == 0)
 #endif
 
 #ifndef rtmGetErrorStatus
@@ -701,8 +701,16 @@
 # define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
 #endif
 
+#ifndef rtmIsMajorTimeStep
+# define rtmIsMajorTimeStep(rtm)       (((rtm)->Timing.simTimeStep) == MAJOR_TIME_STEP)
+#endif
+
+#ifndef rtmIsMinorTimeStep
+# define rtmIsMinorTimeStep(rtm)       (((rtm)->Timing.simTimeStep) == MINOR_TIME_STEP)
+#endif
+
 #ifndef rtmIsSampleHit
-# define rtmIsSampleHit(rtm, sti, tid) ((rtm)->Timing.sampleHits[(rtm)->Timing.sampleTimeTaskIDPtr[sti]])
+# define rtmIsSampleHit(rtm, sti, tid) ((rtmIsMajorTimeStep((rtm)) && (rtm)->Timing.sampleHits[(rtm)->Timing.sampleTimeTaskIDPtr[sti]]))
 #endif
 
 #ifndef rtmGetStopRequested
@@ -772,53 +780,114 @@
 
 /* Block signals (auto storage) */
 typedef struct {
-  real_T alpha_VSP1d;                  /* '<S2>/alpha_VSP1,d' */
-  real_T u_VSP1d;                      /* '<S2>/u_VSP1,d' */
-  real_T alpha_VSP2d;                  /* '<S2>/alpha_VSP2,d' */
-  real_T u_VSP2d;                      /* '<S2>/u_VSP2,d' */
-  real_T u_BTd;                        /* '<S2>/u_BT,d' */
-  real_T omega_VSP1d;                  /* '<S2>/omega_VSP1,d' */
-  real_T omega_VSP2d;                  /* '<S2>/omega_VSP2,d' */
+  real_T enable;                       /* '<Root>/enable' */
+  real_T alpha_VSP1d;                  /* '<S3>/alpha_VSP1,d' */
+  real_T u_VSP1d;                      /* '<S3>/u_VSP1,d' */
+  real_T alpha_VSP2d;                  /* '<S3>/alpha_VSP2,d' */
+  real_T u_VSP2d;                      /* '<S3>/u_VSP2,d' */
+  real_T u_BTd;                        /* '<S3>/u_BT,d' */
+  real_T omega_VSP1d;                  /* '<S3>/omega_VSP1,d' */
+  real_T omega_VSP2d;                  /* '<S3>/omega_VSP2,d' */
+  real_T Switch[7];                    /* '<Root>/Switch' */
+  real_T Sum;                          /* '<S1>/Sum' */
+  real_T Sum1;                         /* '<S1>/Sum1' */
+  real_T Sum2;                         /* '<S1>/Sum2' */
+  real_T Sum3;                         /* '<S1>/Sum3' */
+  real_T Sum4;                         /* '<S1>/Sum4' */
+  real_T Sum5;                         /* '<S1>/Sum5' */
+  real_T Sum6;                         /* '<S1>/Sum6' */
 } B_mech_elec_T;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
-  real_T alpha_VSP1d_DWORK1;           /* '<S2>/alpha_VSP1,d' */
-  real_T u_VSP1d_DWORK1;               /* '<S2>/u_VSP1,d' */
-  real_T alpha_VSP2d_DWORK1;           /* '<S2>/alpha_VSP2,d' */
-  real_T u_VSP2d_DWORK1;               /* '<S2>/u_VSP2,d' */
-  real_T u_BTd_DWORK1;                 /* '<S2>/u_BT,d' */
-  real_T omega_VSP1d_DWORK1;           /* '<S2>/omega_VSP1,d' */
-  real_T omega_VSP2d_DWORK1;           /* '<S2>/omega_VSP2,d' */
-  real_T omega_VSP1_DWORK1;            /* '<S1>/omega_VSP1' */
-  real_T omega_VSP2_DWORK1;            /* '<S1>/omega_VSP2' */
-  real_T u_BT_DWORK1;                  /* '<S1>/u_BT' */
-  real_T alpha_VSP2_DWORK1;            /* '<S1>/alpha_VSP2' */
-  real_T u_VSP2_DWORK1;                /* '<S1>/u_VSP2' */
-  real_T u_VSP1_DWORK1;                /* '<S1>/u_VSP1' */
-  real_T alpha_VSP1_DWORK1;            /* '<S1>/alpha_VSP1' */
+  real_T enable_DWORK1;                /* '<Root>/enable' */
+  real_T alpha_VSP1d_DWORK1;           /* '<S3>/alpha_VSP1,d' */
+  real_T u_VSP1d_DWORK1;               /* '<S3>/u_VSP1,d' */
+  real_T alpha_VSP2d_DWORK1;           /* '<S3>/alpha_VSP2,d' */
+  real_T u_VSP2d_DWORK1;               /* '<S3>/u_VSP2,d' */
+  real_T u_BTd_DWORK1;                 /* '<S3>/u_BT,d' */
+  real_T omega_VSP1d_DWORK1;           /* '<S3>/omega_VSP1,d' */
+  real_T omega_VSP2d_DWORK1;           /* '<S3>/omega_VSP2,d' */
+  real_T omega_VSP1_DWORK1;            /* '<S2>/omega_VSP1' */
+  real_T omega_VSP2_DWORK1;            /* '<S2>/omega_VSP2' */
+  real_T u_BT_DWORK1;                  /* '<S2>/u_BT' */
+  real_T alpha_VSP2_DWORK1;            /* '<S2>/alpha_VSP2' */
+  real_T u_VSP2_DWORK1;                /* '<S2>/u_VSP2' */
+  real_T u_VSP1_DWORK1;                /* '<S2>/u_VSP1' */
+  real_T alpha_VSP1_DWORK1;            /* '<S2>/alpha_VSP1' */
   int32_T NIVeriStandSignalProbe_DWORK2;/* '<Root>/NIVeriStandSignalProbe' */
-  uint8_T alpha_VSP1d_DWORK2[10];      /* '<S2>/alpha_VSP1,d' */
-  uint8_T u_VSP1d_DWORK2[10];          /* '<S2>/u_VSP1,d' */
-  uint8_T alpha_VSP2d_DWORK2[10];      /* '<S2>/alpha_VSP2,d' */
-  uint8_T u_VSP2d_DWORK2[10];          /* '<S2>/u_VSP2,d' */
-  uint8_T u_BTd_DWORK2[10];            /* '<S2>/u_BT,d' */
-  uint8_T omega_VSP1d_DWORK2[10];      /* '<S2>/omega_VSP1,d' */
-  uint8_T omega_VSP2d_DWORK2[10];      /* '<S2>/omega_VSP2,d' */
-  uint8_T omega_VSP1_DWORK2[10];       /* '<S1>/omega_VSP1' */
-  uint8_T omega_VSP2_DWORK2[10];       /* '<S1>/omega_VSP2' */
-  uint8_T u_BT_DWORK2[10];             /* '<S1>/u_BT' */
-  uint8_T alpha_VSP2_DWORK2[10];       /* '<S1>/alpha_VSP2' */
-  uint8_T u_VSP2_DWORK2[10];           /* '<S1>/u_VSP2' */
-  uint8_T u_VSP1_DWORK2[10];           /* '<S1>/u_VSP1' */
-  uint8_T alpha_VSP1_DWORK2[10];       /* '<S1>/alpha_VSP1' */
+  uint8_T enable_DWORK2[10];           /* '<Root>/enable' */
+  uint8_T alpha_VSP1d_DWORK2[10];      /* '<S3>/alpha_VSP1,d' */
+  uint8_T u_VSP1d_DWORK2[10];          /* '<S3>/u_VSP1,d' */
+  uint8_T alpha_VSP2d_DWORK2[10];      /* '<S3>/alpha_VSP2,d' */
+  uint8_T u_VSP2d_DWORK2[10];          /* '<S3>/u_VSP2,d' */
+  uint8_T u_BTd_DWORK2[10];            /* '<S3>/u_BT,d' */
+  uint8_T omega_VSP1d_DWORK2[10];      /* '<S3>/omega_VSP1,d' */
+  uint8_T omega_VSP2d_DWORK2[10];      /* '<S3>/omega_VSP2,d' */
+  uint8_T omega_VSP1_DWORK2[10];       /* '<S2>/omega_VSP1' */
+  uint8_T omega_VSP2_DWORK2[10];       /* '<S2>/omega_VSP2' */
+  uint8_T u_BT_DWORK2[10];             /* '<S2>/u_BT' */
+  uint8_T alpha_VSP2_DWORK2[10];       /* '<S2>/alpha_VSP2' */
+  uint8_T u_VSP2_DWORK2[10];           /* '<S2>/u_VSP2' */
+  uint8_T u_VSP1_DWORK2[10];           /* '<S2>/u_VSP1' */
+  uint8_T alpha_VSP1_DWORK2[10];       /* '<S2>/alpha_VSP1' */
   uint8_T NIVeriStandSignalProbe_DWORK1[10];/* '<Root>/NIVeriStandSignalProbe' */
   uint8_T NIVeriStandSignalProbe_DWORK3[53];/* '<Root>/NIVeriStandSignalProbe' */
 } DW_mech_elec_T;
 
+/* Continuous states (auto storage) */
+typedef struct {
+  real_T Integrator6_CSTATE;           /* '<S1>/Integrator6' */
+  real_T Integrator5_CSTATE;           /* '<S1>/Integrator5' */
+  real_T Integrator4_CSTATE;           /* '<S1>/Integrator4' */
+  real_T Integrator3_CSTATE;           /* '<S1>/Integrator3' */
+  real_T Integrator2_CSTATE;           /* '<S1>/Integrator2' */
+  real_T Integrator1_CSTATE;           /* '<S1>/Integrator1' */
+  real_T Integrator_CSTATE;            /* '<S1>/Integrator' */
+} X_mech_elec_T;
+
+/* State derivatives (auto storage) */
+typedef struct {
+  real_T Integrator6_CSTATE;           /* '<S1>/Integrator6' */
+  real_T Integrator5_CSTATE;           /* '<S1>/Integrator5' */
+  real_T Integrator4_CSTATE;           /* '<S1>/Integrator4' */
+  real_T Integrator3_CSTATE;           /* '<S1>/Integrator3' */
+  real_T Integrator2_CSTATE;           /* '<S1>/Integrator2' */
+  real_T Integrator1_CSTATE;           /* '<S1>/Integrator1' */
+  real_T Integrator_CSTATE;            /* '<S1>/Integrator' */
+} XDot_mech_elec_T;
+
+/* State disabled  */
+typedef struct {
+  boolean_T Integrator6_CSTATE;        /* '<S1>/Integrator6' */
+  boolean_T Integrator5_CSTATE;        /* '<S1>/Integrator5' */
+  boolean_T Integrator4_CSTATE;        /* '<S1>/Integrator4' */
+  boolean_T Integrator3_CSTATE;        /* '<S1>/Integrator3' */
+  boolean_T Integrator2_CSTATE;        /* '<S1>/Integrator2' */
+  boolean_T Integrator1_CSTATE;        /* '<S1>/Integrator1' */
+  boolean_T Integrator_CSTATE;         /* '<S1>/Integrator' */
+} XDis_mech_elec_T;
+
+#ifndef ODE3_INTG
+#define ODE3_INTG
+
+/* ODE3 Integration Data */
+typedef struct {
+  real_T *y;                           /* output */
+  real_T *f[3];                        /* derivatives */
+} ODE3_IntgData;
+
+#endif
+
 /* Backward compatible GRT Identifiers */
 #define rtB                            mech_elec_B
 #define BlockIO                        B_mech_elec_T
+#define rtX                            mech_elec_X
+#define ContinuousStates               X_mech_elec_T
+#define rtXdot                         mech_elec_XDot
+#define StateDerivatives               XDot_mech_elec_T
+#define tXdis                          mech_elec_XDis
+#define StateDisabled                  XDis_mech_elec_T
 #define rtP                            mech_elec_P
 #define Parameters                     P_mech_elec_T
 #define rtDWork                        mech_elec_DW
@@ -826,257 +895,296 @@ typedef struct {
 
 /* Parameters (auto storage) */
 struct P_mech_elec_T_ {
+  real_T Integrator6_IC;               /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator6'
+                                        */
+  real_T Integrator5_IC;               /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator5'
+                                        */
+  real_T Integrator4_IC;               /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator4'
+                                        */
+  real_T Integrator3_IC;               /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator3'
+                                        */
+  real_T Integrator2_IC;               /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator2'
+                                        */
+  real_T Integrator1_IC;               /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator1'
+                                        */
+  real_T Integrator_IC;                /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator'
+                                        */
+  real_T enable_P1;                    /* Expression: width
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P2;                    /* Expression: dtype
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P3;                    /* Expression: portnum
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P4;                    /* Expression: stime
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P5;                    /* Expression: stype
+                                        * Referenced by: '<Root>/enable'
+                                        */
+  real_T enable_P6;                    /* Expression: btype
+                                        * Referenced by: '<Root>/enable'
+                                        */
   real_T alpha_VSP1d_P1;               /* Expression: width
-                                        * Referenced by: '<S2>/alpha_VSP1,d'
+                                        * Referenced by: '<S3>/alpha_VSP1,d'
                                         */
   real_T alpha_VSP1d_P2;               /* Expression: dtype
-                                        * Referenced by: '<S2>/alpha_VSP1,d'
+                                        * Referenced by: '<S3>/alpha_VSP1,d'
                                         */
   real_T alpha_VSP1d_P3;               /* Expression: portnum
-                                        * Referenced by: '<S2>/alpha_VSP1,d'
+                                        * Referenced by: '<S3>/alpha_VSP1,d'
                                         */
   real_T alpha_VSP1d_P4;               /* Expression: stime
-                                        * Referenced by: '<S2>/alpha_VSP1,d'
+                                        * Referenced by: '<S3>/alpha_VSP1,d'
                                         */
   real_T alpha_VSP1d_P5;               /* Expression: stype
-                                        * Referenced by: '<S2>/alpha_VSP1,d'
+                                        * Referenced by: '<S3>/alpha_VSP1,d'
                                         */
   real_T alpha_VSP1d_P6;               /* Expression: btype
-                                        * Referenced by: '<S2>/alpha_VSP1,d'
+                                        * Referenced by: '<S3>/alpha_VSP1,d'
                                         */
   real_T u_VSP1d_P1;                   /* Expression: width
-                                        * Referenced by: '<S2>/u_VSP1,d'
+                                        * Referenced by: '<S3>/u_VSP1,d'
                                         */
   real_T u_VSP1d_P2;                   /* Expression: dtype
-                                        * Referenced by: '<S2>/u_VSP1,d'
+                                        * Referenced by: '<S3>/u_VSP1,d'
                                         */
   real_T u_VSP1d_P3;                   /* Expression: portnum
-                                        * Referenced by: '<S2>/u_VSP1,d'
+                                        * Referenced by: '<S3>/u_VSP1,d'
                                         */
   real_T u_VSP1d_P4;                   /* Expression: stime
-                                        * Referenced by: '<S2>/u_VSP1,d'
+                                        * Referenced by: '<S3>/u_VSP1,d'
                                         */
   real_T u_VSP1d_P5;                   /* Expression: stype
-                                        * Referenced by: '<S2>/u_VSP1,d'
+                                        * Referenced by: '<S3>/u_VSP1,d'
                                         */
   real_T u_VSP1d_P6;                   /* Expression: btype
-                                        * Referenced by: '<S2>/u_VSP1,d'
+                                        * Referenced by: '<S3>/u_VSP1,d'
                                         */
   real_T alpha_VSP2d_P1;               /* Expression: width
-                                        * Referenced by: '<S2>/alpha_VSP2,d'
+                                        * Referenced by: '<S3>/alpha_VSP2,d'
                                         */
   real_T alpha_VSP2d_P2;               /* Expression: dtype
-                                        * Referenced by: '<S2>/alpha_VSP2,d'
+                                        * Referenced by: '<S3>/alpha_VSP2,d'
                                         */
   real_T alpha_VSP2d_P3;               /* Expression: portnum
-                                        * Referenced by: '<S2>/alpha_VSP2,d'
+                                        * Referenced by: '<S3>/alpha_VSP2,d'
                                         */
   real_T alpha_VSP2d_P4;               /* Expression: stime
-                                        * Referenced by: '<S2>/alpha_VSP2,d'
+                                        * Referenced by: '<S3>/alpha_VSP2,d'
                                         */
   real_T alpha_VSP2d_P5;               /* Expression: stype
-                                        * Referenced by: '<S2>/alpha_VSP2,d'
+                                        * Referenced by: '<S3>/alpha_VSP2,d'
                                         */
   real_T alpha_VSP2d_P6;               /* Expression: btype
-                                        * Referenced by: '<S2>/alpha_VSP2,d'
+                                        * Referenced by: '<S3>/alpha_VSP2,d'
                                         */
   real_T u_VSP2d_P1;                   /* Expression: width
-                                        * Referenced by: '<S2>/u_VSP2,d'
+                                        * Referenced by: '<S3>/u_VSP2,d'
                                         */
   real_T u_VSP2d_P2;                   /* Expression: dtype
-                                        * Referenced by: '<S2>/u_VSP2,d'
+                                        * Referenced by: '<S3>/u_VSP2,d'
                                         */
   real_T u_VSP2d_P3;                   /* Expression: portnum
-                                        * Referenced by: '<S2>/u_VSP2,d'
+                                        * Referenced by: '<S3>/u_VSP2,d'
                                         */
   real_T u_VSP2d_P4;                   /* Expression: stime
-                                        * Referenced by: '<S2>/u_VSP2,d'
+                                        * Referenced by: '<S3>/u_VSP2,d'
                                         */
   real_T u_VSP2d_P5;                   /* Expression: stype
-                                        * Referenced by: '<S2>/u_VSP2,d'
+                                        * Referenced by: '<S3>/u_VSP2,d'
                                         */
   real_T u_VSP2d_P6;                   /* Expression: btype
-                                        * Referenced by: '<S2>/u_VSP2,d'
+                                        * Referenced by: '<S3>/u_VSP2,d'
                                         */
   real_T u_BTd_P1;                     /* Expression: width
-                                        * Referenced by: '<S2>/u_BT,d'
+                                        * Referenced by: '<S3>/u_BT,d'
                                         */
   real_T u_BTd_P2;                     /* Expression: dtype
-                                        * Referenced by: '<S2>/u_BT,d'
+                                        * Referenced by: '<S3>/u_BT,d'
                                         */
   real_T u_BTd_P3;                     /* Expression: portnum
-                                        * Referenced by: '<S2>/u_BT,d'
+                                        * Referenced by: '<S3>/u_BT,d'
                                         */
   real_T u_BTd_P4;                     /* Expression: stime
-                                        * Referenced by: '<S2>/u_BT,d'
+                                        * Referenced by: '<S3>/u_BT,d'
                                         */
   real_T u_BTd_P5;                     /* Expression: stype
-                                        * Referenced by: '<S2>/u_BT,d'
+                                        * Referenced by: '<S3>/u_BT,d'
                                         */
   real_T u_BTd_P6;                     /* Expression: btype
-                                        * Referenced by: '<S2>/u_BT,d'
+                                        * Referenced by: '<S3>/u_BT,d'
                                         */
   real_T omega_VSP1d_P1;               /* Expression: width
-                                        * Referenced by: '<S2>/omega_VSP1,d'
+                                        * Referenced by: '<S3>/omega_VSP1,d'
                                         */
   real_T omega_VSP1d_P2;               /* Expression: dtype
-                                        * Referenced by: '<S2>/omega_VSP1,d'
+                                        * Referenced by: '<S3>/omega_VSP1,d'
                                         */
   real_T omega_VSP1d_P3;               /* Expression: portnum
-                                        * Referenced by: '<S2>/omega_VSP1,d'
+                                        * Referenced by: '<S3>/omega_VSP1,d'
                                         */
   real_T omega_VSP1d_P4;               /* Expression: stime
-                                        * Referenced by: '<S2>/omega_VSP1,d'
+                                        * Referenced by: '<S3>/omega_VSP1,d'
                                         */
   real_T omega_VSP1d_P5;               /* Expression: stype
-                                        * Referenced by: '<S2>/omega_VSP1,d'
+                                        * Referenced by: '<S3>/omega_VSP1,d'
                                         */
   real_T omega_VSP1d_P6;               /* Expression: btype
-                                        * Referenced by: '<S2>/omega_VSP1,d'
+                                        * Referenced by: '<S3>/omega_VSP1,d'
                                         */
   real_T omega_VSP2d_P1;               /* Expression: width
-                                        * Referenced by: '<S2>/omega_VSP2,d'
+                                        * Referenced by: '<S3>/omega_VSP2,d'
                                         */
   real_T omega_VSP2d_P2;               /* Expression: dtype
-                                        * Referenced by: '<S2>/omega_VSP2,d'
+                                        * Referenced by: '<S3>/omega_VSP2,d'
                                         */
   real_T omega_VSP2d_P3;               /* Expression: portnum
-                                        * Referenced by: '<S2>/omega_VSP2,d'
+                                        * Referenced by: '<S3>/omega_VSP2,d'
                                         */
   real_T omega_VSP2d_P4;               /* Expression: stime
-                                        * Referenced by: '<S2>/omega_VSP2,d'
+                                        * Referenced by: '<S3>/omega_VSP2,d'
                                         */
   real_T omega_VSP2d_P5;               /* Expression: stype
-                                        * Referenced by: '<S2>/omega_VSP2,d'
+                                        * Referenced by: '<S3>/omega_VSP2,d'
                                         */
   real_T omega_VSP2d_P6;               /* Expression: btype
-                                        * Referenced by: '<S2>/omega_VSP2,d'
+                                        * Referenced by: '<S3>/omega_VSP2,d'
                                         */
   real_T omega_VSP1_P1;                /* Expression: width
-                                        * Referenced by: '<S1>/omega_VSP1'
+                                        * Referenced by: '<S2>/omega_VSP1'
                                         */
   real_T omega_VSP1_P2;                /* Expression: dtype
-                                        * Referenced by: '<S1>/omega_VSP1'
+                                        * Referenced by: '<S2>/omega_VSP1'
                                         */
   real_T omega_VSP1_P3;                /* Expression: portnum
-                                        * Referenced by: '<S1>/omega_VSP1'
+                                        * Referenced by: '<S2>/omega_VSP1'
                                         */
   real_T omega_VSP1_P4;                /* Expression: stime
-                                        * Referenced by: '<S1>/omega_VSP1'
+                                        * Referenced by: '<S2>/omega_VSP1'
                                         */
   real_T omega_VSP1_P5;                /* Expression: stype
-                                        * Referenced by: '<S1>/omega_VSP1'
+                                        * Referenced by: '<S2>/omega_VSP1'
                                         */
   real_T omega_VSP1_P6;                /* Expression: btype
-                                        * Referenced by: '<S1>/omega_VSP1'
+                                        * Referenced by: '<S2>/omega_VSP1'
                                         */
   real_T omega_VSP2_P1;                /* Expression: width
-                                        * Referenced by: '<S1>/omega_VSP2'
+                                        * Referenced by: '<S2>/omega_VSP2'
                                         */
   real_T omega_VSP2_P2;                /* Expression: dtype
-                                        * Referenced by: '<S1>/omega_VSP2'
+                                        * Referenced by: '<S2>/omega_VSP2'
                                         */
   real_T omega_VSP2_P3;                /* Expression: portnum
-                                        * Referenced by: '<S1>/omega_VSP2'
+                                        * Referenced by: '<S2>/omega_VSP2'
                                         */
   real_T omega_VSP2_P4;                /* Expression: stime
-                                        * Referenced by: '<S1>/omega_VSP2'
+                                        * Referenced by: '<S2>/omega_VSP2'
                                         */
   real_T omega_VSP2_P5;                /* Expression: stype
-                                        * Referenced by: '<S1>/omega_VSP2'
+                                        * Referenced by: '<S2>/omega_VSP2'
                                         */
   real_T omega_VSP2_P6;                /* Expression: btype
-                                        * Referenced by: '<S1>/omega_VSP2'
+                                        * Referenced by: '<S2>/omega_VSP2'
                                         */
   real_T u_BT_P1;                      /* Expression: width
-                                        * Referenced by: '<S1>/u_BT'
+                                        * Referenced by: '<S2>/u_BT'
                                         */
   real_T u_BT_P2;                      /* Expression: dtype
-                                        * Referenced by: '<S1>/u_BT'
+                                        * Referenced by: '<S2>/u_BT'
                                         */
   real_T u_BT_P3;                      /* Expression: portnum
-                                        * Referenced by: '<S1>/u_BT'
+                                        * Referenced by: '<S2>/u_BT'
                                         */
   real_T u_BT_P4;                      /* Expression: stime
-                                        * Referenced by: '<S1>/u_BT'
+                                        * Referenced by: '<S2>/u_BT'
                                         */
   real_T u_BT_P5;                      /* Expression: stype
-                                        * Referenced by: '<S1>/u_BT'
+                                        * Referenced by: '<S2>/u_BT'
                                         */
   real_T u_BT_P6;                      /* Expression: btype
-                                        * Referenced by: '<S1>/u_BT'
+                                        * Referenced by: '<S2>/u_BT'
                                         */
   real_T alpha_VSP2_P1;                /* Expression: width
-                                        * Referenced by: '<S1>/alpha_VSP2'
+                                        * Referenced by: '<S2>/alpha_VSP2'
                                         */
   real_T alpha_VSP2_P2;                /* Expression: dtype
-                                        * Referenced by: '<S1>/alpha_VSP2'
+                                        * Referenced by: '<S2>/alpha_VSP2'
                                         */
   real_T alpha_VSP2_P3;                /* Expression: portnum
-                                        * Referenced by: '<S1>/alpha_VSP2'
+                                        * Referenced by: '<S2>/alpha_VSP2'
                                         */
   real_T alpha_VSP2_P4;                /* Expression: stime
-                                        * Referenced by: '<S1>/alpha_VSP2'
+                                        * Referenced by: '<S2>/alpha_VSP2'
                                         */
   real_T alpha_VSP2_P5;                /* Expression: stype
-                                        * Referenced by: '<S1>/alpha_VSP2'
+                                        * Referenced by: '<S2>/alpha_VSP2'
                                         */
   real_T alpha_VSP2_P6;                /* Expression: btype
-                                        * Referenced by: '<S1>/alpha_VSP2'
+                                        * Referenced by: '<S2>/alpha_VSP2'
                                         */
   real_T u_VSP2_P1;                    /* Expression: width
-                                        * Referenced by: '<S1>/u_VSP2'
+                                        * Referenced by: '<S2>/u_VSP2'
                                         */
   real_T u_VSP2_P2;                    /* Expression: dtype
-                                        * Referenced by: '<S1>/u_VSP2'
+                                        * Referenced by: '<S2>/u_VSP2'
                                         */
   real_T u_VSP2_P3;                    /* Expression: portnum
-                                        * Referenced by: '<S1>/u_VSP2'
+                                        * Referenced by: '<S2>/u_VSP2'
                                         */
   real_T u_VSP2_P4;                    /* Expression: stime
-                                        * Referenced by: '<S1>/u_VSP2'
+                                        * Referenced by: '<S2>/u_VSP2'
                                         */
   real_T u_VSP2_P5;                    /* Expression: stype
-                                        * Referenced by: '<S1>/u_VSP2'
+                                        * Referenced by: '<S2>/u_VSP2'
                                         */
   real_T u_VSP2_P6;                    /* Expression: btype
-                                        * Referenced by: '<S1>/u_VSP2'
+                                        * Referenced by: '<S2>/u_VSP2'
                                         */
   real_T u_VSP1_P1;                    /* Expression: width
-                                        * Referenced by: '<S1>/u_VSP1'
+                                        * Referenced by: '<S2>/u_VSP1'
                                         */
   real_T u_VSP1_P2;                    /* Expression: dtype
-                                        * Referenced by: '<S1>/u_VSP1'
+                                        * Referenced by: '<S2>/u_VSP1'
                                         */
   real_T u_VSP1_P3;                    /* Expression: portnum
-                                        * Referenced by: '<S1>/u_VSP1'
+                                        * Referenced by: '<S2>/u_VSP1'
                                         */
   real_T u_VSP1_P4;                    /* Expression: stime
-                                        * Referenced by: '<S1>/u_VSP1'
+                                        * Referenced by: '<S2>/u_VSP1'
                                         */
   real_T u_VSP1_P5;                    /* Expression: stype
-                                        * Referenced by: '<S1>/u_VSP1'
+                                        * Referenced by: '<S2>/u_VSP1'
                                         */
   real_T u_VSP1_P6;                    /* Expression: btype
-                                        * Referenced by: '<S1>/u_VSP1'
+                                        * Referenced by: '<S2>/u_VSP1'
                                         */
   real_T alpha_VSP1_P1;                /* Expression: width
-                                        * Referenced by: '<S1>/alpha_VSP1'
+                                        * Referenced by: '<S2>/alpha_VSP1'
                                         */
   real_T alpha_VSP1_P2;                /* Expression: dtype
-                                        * Referenced by: '<S1>/alpha_VSP1'
+                                        * Referenced by: '<S2>/alpha_VSP1'
                                         */
   real_T alpha_VSP1_P3;                /* Expression: portnum
-                                        * Referenced by: '<S1>/alpha_VSP1'
+                                        * Referenced by: '<S2>/alpha_VSP1'
                                         */
   real_T alpha_VSP1_P4;                /* Expression: stime
-                                        * Referenced by: '<S1>/alpha_VSP1'
+                                        * Referenced by: '<S2>/alpha_VSP1'
                                         */
   real_T alpha_VSP1_P5;                /* Expression: stype
-                                        * Referenced by: '<S1>/alpha_VSP1'
+                                        * Referenced by: '<S2>/alpha_VSP1'
                                         */
   real_T alpha_VSP1_P6;                /* Expression: btype
-                                        * Referenced by: '<S1>/alpha_VSP1'
+                                        * Referenced by: '<S2>/alpha_VSP1'
                                         */
   real_T NIVeriStandSignalProbe_P1;    /* Expression: 1
                                         * Referenced by: '<Root>/NIVeriStandSignalProbe'
@@ -1115,6 +1223,9 @@ struct tag_RTM_mech_elec_T {
     boolean_T zCCacheNeedsReset;
     boolean_T derivCacheNeedsReset;
     boolean_T blkStateChange;
+    real_T odeY[7];
+    real_T odeF[3][7];
+    ODE3_IntgData intgData;
     void *dwork;
   } ModelData;
 
@@ -1164,6 +1275,9 @@ struct tag_RTM_mech_elec_T {
     uint32_T clockTick0;
     uint32_T clockTickH0;
     time_T stepSize0;
+    uint32_T clockTick1;
+    uint32_T clockTickH1;
+    time_T stepSize1;
     time_T tStart;
     time_T tFinal;
     time_T timeOfLastOutput;
@@ -1177,12 +1291,12 @@ struct tag_RTM_mech_elec_T {
     int_T *sampleHits;
     int_T *perTaskSampleHits;
     time_T *t;
-    time_T sampleTimesArray[1];
-    time_T offsetTimesArray[1];
-    int_T sampleTimeTaskIDArray[1];
-    int_T sampleHitArray[1];
-    int_T perTaskSampleHitsArray[1];
-    time_T tArray[1];
+    time_T sampleTimesArray[2];
+    time_T offsetTimesArray[2];
+    int_T sampleTimeTaskIDArray[2];
+    int_T sampleHitArray[2];
+    int_T perTaskSampleHitsArray[4];
+    time_T tArray[2];
   } Timing;
 };
 
@@ -1192,8 +1306,17 @@ extern P_mech_elec_T mech_elec_P;
 /* Block signals (auto storage) */
 extern B_mech_elec_T mech_elec_B;
 
+/* Continuous states (auto storage) */
+extern X_mech_elec_T mech_elec_X;
+
 /* Block states (auto storage) */
 extern DW_mech_elec_T mech_elec_DW;
+
+/* Model entry point functions */
+extern void mech_elec_initialize(void);
+extern void mech_elec_output(void);
+extern void mech_elec_update(void);
+extern void mech_elec_terminate(void);
 
 /* Real-time Model object */
 extern RT_MODEL_mech_elec_T *const mech_elec_M;
@@ -1213,11 +1336,58 @@ extern RT_MODEL_mech_elec_T *const mech_elec_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'mech_elec'
- * '<S1>'   : 'mech_elec/u'
- * '<S2>'   : 'mech_elec/u_d'
+ * '<S1>'   : 'mech_elec/emulate mechanical and electrical system'
+ * '<S2>'   : 'mech_elec/u'
+ * '<S3>'   : 'mech_elec/u_d'
  */
 #endif                                 /* RTW_HEADER_mech_elec_h_ */
 
 /*========================================================================*
  * NI VeriStand Generated Code                                            *
  *========================================================================**/
+#define NI_SIT_PARAMS
+#ifdef NI_ROOTMODEL_mech_elec
+#ifndef NI_VERISTAND_MODELDATAFILE
+#ifdef NI_VERISTAND_MAINMODELFILE
+
+int READSIDE = 0;
+int tid = 0;
+
+#ifdef MULTITASKING
+
+P_mech_elec_T rtParameter[NUMST+!TID01EQ];
+P_mech_elec_T *param_lookup[NUMST][2] = {
+  { &rtParameter[0], &rtParameter[1] },
+
+  { &rtParameter[0], &rtParameter[1] },
+};
+
+#else
+
+P_mech_elec_T rtParameter[2];
+
+#endif
+
+#else
+
+extern int READSIDE;
+
+#ifdef MULTITASKING
+
+extern int tid;
+extern P_mech_elec_T* param_lookup[NUMST][2];
+
+#else
+
+extern P_mech_elec_T rtParameter[];
+
+#endif
+#endif
+
+#ifdef MULTITASKING
+#define mech_elec_P                    (*param_lookup[tid][READSIDE])
+#else
+#define mech_elec_P                    rtParameter[READSIDE]
+#endif
+#endif
+#endif

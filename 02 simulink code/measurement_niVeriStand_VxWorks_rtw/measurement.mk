@@ -152,8 +152,8 @@ MATLAB_INCLUDES := $(MATLAB_INCLUDES) -I$(MATLAB_ROOT)\rtw\c\src\ext_mode\common
 # Additional file include paths
 
 
-MATLAB_INCLUDES := $(MATLAB_INCLUDES) -IC:\Users\mclab\DOCUME~1\GitHub\CS_ENT~1\06CSE1~1\measurement_niVeriStand_VxWorks_rtw
-MATLAB_INCLUDES := $(MATLAB_INCLUDES) -IC:\Users\mclab\DOCUME~1\GitHub\CS_ENT~1\06CSE1~1
+MATLAB_INCLUDES := $(MATLAB_INCLUDES) -IC:\Users\mclab\DOCUME~1\GitHub\CS_ENT~1\02SIMU~1\measurement_niVeriStand_VxWorks_rtw
+MATLAB_INCLUDES := $(MATLAB_INCLUDES) -IC:\Users\mclab\DOCUME~1\GitHub\CS_ENT~1\02SIMU~1
 
 INCLUDE := -I$(RELATIVE_PATH_TO_ANCHOR) $(MATLAB_INCLUDES) $(MODELREF_INC_PATH) -I$(NIVERISTAND_ROOT)/ModelInterface/ $(COMPILER_INCLUDES) -I.
 ifneq "$(SHARED_SRC_DIR)" ""

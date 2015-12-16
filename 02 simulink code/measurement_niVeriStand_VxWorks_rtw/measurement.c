@@ -3,9 +3,9 @@
  *
  * Code generation for model "measurement".
  *
- * Model version              : 1.8
+ * Model version              : 1.9
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Fri Nov 27 15:17:10 2015
+ * C source code generated on : Wed Dec 16 16:08:37 2015
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -128,6 +128,27 @@ static void measurement_output(void)
   }
 
   /* End of MATLAB Function: '<S2>/MATLAB Function1' */
+
+  /* Switch: '<Root>/Switch' */
+  if (measurement_B.enable != 0.0) {
+    measurement_B.Switch[0] = measurement_B.output[0];
+  } else {
+    measurement_B.Switch[0] = measurement_B.x;
+  }
+
+  if (measurement_B.enable != 0.0) {
+    measurement_B.Switch[1] = measurement_B.output[1];
+  } else {
+    measurement_B.Switch[1] = measurement_B.y;
+  }
+
+  if (measurement_B.enable != 0.0) {
+    measurement_B.Switch[2] = measurement_B.output[2];
+  } else {
+    measurement_B.Switch[2] = measurement_B.psi;
+  }
+
+  /* End of Switch: '<Root>/Switch' */
 }
 
 /* Model update function */
@@ -403,9 +424,9 @@ RT_MODEL_measurement_T *measurement(void)
   measurement_M->Sizes.numU = (0);     /* Number of model inputs */
   measurement_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   measurement_M->Sizes.numSampTimes = (1);/* Number of sample times */
-  measurement_M->Sizes.numBlocks = (29);/* Number of blocks */
-  measurement_M->Sizes.numBlockIO = (8);/* Number of block outputs */
-  measurement_M->Sizes.numBlockPrms = (66);/* Sum of parameter "widths" */
+  measurement_M->Sizes.numBlocks = (31);/* Number of blocks */
+  measurement_M->Sizes.numBlockIO = (10);/* Number of block outputs */
+  measurement_M->Sizes.numBlockPrms = (72);/* Sum of parameter "widths" */
   return measurement_M;
 }
 
@@ -618,11 +639,18 @@ void SetExternalInputs(double* data, int* TaskSampleHit)
   } else {
     index += 1;
   }
+
+  // enable
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&measurement_B.enable, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
 }                                      /* of SetExternalInputs */
 
 long NumInputPorts(void)
 {
-  return 6;
+  return 7;
 }
 
 double ni_extout[3];
@@ -632,21 +660,21 @@ void SetExternalOutputs(double* data, int* TaskSampleHit)
 
   // pose measured/x_m: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.output,0,18,0);
+    ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.Switch,0,18,0);
   } else {
     index += 1;
   }
 
   // pose measured/y_m: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.output,1,18,0);
+    ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.Switch,1,18,0);
   } else {
     index += 1;
   }
 
   // pose measured/psi_m: Virtual Signal # 0
   if (TaskSampleHit[0]) {              // sample and hold
-    ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.output,2,18,0);
+    ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.Switch,2,18,0);
   } else {
     index += 1;
   }
@@ -665,13 +693,13 @@ int NI_InitExternalOutputs()
   int index = 0, count = 0;
 
   // pose measured/x_m: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.output,0,18,0);
+  ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.Switch,0,18,0);
 
   // pose measured/y_m: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.output,1,18,0);
+  ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.Switch,1,18,0);
 
   // pose measured/psi_m: Virtual Signal # 0
-  ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.output,2,18,0);
+  ni_extout[index++] = NIRT_GetValueByDataType(&measurement_B.Switch,2,18,0);
   return NI_OK;
 }
 
@@ -757,30 +785,43 @@ static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
   { 5, "measurement/pose/y", 0, "", offsetof(B_measurement_T, y)+0*sizeof(real_T),
     BLOCKIO_SIG, 0, 1, 2, 10, 0 },
 
-  { 6, "measurement/Sample & hold/MATLAB Function1", 0, "output(1,1)", offsetof
-    (B_measurement_T, output)+0*sizeof(real_T), BLOCKIO_SIG, 18, 1, 2, 12, 0 },
+  { 6, "measurement/enable", 0, "", offsetof(B_measurement_T, enable)+0*sizeof
+    (real_T), BLOCKIO_SIG, 0, 1, 2, 12, 0 },
 
-  { 7, "measurement/Sample & hold/MATLAB Function1", 0, "output(1,2)", offsetof
-    (B_measurement_T, output)+1*sizeof(real_T), BLOCKIO_SIG, 18, 1, 2, 14, 0 },
+  { 7, "measurement/Switch", 0, "(1,1)", offsetof(B_measurement_T, Switch)+0*
+    sizeof(real_T), BLOCKIO_SIG, 18, 1, 2, 14, 0 },
 
-  { 8, "measurement/Sample & hold/MATLAB Function1", 0, "output(1,3)", offsetof
-    (B_measurement_T, output)+2*sizeof(real_T), BLOCKIO_SIG, 18, 1, 2, 16, 0 },
+  { 8, "measurement/Switch", 0, "(1,2)", offsetof(B_measurement_T, Switch)+1*
+    sizeof(real_T), BLOCKIO_SIG, 18, 1, 2, 16, 0 },
 
-  { 9, "measurement/Downsamplesignal/MATLAB Function", 0, "count", offsetof
-    (B_measurement_T, count)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 18, 0 },
+  { 9, "measurement/Switch", 0, "(1,3)", offsetof(B_measurement_T, Switch)+2*
+    sizeof(real_T), BLOCKIO_SIG, 18, 1, 2, 18, 0 },
+
+  { 10, "measurement/Sample & hold/MATLAB Function1", 0, "output(1,1)", offsetof
+    (B_measurement_T, output)+0*sizeof(real_T), BLOCKIO_SIG, 18, 1, 2, 20, 0 },
+
+  { 11, "measurement/Sample & hold/MATLAB Function1", 0, "output(1,2)", offsetof
+    (B_measurement_T, output)+1*sizeof(real_T), BLOCKIO_SIG, 18, 1, 2, 22, 0 },
+
+  { 12, "measurement/Sample & hold/MATLAB Function1", 0, "output(1,3)", offsetof
+    (B_measurement_T, output)+2*sizeof(real_T), BLOCKIO_SIG, 18, 1, 2, 24, 0 },
+
+  { 13, "measurement/Downsamplesignal/MATLAB Function", 0, "count", offsetof
+    (B_measurement_T, count)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 26, 0 },
 
   { -1, "", -1, "", 0, 0, 0 }
 };
 
-static int NI_SigListSize DataSection(".NIVS.siglistsize") = 10;
+static int NI_SigListSize DataSection(".NIVS.siglistsize") = 14;
 static int NI_VirtualBlockSources[1][1];
 static int NI_VirtualBlockOffsets[1][1];
 static int NI_VirtualBlockLengths[1][1];
 static int NI_SigDimList[] DataSection(".NIVS.sigdimlist") =
 {
-  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, };
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+  1, 1, };
 
-static long NI_ExtListSize DataSection(".NIVS.extlistsize") = 9;
+static long NI_ExtListSize DataSection(".NIVS.extlistsize") = 10;
 static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 {
   { 0, "Noise power position", 0, EXT_IN, 1, 1, 1 },
@@ -794,6 +835,8 @@ static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
   { 4, "pose/psi", 0, EXT_IN, 1, 1, 1 },
 
   { 5, "pose/y", 0, EXT_IN, 1, 1, 1 },
+
+  { 6, "enable", 0, EXT_IN, 1, 1, 1 },
 
   { 0, "pose measured/x_m", 0, EXT_OUT, 1, 1, 1 },
 
@@ -817,8 +860,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "measurement";
-static char* NI_CompiledModelVersion = "1.8";
-static char* NI_CompiledModelDateTime = "Fri Nov 27 15:17:09 2015";
+static char* NI_CompiledModelVersion = "1.9";
+static char* NI_CompiledModelDateTime = "Wed Dec 16 16:08:37 2015";
 static char* NI_builder DataSection(".NIVS.builder") =
   "NI VeriStand 2014.0.0.82 (2014) RTW Build";
 static char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
@@ -1380,7 +1423,7 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
   if (numContStates && numDiscStates && numClockTicks) {
     if (*numContStates < 0 || *numDiscStates < 0 || *numClockTicks < 0) {
       *numContStates = 0;
-      *numDiscStates = 127;
+      *numDiscStates = 140;
       *numClockTicks = NUMST - TID01EQ;
       return NI_OK;
     }
@@ -1397,6 +1440,10 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
     strcpy(discStatesNames + (idx++ * 100),
            "&measurement_DW.Samplingfrequency_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
+      (&measurement_DW.Noisepowerheading_DWORK1, 0, 0, 0);
+    strcpy(discStatesNames + (idx++ * 100),
+           "&measurement_DW.Noisepowerheading_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType
       (&measurement_DW.counter_PreviousInput, 0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100),
            "&measurement_DW.counter_PreviousInput");
@@ -1406,10 +1453,6 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
     discStates[idx] = NIRT_GetValueByDataType(&measurement_DW.NextOutput_n, 0, 0,
       0);
     strcpy(discStatesNames + (idx++ * 100), "&measurement_DW.NextOutput_n");
-    discStates[idx] = NIRT_GetValueByDataType
-      (&measurement_DW.Noisepowerheading_DWORK1, 0, 0, 0);
-    strcpy(discStatesNames + (idx++ * 100),
-           "&measurement_DW.Noisepowerheading_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&measurement_DW.NextOutput_c, 0, 0,
       0);
     strcpy(discStatesNames + (idx++ * 100), "&measurement_DW.NextOutput_c");
@@ -1429,6 +1472,9 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
     discStates[idx] = NIRT_GetValueByDataType(&measurement_DW.Hold_PreviousInput,
       2, 18, 0);
     strcpy(discStatesNames + (idx++ * 100), "&measurement_DW.Hold_PreviousInput");
+    discStates[idx] = NIRT_GetValueByDataType(&measurement_DW.enable_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&measurement_DW.enable_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&measurement_DW.x_m_DWORK1, 0, 0,
       0);
     strcpy(discStatesNames + (idx++ * 100), "&measurement_DW.x_m_DWORK1");
@@ -1486,6 +1532,12 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
     }
 
     for (count = 0; count < 12; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&measurement_DW.enable_DWORK2,
+        count, 17, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&measurement_DW.enable_DWORK2");
+    }
+
+    for (count = 0; count < 12; count++) {
       discStates[idx] = NIRT_GetValueByDataType(&measurement_DW.x_m_DWORK2,
         count, 17, 0);
       strcpy(discStatesNames + (idx++ * 100), "&measurement_DW.x_m_DWORK2");
@@ -1522,14 +1574,14 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&measurement_DW.Samplingfrequency_DWORK1, 0,
       discStates[idx++], 0, 0);
+    NIRT_SetValueByDataType(&measurement_DW.Noisepowerheading_DWORK1, 0,
+      discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&measurement_DW.counter_PreviousInput, 0,
       discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&measurement_DW.NextOutput, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&measurement_DW.NextOutput_n, 0, discStates[idx++],
       0, 0);
-    NIRT_SetValueByDataType(&measurement_DW.Noisepowerheading_DWORK1, 0,
-      discStates[idx++], 0, 0);
     NIRT_SetValueByDataType(&measurement_DW.NextOutput_c, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&measurement_DW.x_DWORK1, 0, discStates[idx++], 0, 0);
@@ -1542,6 +1594,8 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
       discStates[idx++], 18, 0);
     NIRT_SetValueByDataType(&measurement_DW.Hold_PreviousInput, 2,
       discStates[idx++], 18, 0);
+    NIRT_SetValueByDataType(&measurement_DW.enable_DWORK1, 0, discStates[idx++],
+      0, 0);
     NIRT_SetValueByDataType(&measurement_DW.x_m_DWORK1, 0, discStates[idx++], 0,
       0);
     NIRT_SetValueByDataType(&measurement_DW.y_m_DWORK1, 0, discStates[idx++], 0,
@@ -1581,6 +1635,11 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
     for (count = 0; count < 12; count++) {
       NIRT_SetValueByDataType(&measurement_DW.y_DWORK2, count, discStates[idx++],
         17, 0);
+    }
+
+    for (count = 0; count < 12; count++) {
+      NIRT_SetValueByDataType(&measurement_DW.enable_DWORK2, count,
+        discStates[idx++], 17, 0);
     }
 
     for (count = 0; count < 12; count++) {

@@ -10,7 +10,7 @@
 				<String>CSE1</String>
 			</Property>
 			<Property Name="Version">
-				<String>1.0.0.39</String>
+				<String>1.0.0.43</String>
 			</Property>
 			<Property Name="Creator">
 				<String />
@@ -3160,10 +3160,10 @@
 									<Double>10000</Double>
 								</Property>
 								<Property Name="DLL Size">
-									<I32>197823</I32>
+									<I32>202731</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3532509306.2473545</Double>
+									<Double>3533121572.6849484</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -3207,7 +3207,7 @@
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\ctrl_student.out</RTDestination>
 										<SupportedTarget>VxWorks</SupportedTarget>
-										<MD5>5a378e5fed189ae355947ecdf6b2c3bf</MD5>
+										<MD5>e8223f1f89ce5b2761deb7f439b248ce</MD5>
 									</DependentFile>
 								</Property>
 								<Property Name="GlobalParameterScopes">
@@ -3346,14 +3346,49 @@
 										<Description />
 										<Properties />
 										<Errors />
-										<Channel Name="reset" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+									</Section>
+									<Section Name="K_4" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
+										<Description />
+										<Properties />
+										<Errors />
+										<Channel Name="K_4,psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
 											<Description />
 											<Properties>
 												<Property Name="Model Path">
-													<String>Observer/Nonlinear Passisve Observer/reset</String>
+													<String>Observer/K_4/K_4,psi</String>
 												</Property>
 												<Property Name="Index">
-													<I32>3</I32>
+													<I32>4</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="K_4,x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/K_4/K_4,x</String>
+												</Property>
+												<Property Name="Index">
+													<I32>5</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="K_4,y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/K_4/K_4,y</String>
+												</Property>
+												<Property Name="Index">
+													<I32>6</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3362,6 +3397,121 @@
 											</DefaultValue>
 										</Channel>
 									</Section>
+									<Section Name="K_2" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
+										<Description />
+										<Properties />
+										<Errors />
+										<Channel Name="K_2,x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/K_2/K_2,x</String>
+												</Property>
+												<Property Name="Index">
+													<I32>7</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="K_2,y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/K_2/K_2,y</String>
+												</Property>
+												<Property Name="Index">
+													<I32>8</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="K_2,psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/K_2/K_2,psi</String>
+												</Property>
+												<Property Name="Index">
+													<I32>9</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+									</Section>
+									<Section Name="K_3" TypeGUID="cbfdde93-6581-4b7c-83b8-e88484f25b2e">
+										<Description />
+										<Properties />
+										<Errors />
+										<Channel Name="K_3,psi" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/K_3/K_3,psi</String>
+												</Property>
+												<Property Name="Index">
+													<I32>10</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="K_3,x" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/K_3/K_3,x</String>
+												</Property>
+												<Property Name="Index">
+													<I32>11</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+										<Channel Name="K_3,y" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+											<Description />
+											<Properties>
+												<Property Name="Model Path">
+													<String>Observer/K_3/K_3,y</String>
+												</Property>
+												<Property Name="Index">
+													<I32>12</I32>
+												</Property>
+											</Properties>
+											<Errors />
+											<DefaultValue>
+												<Elem>0</Elem>
+											</DefaultValue>
+										</Channel>
+									</Section>
+									<Channel Name="reset" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+										<Description />
+										<Properties>
+											<Property Name="Model Path">
+												<String>Observer/reset</String>
+											</Property>
+											<Property Name="Index">
+												<I32>3</I32>
+											</Property>
+										</Properties>
+										<Errors />
+										<DefaultValue>
+											<Elem>0</Elem>
+										</DefaultValue>
+									</Channel>
 								</Section>
 							</Section>
 							<Section Name="Outports" TypeGUID="03D3B9F3-1485-13A6-5698C14838D6AA3C">
@@ -3379,7 +3529,7 @@
 												<String>u/alpha_VSP2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>5</I32>
+												<I32>14</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3394,7 +3544,7 @@
 												<String>u/omega_VSP1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>6</I32>
+												<I32>15</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3409,7 +3559,7 @@
 												<String>u/omega_VSP2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>7</I32>
+												<I32>16</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3424,7 +3574,7 @@
 												<String>u/alpha_VSP1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>8</I32>
+												<I32>17</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3439,7 +3589,7 @@
 												<String>u/u_BT</String>
 											</Property>
 											<Property Name="Index">
-												<I32>9</I32>
+												<I32>18</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3454,7 +3604,7 @@
 												<String>u/u_VSP1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>10</I32>
+												<I32>19</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3469,7 +3619,7 @@
 												<String>u/u_VSP2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>11</I32>
+												<I32>20</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -3518,7 +3668,7 @@
 													<String>Observer/b_hat/b_x_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>12</I32>
+													<I32>21</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3533,7 +3683,7 @@
 													<String>Observer/b_hat/b_y_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>13</I32>
+													<I32>22</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3548,7 +3698,7 @@
 													<String>Observer/b_hat/b_psi_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>14</I32>
+													<I32>23</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3568,7 +3718,7 @@
 													<String>Observer/eta_hat/x_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>15</I32>
+													<I32>24</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3583,7 +3733,7 @@
 													<String>Observer/eta_hat/y_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>16</I32>
+													<I32>25</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3598,7 +3748,7 @@
 													<String>Observer/eta_hat/psi_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>17</I32>
+													<I32>26</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3618,7 +3768,7 @@
 													<String>Observer/nu_dot_hat/u_dot_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>18</I32>
+													<I32>27</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3633,7 +3783,7 @@
 													<String>Observer/nu_dot_hat/v_dot_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>19</I32>
+													<I32>28</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3648,7 +3798,7 @@
 													<String>Observer/nu_dot_hat/r_dot_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>20</I32>
+													<I32>29</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3668,7 +3818,7 @@
 													<String>Observer/nu_hat/u_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>21</I32>
+													<I32>30</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3683,7 +3833,7 @@
 													<String>Observer/nu_hat/v_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>22</I32>
+													<I32>31</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3698,7 +3848,7 @@
 													<String>Observer/nu_hat/r_hat</String>
 												</Property>
 												<Property Name="Index">
-													<I32>23</I32>
+													<I32>32</I32>
 												</Property>
 											</Properties>
 											<Errors />
@@ -3715,7 +3865,7 @@
 											<String>control input u exceeds bounds</String>
 										</Property>
 										<Property Name="Index">
-											<I32>4</I32>
+											<I32>13</I32>
 										</Property>
 									</Properties>
 									<Errors />
@@ -4666,10 +4816,10 @@
 									<Double>10000</Double>
 								</Property>
 								<Property Name="DLL Size">
-									<I32>130857</I32>
+									<I32>133069</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3531478643.0526724</Double>
+									<Double>3533123324.4121037</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -4713,7 +4863,7 @@
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\measurement.out</RTDestination>
 										<SupportedTarget>VxWorks</SupportedTarget>
-										<MD5>af39ab14a8ed53cf6ddc0607f3b7e5cc</MD5>
+										<MD5>5a0ee5ccb7bb0fb81cf71d93446bbe0f</MD5>
 									</DependentFile>
 								</Property>
 								<Property Name="GlobalParameterScopes">
@@ -4876,6 +5026,21 @@
 										<Elem>0</Elem>
 									</DefaultValue>
 								</Channel>
+								<Channel Name="enable" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+									<Description />
+									<Properties>
+										<Property Name="Model Path">
+											<String>enable</String>
+										</Property>
+										<Property Name="Index">
+											<I32>6</I32>
+										</Property>
+									</Properties>
+									<Errors />
+									<DefaultValue>
+										<Elem>0</Elem>
+									</DefaultValue>
+								</Channel>
 							</Section>
 							<Section Name="Outports" TypeGUID="03D3B9F3-1485-13A6-5698C14838D6AA3C">
 								<Description />
@@ -4897,7 +5062,7 @@
 												<String>pose measured/x_m</String>
 											</Property>
 											<Property Name="Index">
-												<I32>6</I32>
+												<I32>7</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -4912,7 +5077,7 @@
 												<String>pose measured/y_m</String>
 											</Property>
 											<Property Name="Index">
-												<I32>7</I32>
+												<I32>8</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -4927,7 +5092,7 @@
 												<String>pose measured/psi_m</String>
 											</Property>
 											<Property Name="Index">
-												<I32>8</I32>
+												<I32>9</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5451,10 +5616,10 @@
 									<Double>10000</Double>
 								</Property>
 								<Property Name="DLL Size">
-									<I32>119082</I32>
+									<I32>140015</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3533121638.6305423</Double>
+									<Double>3533124325.4181943</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -5498,7 +5663,7 @@
 										<ForceDownload>false</ForceDownload>
 										<RTDestination>c:\ni-rt\system\mech_elec.out</RTDestination>
 										<SupportedTarget>VxWorks</SupportedTarget>
-										<MD5>0cef2b69fd2edfd0eb0067b47c2b30c3</MD5>
+										<MD5>a7628102e0cd31f5afcbcb046f7294bf</MD5>
 									</DependentFile>
 								</Property>
 								<Property Name="GlobalParameterScopes">
@@ -5568,7 +5733,7 @@
 												<String>u_d/alpha_VSP1,d</String>
 											</Property>
 											<Property Name="Index">
-												<I32>0</I32>
+												<I32>1</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_d/alpha_VSP1,d" />
@@ -5586,7 +5751,7 @@
 												<String>u_d/u_VSP1,d</String>
 											</Property>
 											<Property Name="Index">
-												<I32>1</I32>
+												<I32>2</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_d/u_VSP1,d" />
@@ -5604,7 +5769,7 @@
 												<String>u_d/alpha_VSP2,d</String>
 											</Property>
 											<Property Name="Index">
-												<I32>2</I32>
+												<I32>3</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_d/alpha_VSP2,d" />
@@ -5622,7 +5787,7 @@
 												<String>u_d/u_VSP2,d</String>
 											</Property>
 											<Property Name="Index">
-												<I32>3</I32>
+												<I32>4</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_d/u_VSP2,d" />
@@ -5640,7 +5805,7 @@
 												<String>u_d/u_BT,d</String>
 											</Property>
 											<Property Name="Index">
-												<I32>4</I32>
+												<I32>5</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_d/u_BT,d" />
@@ -5658,7 +5823,7 @@
 												<String>u_d/omega_VSP1,d</String>
 											</Property>
 											<Property Name="Index">
-												<I32>5</I32>
+												<I32>6</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_d/omega_VSP1,d" />
@@ -5676,7 +5841,7 @@
 												<String>u_d/omega_VSP2,d</String>
 											</Property>
 											<Property Name="Index">
-												<I32>6</I32>
+												<I32>7</I32>
 											</Property>
 											<Property Name="DataSource">
 												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/ctrl_switch/Outports/u_d/omega_VSP2,d" />
@@ -5688,6 +5853,21 @@
 										</DefaultValue>
 									</Channel>
 								</Section>
+								<Channel Name="enable" TypeGUID="03D3B985-1485-13A6-56FC3200A1C00087" RowDim="1" ColDim="1" Units="" BitFields="7">
+									<Description />
+									<Properties>
+										<Property Name="Model Path">
+											<String>enable</String>
+										</Property>
+										<Property Name="Index">
+											<I32>0</I32>
+										</Property>
+									</Properties>
+									<Errors />
+									<DefaultValue>
+										<Elem>0</Elem>
+									</DefaultValue>
+								</Channel>
 							</Section>
 							<Section Name="Outports" TypeGUID="03D3B9F3-1485-13A6-5698C14838D6AA3C">
 								<Description />
@@ -5704,7 +5884,7 @@
 												<String>u/omega_VSP1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>7</I32>
+												<I32>8</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5719,7 +5899,7 @@
 												<String>u/omega_VSP2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>8</I32>
+												<I32>9</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5734,7 +5914,7 @@
 												<String>u/u_BT</String>
 											</Property>
 											<Property Name="Index">
-												<I32>9</I32>
+												<I32>10</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5749,7 +5929,7 @@
 												<String>u/alpha_VSP2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>10</I32>
+												<I32>11</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5764,7 +5944,7 @@
 												<String>u/u_VSP2</String>
 											</Property>
 											<Property Name="Index">
-												<I32>11</I32>
+												<I32>12</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5779,7 +5959,7 @@
 												<String>u/u_VSP1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>12</I32>
+												<I32>13</I32>
 											</Property>
 										</Properties>
 										<Errors />
@@ -5794,7 +5974,7 @@
 												<String>u/alpha_VSP1</String>
 											</Property>
 											<Property Name="Index">
-												<I32>13</I32>
+												<I32>14</I32>
 											</Property>
 										</Properties>
 										<Errors />

@@ -10,7 +10,7 @@
 				<String>CSE1</String>
 			</Property>
 			<Property Name="Version">
-				<String>1.0.0.38</String>
+				<String>1.0.0.39</String>
 			</Property>
 			<Property Name="Creator">
 				<String />
@@ -5075,7 +5075,7 @@
 												<I32>8</I32>
 											</Property>
 											<Property Name="DataSource">
-												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/power/Outports/u/alpha_VSP1" />
+												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/mech_elec/Outports/u/alpha_VSP1" />
 											</Property>
 										</Properties>
 										<Errors />
@@ -5093,7 +5093,7 @@
 												<I32>9</I32>
 											</Property>
 											<Property Name="DataSource">
-												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/power/Outports/u/u_VSP1" />
+												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/mech_elec/Outports/u/u_VSP1" />
 											</Property>
 										</Properties>
 										<Errors />
@@ -5111,7 +5111,7 @@
 												<I32>10</I32>
 											</Property>
 											<Property Name="DataSource">
-												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/power/Outports/u/alpha_VSP2" />
+												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/mech_elec/Outports/u/alpha_VSP2" />
 											</Property>
 										</Properties>
 										<Errors />
@@ -5129,7 +5129,7 @@
 												<I32>11</I32>
 											</Property>
 											<Property Name="DataSource">
-												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/power/Outports/u/u_VSP2" />
+												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/mech_elec/Outports/u/u_VSP2" />
 											</Property>
 										</Properties>
 										<Errors />
@@ -5147,7 +5147,7 @@
 												<I32>12</I32>
 											</Property>
 											<Property Name="DataSource">
-												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/power/Outports/u/u_BT" />
+												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/mech_elec/Outports/u/u_BT" />
 											</Property>
 										</Properties>
 										<Errors />
@@ -5165,7 +5165,7 @@
 												<I32>13</I32>
 											</Property>
 											<Property Name="DataSource">
-												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/power/Outports/u/omega_VSP1" />
+												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/mech_elec/Outports/u/omega_VSP1" />
 											</Property>
 										</Properties>
 										<Errors />
@@ -5183,7 +5183,7 @@
 												<I32>14</I32>
 											</Property>
 											<Property Name="DataSource">
-												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/power/Outports/u/omega_VSP2" />
+												<DataSourceNode Channel="Targets/Controller/Simulation Models/Models/mech_elec/Outports/u/omega_VSP2" />
 											</Property>
 										</Properties>
 										<Errors />
@@ -5444,17 +5444,17 @@
 								<Errors />
 							</Section>
 						</Section>
-						<Section Name="power" TypeGUID="03D3B9C4-1485-13A6-561FC9BB21813875">
+						<Section Name="mech_elec" TypeGUID="03D3B9C4-1485-13A6-561FC9BB21813875">
 							<Description />
 							<Properties>
 								<Property Name="Base Rate">
 									<Double>10000</Double>
 								</Property>
 								<Property Name="DLL Size">
-									<I32>118870</I32>
+									<I32>119082</I32>
 								</Property>
 								<Property Name="DLL Timestamp">
-									<Double>3532081657.5920115</Double>
+									<Double>3533121638.6305423</Double>
 								</Property>
 								<Property Name="Decimation">
 									<I32>1</I32>
@@ -5493,12 +5493,12 @@
 									<U32>6012</U32>
 								</Property>
 								<Property Name="DLL Path">
-									<DependentFile Type="Absolute" Path="C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\02 simulink code\power_niVeriStand_VxWorks_rtw\power.out">
+									<DependentFile Type="Absolute" Path="C:\Users\mclab\Documents\GitHub\CS_EnterpriseI\02 simulink code\mech_elec_niVeriStand_VxWorks_rtw\mech_elec.out">
 										<Version />
 										<ForceDownload>false</ForceDownload>
-										<RTDestination>c:\ni-rt\system\power.out</RTDestination>
+										<RTDestination>c:\ni-rt\system\mech_elec.out</RTDestination>
 										<SupportedTarget>VxWorks</SupportedTarget>
-										<MD5>210692a5018438b0208316a1d4c7a51f</MD5>
+										<MD5>0cef2b69fd2edfd0eb0067b47c2b30c3</MD5>
 									</DependentFile>
 								</Property>
 								<Property Name="GlobalParameterScopes">

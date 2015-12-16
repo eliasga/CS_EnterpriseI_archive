@@ -3,9 +3,9 @@
  *
  * Code generation for model "ctrl_student".
  *
- * Model version              : 1.55
+ * Model version              : 1.57
  * Simulink Coder version : 8.6 (R2014a) 27-Dec-2013
- * C source code generated on : Wed Dec 09 13:34:55 2015
+ * C source code generated on : Wed Dec 16 15:39:05 2015
  *
  * Target selection: NIVeriStand_VxWorks.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -261,18 +261,18 @@ void ctrl_student_output(void)
   real_T x[9];
   real_T C_NL[9];
   real_T rtb_Fcn;
+  real_T rtb_Row1_h;
   real_T rtb_psi_dot;
-  real_T rtb_Row1;
   real_T rtb_Row2;
   real_T rtb_Row3;
   int32_T i;
   real_T tmp[3];
   real_T tau_0[3];
-  real_T rtb_Row1_0[3];
-  real_T rtb_Row1_1[3];
-  real_T rtb_Sum_idx_2;
-  real_T rtb_Sum_idx_0;
-  real_T rtb_Sum_idx_1;
+  real_T rtb_Row1_l[3];
+  real_T rtb_Row1_l_0[3];
+  real_T rtb_Product_idx_0;
+  real_T rtb_Product_idx_1;
+  real_T rtb_Product_idx_2;
   if (rtmIsMajorTimeStep(ctrl_student_M)) {
     /* set solver stop time */
     if (!(ctrl_student_M->Timing.clockTick0+1)) {
@@ -306,8 +306,8 @@ void ctrl_student_output(void)
     tau[0] = 0.0;
     tau[1] = 0.0;
     tau[2] = 0.0;
-    ctrl_student_mldivide(c, tau, rtb_Row1_1);
-    ctrl_student_mldivide(b, rtb_Row1_1, u);
+    ctrl_student_mldivide(c, tau, rtb_Row1_l_0);
+    ctrl_student_mldivide(b, rtb_Row1_l_0, u);
 
     /* '<S3>:1:25' */
     /* '<S3>:1:27' */
@@ -469,7 +469,7 @@ void ctrl_student_output(void)
   ctrl_student_B.nu_dot[2] = 0.01 * ctrl_student_B.nu_dot[2] + 0.99 *
     ctrl_student_B.Memory1[2];
 
-  /* Integrator: '<S12>/Integrator2' */
+  /* Integrator: '<S2>/Integrator2' */
   if (rtmIsMajorTimeStep(ctrl_student_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -488,7 +488,7 @@ void ctrl_student_output(void)
   ctrl_student_B.Integrator2[1] = ctrl_student_X.Integrator2_CSTATE[1];
   ctrl_student_B.Integrator2[2] = ctrl_student_X.Integrator2_CSTATE[2];
 
-  /* Integrator: '<S12>/Integrator' */
+  /* Integrator: '<S2>/Integrator' */
   if (rtmIsMajorTimeStep(ctrl_student_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -507,129 +507,74 @@ void ctrl_student_output(void)
   ctrl_student_B.Integrator[1] = ctrl_student_X.Integrator_CSTATE[1];
   ctrl_student_B.Integrator[2] = ctrl_student_X.Integrator_CSTATE[2];
 
-  /* Saturate: '<S24>/Saturation' */
+  /* Saturate: '<S23>/Saturation' */
   if (ctrl_student_B.Integrator[2] > ctrl_student_P.Saturation_UpperSat) {
-    rtb_psi_dot = ctrl_student_P.Saturation_UpperSat;
+    rtb_Row1_h = ctrl_student_P.Saturation_UpperSat;
   } else if (ctrl_student_B.Integrator[2] < ctrl_student_P.Saturation_LowerSat)
   {
-    rtb_psi_dot = ctrl_student_P.Saturation_LowerSat;
+    rtb_Row1_h = ctrl_student_P.Saturation_LowerSat;
   } else {
-    rtb_psi_dot = ctrl_student_B.Integrator[2];
+    rtb_Row1_h = ctrl_student_B.Integrator[2];
   }
 
-  /* End of Saturate: '<S24>/Saturation' */
+  /* End of Saturate: '<S23>/Saturation' */
 
-  /* Signum: '<S24>/Sign' */
-  if (rtb_psi_dot < 0.0) {
-    t3 = -1.0;
-  } else if (rtb_psi_dot > 0.0) {
-    t3 = 1.0;
-  } else if (rtb_psi_dot == 0.0) {
-    t3 = 0.0;
+  /* Signum: '<S23>/Sign' */
+  if (rtb_Row1_h < 0.0) {
+    rtb_Fcn = -1.0;
+  } else if (rtb_Row1_h > 0.0) {
+    rtb_Fcn = 1.0;
+  } else if (rtb_Row1_h == 0.0) {
+    rtb_Fcn = 0.0;
   } else {
-    t3 = rtb_psi_dot;
+    rtb_Fcn = rtb_Row1_h;
   }
 
-  /* Gain: '<S24>/Gain' incorporates:
-   *  Signum: '<S24>/Sign'
+  /* Gain: '<S23>/Gain' incorporates:
+   *  Signum: '<S23>/Sign'
    */
-  rtb_Fcn = ctrl_student_P.Gain_Gain * t3;
+  rtb_psi_dot = ctrl_student_P.Gain_Gain * rtb_Fcn;
 
-  /* Sum: '<S24>/Sum1' */
-  rtb_psi_dot += rtb_Fcn;
+  /* Sum: '<S23>/Sum1' */
+  rtb_Row1_h += rtb_psi_dot;
 
-  /* Math: '<S24>/Math Function' incorporates:
-   *  Constant: '<S24>/Constant'
+  /* Math: '<S23>/Math Function' incorporates:
+   *  Constant: '<S23>/Constant'
    */
-  rtb_psi_dot = rt_remd_snf(rtb_psi_dot, ctrl_student_P.Constant_Value_p);
+  rtb_Row1_h = rt_remd_snf(rtb_Row1_h, ctrl_student_P.Constant_Value_c);
 
-  /* Sum: '<S24>/Sum' */
-  ctrl_student_B.Sum = rtb_psi_dot - rtb_Fcn;
+  /* Sum: '<S23>/Sum' */
+  ctrl_student_B.Sum = rtb_Row1_h - rtb_psi_dot;
 
-  /* Saturate: '<S25>/Saturation' */
-  if (ctrl_student_B.psi_m > ctrl_student_P.Saturation_UpperSat_m) {
-    rtb_Fcn = ctrl_student_P.Saturation_UpperSat_m;
-  } else if (ctrl_student_B.psi_m < ctrl_student_P.Saturation_LowerSat_n) {
-    rtb_Fcn = ctrl_student_P.Saturation_LowerSat_n;
-  } else {
-    rtb_Fcn = ctrl_student_B.psi_m;
-  }
+  /* Fcn: '<S2>/Fcn' */
+  rtb_psi_dot = ctrl_student_B.psi_m;
 
-  /* End of Saturate: '<S25>/Saturation' */
-
-  /* Signum: '<S25>/Sign' */
-  if (rtb_Fcn < 0.0) {
-    t3 = -1.0;
-  } else if (rtb_Fcn > 0.0) {
-    t3 = 1.0;
-  } else if (rtb_Fcn == 0.0) {
-    t3 = 0.0;
-  } else {
-    t3 = rtb_Fcn;
-  }
-
-  /* Gain: '<S25>/Gain' incorporates:
-   *  Signum: '<S25>/Sign'
+  /* Fcn: '<S22>/Row1' incorporates:
+   *  Fcn: '<S2>/Fcn'
    */
-  rtb_psi_dot = ctrl_student_P.Gain_Gain_c * t3;
+  rtb_Row1_h = cos(ctrl_student_B.psi_m) * ctrl_student_B.Integrator2[0] + sin
+    (ctrl_student_B.psi_m) * ctrl_student_B.Integrator2[1];
 
-  /* Sum: '<S25>/Sum1' */
-  rtb_Fcn += rtb_psi_dot;
-
-  /* Math: '<S25>/Math Function' incorporates:
-   *  Constant: '<S25>/Constant'
+  /* Fcn: '<S22>/Row2' incorporates:
+   *  Fcn: '<S2>/Fcn'
    */
-  rtb_Fcn = rt_remd_snf(rtb_Fcn, ctrl_student_P.Constant_Value_n);
+  rtb_Row2 = -sin(ctrl_student_B.psi_m) * ctrl_student_B.Integrator2[0] + cos
+    (ctrl_student_B.psi_m) * ctrl_student_B.Integrator2[1];
 
-  /* Sum: '<S25>/Sum' */
-  rtb_Fcn -= rtb_psi_dot;
-
-  /* Fcn: '<S12>/Fcn' */
-  rtb_psi_dot = rtb_Fcn;
-
-  /* Fcn: '<S23>/Row1' incorporates:
-   *  Fcn: '<S12>/Fcn'
-   */
-  rtb_Row1 = cos(rtb_Fcn) * ctrl_student_B.Integrator2[0] + sin(rtb_Fcn) *
-    ctrl_student_B.Integrator2[1];
-
-  /* Fcn: '<S23>/Row2' incorporates:
-   *  Fcn: '<S12>/Fcn'
-   */
-  rtb_Row2 = -sin(rtb_Fcn) * ctrl_student_B.Integrator2[0] + cos(rtb_Fcn) *
-    ctrl_student_B.Integrator2[1];
-
-  /* Fcn: '<S23>/Row3' */
+  /* Fcn: '<S22>/Row3' */
   rtb_Row3 = ctrl_student_B.Integrator2[2];
-  if (rtmIsMajorTimeStep(ctrl_student_M)) {
-    /* MATLAB Function: '<S13>/MATLAB Function2' incorporates:
-     *  Constant: '<S13>/Constant6'
-     *  Constant: '<S13>/Constant7'
-     *  Constant: '<S13>/Constant8'
-     *  SignalConversion: '<S28>/TmpSignal ConversionAt SFunction Inport1'
-     */
-    /* MATLAB Function 'Observer/Observer Gains/MATLAB Function2': '<S28>:1' */
-    /* '<S28>:1:4' */
-    memset(&ctrl_student_B.K_d[0], 0, 9U * sizeof(real_T));
-    ctrl_student_B.K_d[0] = ctrl_student_P.Constant6_Value;
-    ctrl_student_B.K_d[4] = ctrl_student_P.Constant7_Value;
-    ctrl_student_B.K_d[8] = ctrl_student_P.Constant8_Value;
-  }
 
-  /* Sum: '<S12>/Sum' */
-  rtb_Sum_idx_0 = ctrl_student_B.x_m - ctrl_student_B.Integrator[0];
-  rtb_Sum_idx_1 = ctrl_student_B.y_m - ctrl_student_B.Integrator[1];
-  rtb_Sum_idx_2 = rtb_Fcn - ctrl_student_B.Sum;
+  /* Sum: '<S2>/Sum' */
+  u[0] = ctrl_student_B.x_m - ctrl_student_B.Integrator[0];
+  u[1] = ctrl_student_B.y_m - ctrl_student_B.Integrator[1];
+  u[2] = ctrl_student_B.psi_m - ctrl_student_B.Sum;
 
-  /* Product: '<S12>/Matrix Multiply2' */
-  for (i = 0; i < 3; i++) {
-    u[i] = ctrl_student_B.K_d[i + 6] * rtb_Sum_idx_2 + (ctrl_student_B.K_d[i + 3]
-      * rtb_Sum_idx_1 + ctrl_student_B.K_d[i] * rtb_Sum_idx_0);
-  }
+  /* Product: '<S2>/Product2' */
+  rtb_Product_idx_0 = ctrl_student_B.K_4x * u[0];
+  rtb_Product_idx_1 = ctrl_student_B.K_4y * u[1];
+  rtb_Product_idx_2 = ctrl_student_B.K_4psi * u[2];
 
-  /* End of Product: '<S12>/Matrix Multiply2' */
-
-  /* Integrator: '<S12>/Integrator1' */
+  /* Integrator: '<S2>/Integrator1' */
   if (rtmIsMajorTimeStep(ctrl_student_M)) {
     ZCEventType zcEvent;
     zcEvent = rt_ZCFcn(ANY_ZERO_CROSSING,
@@ -705,32 +650,32 @@ void ctrl_student_output(void)
       ctrl_student_B.alpha_VSP + 0.2548) * -0.02089) * ctrl_student_B.u_VSP;
   }
 
-  /* MATLAB Function: '<S18>/Thruster configuration matrix' incorporates:
+  /* MATLAB Function: '<S28>/Thruster configuration matrix' incorporates:
    *  MATLAB Function: '<S30>/Bow thruster'
    */
   /* MATLAB Function 'Observer/u_2_tau/Thruster configuration matrix': '<S29>:1' */
   /* '<S29>:1:7' */
   /* '<S29>:1:13' */
-  t3 = (atan(-10.22 * ctrl_student_B.Integrator1[0] + 2.947) * 0.3075 + 0.7561) *
-    rtb_Fcn / 1.1385;
+  rtb_Fcn = (atan(-10.22 * ctrl_student_B.Integrator1[0] + 2.947) * 0.3075 +
+             0.7561) * rtb_Fcn / 1.1385;
   for (i = 0; i < 3; i++) {
-    tau[i] = a[i + 6] * t3 + (a[i + 3] * ctrl_student_B.F_y + a[i] *
+    tau[i] = a[i + 6] * rtb_Fcn + (a[i + 3] * ctrl_student_B.F_y + a[i] *
       ctrl_student_B.F_x);
   }
 
-  /* MATLAB Function: '<S12>/D(nu)*nu' */
+  /* MATLAB Function: '<S2>/D(nu)*nu' */
   /* '<S29>:1:15' */
   /* '<S29>:1:16' */
   /* '<S29>:1:17' */
-  /* MATLAB Function 'Observer/Nonlinear Passisve Observer/D(nu)*nu': '<S20>:1' */
-  /* '<S20>:1:3' */
-  /* '<S20>:1:4' */
-  /* '<S20>:1:5' */
-  /* '<S20>:1:7' */
-  /* D */
-  /*     D = D(U,V,R) */
+  /* MATLAB Function 'Observer/D(nu)*nu': '<S13>:1' */
+  /* '<S13>:1:3' */
+  /* '<S13>:1:4' */
+  /* '<S13>:1:5' */
+  /* '<S13>:1:7' */
+  /* CTRL_STUDENT_OBSERVER_D */
+  /*     D = CTRL_STUDENT_OBSERVER_D(U,V,R) */
   /*     This function was generated by the Symbolic Math Toolbox version 6.0. */
-  /*     09-Dec-2015 13:01:11 */
+  /*     16-Dec-2015 15:38:25 */
   rtb_Fcn = fabs(ctrl_student_B.Integrator1[2]);
   t3 = fabs(ctrl_student_B.Integrator1[1]);
   x[0] = (ctrl_student_B.Integrator1[0] * ctrl_student_B.Integrator1[0] * 3.787
@@ -747,17 +692,17 @@ void ctrl_student_output(void)
   x[8] = (rtb_Fcn * 0.75 - t3 * 0.08) + 1.9;
   memcpy(&D_NL[0], &x[0], 9U * sizeof(real_T));
 
-  /* MATLAB Function: '<S12>/C(nu)*nu' */
-  /* '<S20>:1:9' */
-  /* MATLAB Function 'Observer/Nonlinear Passisve Observer/C(nu)*nu': '<S19>:1' */
-  /* '<S19>:1:3' */
-  /* '<S19>:1:4' */
-  /* '<S19>:1:5' */
-  /* '<S19>:1:7' */
-  /* C */
-  /*     C = C(U,V,R) */
+  /* MATLAB Function: '<S2>/C(nu)*nu' */
+  /* '<S13>:1:9' */
+  /* MATLAB Function 'Observer/C(nu)*nu': '<S12>:1' */
+  /* '<S12>:1:3' */
+  /* '<S12>:1:4' */
+  /* '<S12>:1:5' */
+  /* '<S12>:1:7' */
+  /* CTRL_STUDENT_OBSERVER_C */
+  /*     C = CTRL_STUDENT_OBSERVER_C(U,V,R) */
   /*     This function was generated by the Symbolic Math Toolbox version 6.0. */
-  /*     09-Dec-2015 13:01:12 */
+  /*     16-Dec-2015 15:38:26 */
   rtb_Fcn = ctrl_student_B.Integrator1[0] * 16.79;
   x[0] = 0.0;
   x[1] = 0.0;
@@ -772,123 +717,84 @@ void ctrl_student_output(void)
   x[8] = 0.0;
   memcpy(&C_NL[0], &x[0], 9U * sizeof(real_T));
 
-  /* Sum: '<S12>/Sum2' incorporates:
-   *  Fcn: '<S22>/Row1'
-   *  Fcn: '<S22>/Row2'
-   *  Fcn: '<S22>/Row3'
-   *  MATLAB Function: '<S18>/Thruster configuration matrix'
+  /* Sum: '<S2>/Sum2' incorporates:
+   *  Fcn: '<S21>/Row1'
+   *  Fcn: '<S21>/Row2'
+   *  Fcn: '<S21>/Row3'
+   *  MATLAB Function: '<S28>/Thruster configuration matrix'
    */
-  /* '<S19>:1:9' */
-  tmp[0] = cos(rtb_psi_dot) * u[0] + sin(rtb_psi_dot) * u[1];
-  tmp[1] = -sin(rtb_psi_dot) * u[0] + cos(rtb_psi_dot) * u[1];
-  tmp[2] = u[2];
+  /* '<S12>:1:9' */
+  tmp[0] = cos(rtb_psi_dot) * rtb_Product_idx_0 + sin(rtb_psi_dot) *
+    rtb_Product_idx_1;
+  tmp[1] = -sin(rtb_psi_dot) * rtb_Product_idx_0 + cos(rtb_psi_dot) *
+    rtb_Product_idx_1;
+  tmp[2] = rtb_Product_idx_2;
   tau_0[0] = tau[0];
   tau_0[1] = tau[1];
   tau_0[2] = tau[2];
 
-  /* Sum: '<S12>/Sum3' incorporates:
-   *  MATLAB Function: '<S12>/D(nu)*nu'
-   *  Sum: '<S12>/Sum2'
+  /* Sum: '<S2>/Sum3' incorporates:
+   *  MATLAB Function: '<S2>/D(nu)*nu'
+   *  Sum: '<S2>/Sum2'
    */
-  rtb_Row1_0[0] = rtb_Row1;
-  rtb_Row1_0[1] = rtb_Row2;
-  rtb_Row1_0[2] = rtb_Row3;
+  rtb_Row1_l[0] = rtb_Row1_h;
+  rtb_Row1_l[1] = rtb_Row2;
+  rtb_Row1_l[2] = rtb_Row3;
   for (i = 0; i < 3; i++) {
-    rtb_Row1_1[i] = ((tmp[i] + tau_0[i]) + rtb_Row1_0[i]) - ((D_NL[i + 3] *
+    rtb_Row1_l_0[i] = ((tmp[i] + tau_0[i]) + rtb_Row1_l[i]) - ((D_NL[i + 3] *
       ctrl_student_B.Integrator1[1] + D_NL[i] * ctrl_student_B.Integrator1[0]) +
       D_NL[i + 6] * ctrl_student_B.Integrator1[2]);
   }
 
-  /* MATLAB Function: '<S12>/C(nu)*nu' incorporates:
-   *  Sum: '<S12>/Sum3'
+  /* MATLAB Function: '<S2>/C(nu)*nu' incorporates:
+   *  Sum: '<S2>/Sum3'
    */
   for (i = 0; i < 3; i++) {
     tau[i] = C_NL[i + 6] * ctrl_student_B.Integrator1[2] + (C_NL[i + 3] *
       ctrl_student_B.Integrator1[1] + C_NL[i] * ctrl_student_B.Integrator1[0]);
   }
 
-  /* Sum: '<S12>/Sum3' incorporates:
-   *  Gain: '<S12>/M^-1'
+  /* Sum: '<S2>/Sum3' incorporates:
+   *  Gain: '<S2>/M^-1'
    */
-  t3 = rtb_Row1_1[0] - tau[0];
-  rtb_Fcn = rtb_Row1_1[1] - tau[1];
-  rtb_Row1 = rtb_Row1_1[2] - tau[2];
+  rtb_Fcn = rtb_Row1_l_0[0] - tau[0];
+  t3 = rtb_Row1_l_0[1] - tau[1];
+  rtb_Row2 = rtb_Row1_l_0[2] - tau[2];
 
-  /* Gain: '<S12>/M^-1' */
+  /* Gain: '<S2>/M^-1' */
   for (i = 0; i < 3; i++) {
     ctrl_student_B.M1[i] = 0.0;
-    ctrl_student_B.M1[i] += ctrl_student_P.M1_Gain[i] * t3;
-    ctrl_student_B.M1[i] += ctrl_student_P.M1_Gain[i + 3] * rtb_Fcn;
-    ctrl_student_B.M1[i] += ctrl_student_P.M1_Gain[i + 6] * rtb_Row1;
+    ctrl_student_B.M1[i] += ctrl_student_P.M1_Gain[i] * rtb_Fcn;
+    ctrl_student_B.M1[i] += ctrl_student_P.M1_Gain[i + 3] * t3;
+    ctrl_student_B.M1[i] += ctrl_student_P.M1_Gain[i + 6] * rtb_Row2;
   }
 
-  if (rtmIsMajorTimeStep(ctrl_student_M)) {
-    /* MATLAB Function 'Observer/Observer Gains/MATLAB Function': '<S26>:1' */
-    /* '<S26>:1:4' */
-    for (i = 0; i < 9; i++) {
-      /* MATLAB Function: '<S13>/MATLAB Function' */
-      ctrl_student_B.K_p[i] = 0.0;
+  /* Product: '<S2>/Product1' */
+  ctrl_student_B.Product1[0] = ctrl_student_B.K_3x * u[0];
+  ctrl_student_B.Product1[1] = ctrl_student_B.K_3y * u[1];
+  ctrl_student_B.Product1[2] = ctrl_student_B.K_3psi * u[2];
 
-      /* MATLAB Function: '<S13>/MATLAB Function1' */
-      ctrl_student_B.K_i[i] = 0.0;
-    }
-
-    /* MATLAB Function: '<S13>/MATLAB Function' incorporates:
-     *  Constant: '<S13>/Constant'
-     *  Constant: '<S13>/Constant1'
-     *  Constant: '<S13>/Constant2'
-     *  SignalConversion: '<S26>/TmpSignal ConversionAt SFunction Inport1'
-     */
-    ctrl_student_B.K_p[0] = ctrl_student_P.Constant_Value_b;
-    ctrl_student_B.K_p[4] = ctrl_student_P.Constant1_Value;
-    ctrl_student_B.K_p[8] = ctrl_student_P.Constant2_Value;
-
-    /* MATLAB Function: '<S13>/MATLAB Function1' incorporates:
-     *  Constant: '<S13>/Constant3'
-     *  Constant: '<S13>/Constant4'
-     *  Constant: '<S13>/Constant5'
-     *  SignalConversion: '<S27>/TmpSignal ConversionAt SFunction Inport1'
-     */
-    /* MATLAB Function 'Observer/Observer Gains/MATLAB Function1': '<S27>:1' */
-    /* '<S27>:1:4' */
-    ctrl_student_B.K_i[0] = ctrl_student_P.Constant3_Value;
-    ctrl_student_B.K_i[4] = ctrl_student_P.Constant4_Value;
-    ctrl_student_B.K_i[8] = ctrl_student_P.Constant5_Value;
-  }
-
-  /* Product: '<S12>/Matrix Multiply1' */
-  for (i = 0; i < 3; i++) {
-    ctrl_student_B.MatrixMultiply1[i] = 0.0;
-    ctrl_student_B.MatrixMultiply1[i] += ctrl_student_B.K_i[i] * rtb_Sum_idx_0;
-    ctrl_student_B.MatrixMultiply1[i] += ctrl_student_B.K_i[i + 3] *
-      rtb_Sum_idx_1;
-    ctrl_student_B.MatrixMultiply1[i] += ctrl_student_B.K_i[i + 6] *
-      rtb_Sum_idx_2;
-  }
-
-  /* End of Product: '<S12>/Matrix Multiply1' */
-
-  /* Product: '<S12>/Matrix Multiply' incorporates:
-   *  Sum: '<S12>/Sum1'
-   */
-  for (i = 0; i < 3; i++) {
-    tau[i] = ctrl_student_B.K_p[i + 6] * rtb_Sum_idx_2 + (ctrl_student_B.K_p[i +
-      3] * rtb_Sum_idx_1 + ctrl_student_B.K_p[i] * rtb_Sum_idx_0);
-  }
-
-  /* End of Product: '<S12>/Matrix Multiply' */
-
-  /* Sum: '<S12>/Sum1' incorporates:
-   *  Fcn: '<S21>/Fcn'
-   *  Fcn: '<S21>/Fcn1'
-   *  Fcn: '<S21>/Fcn2'
+  /* Sum: '<S2>/Sum1' incorporates:
+   *  Fcn: '<S20>/Fcn'
+   *  Fcn: '<S20>/Fcn1'
+   *  Fcn: '<S20>/Fcn2'
+   *  Product: '<S2>/Product'
    */
   ctrl_student_B.Sum1[0] = (cos(rtb_psi_dot) * ctrl_student_B.Integrator1[0] -
-    sin(rtb_psi_dot) * ctrl_student_B.Integrator1[1]) + tau[0];
+    sin(rtb_psi_dot) * ctrl_student_B.Integrator1[1]) + ctrl_student_B.K_2x * u
+    [0];
   ctrl_student_B.Sum1[1] = (sin(rtb_psi_dot) * ctrl_student_B.Integrator1[0] +
-    cos(rtb_psi_dot) * ctrl_student_B.Integrator1[1]) + tau[1];
-  ctrl_student_B.Sum1[2] = tau[2] + ctrl_student_B.Integrator1[2];
+    cos(rtb_psi_dot) * ctrl_student_B.Integrator1[1]) + ctrl_student_B.K_2y * u
+    [1];
+  ctrl_student_B.Sum1[2] = ctrl_student_B.K_2psi * u[2] +
+    ctrl_student_B.Integrator1[2];
   if (rtmIsMajorTimeStep(ctrl_student_M)) {
+    /* MATLAB Function 'Observer/MATLAB Function': '<S17>:1' */
+    /* '<S17>:1:4' */
+    /* MATLAB Function 'Observer/MATLAB Function1': '<S18>:1' */
+    /* '<S18>:1:4' */
+    /* MATLAB Function 'Observer/MATLAB Function2': '<S19>:1' */
+    /* '<S19>:1:4' */
   }
 }
 
@@ -918,7 +824,7 @@ void ctrl_student_update(void)
     ctrl_student_DW.Memory1_PreviousInput[2] = ctrl_student_B.nu_dot[2];
   }
 
-  /* Update for Integrator: '<S12>/Integrator' */
+  /* Update for Integrator: '<S2>/Integrator' */
   ctrl_student_DW.Integrator_IWORK.IcNeedsLoading = 0;
   if (rtmIsMajorTimeStep(ctrl_student_M)) {
     rt_ertODEUpdateContinuousStates(&ctrl_student_M->solverInfo);
@@ -963,17 +869,17 @@ void ctrl_student_update(void)
 /* Derivatives for root system: '<Root>' */
 void ctrl_student_derivatives(void)
 {
-  /* Derivatives for Integrator: '<S12>/Integrator2' */
+  /* Derivatives for Integrator: '<S2>/Integrator2' */
   {
     ((XDot_ctrl_student_T *) ctrl_student_M->ModelData.derivs)
-      ->Integrator2_CSTATE[0] = ctrl_student_B.MatrixMultiply1[0];
+      ->Integrator2_CSTATE[0] = ctrl_student_B.Product1[0];
     ((XDot_ctrl_student_T *) ctrl_student_M->ModelData.derivs)
-      ->Integrator2_CSTATE[1] = ctrl_student_B.MatrixMultiply1[1];
+      ->Integrator2_CSTATE[1] = ctrl_student_B.Product1[1];
     ((XDot_ctrl_student_T *) ctrl_student_M->ModelData.derivs)
-      ->Integrator2_CSTATE[2] = ctrl_student_B.MatrixMultiply1[2];
+      ->Integrator2_CSTATE[2] = ctrl_student_B.Product1[2];
   }
 
-  /* Derivatives for Integrator: '<S12>/Integrator' */
+  /* Derivatives for Integrator: '<S2>/Integrator' */
   {
     ((XDot_ctrl_student_T *) ctrl_student_M->ModelData.derivs)
       ->Integrator_CSTATE[0] = ctrl_student_B.Sum1[0];
@@ -983,7 +889,7 @@ void ctrl_student_derivatives(void)
       ->Integrator_CSTATE[2] = ctrl_student_B.Sum1[2];
   }
 
-  /* Derivatives for Integrator: '<S12>/Integrator1' */
+  /* Derivatives for Integrator: '<S2>/Integrator1' */
   {
     ((XDot_ctrl_student_T *) ctrl_student_M->ModelData.derivs)
       ->Integrator1_CSTATE[0] = ctrl_student_B.M1[0];
@@ -1019,12 +925,12 @@ void ctrl_student_initialize(void)
   ctrl_student_DW.Memory1_PreviousInput[1] = ctrl_student_P.Memory1_X0[1];
   ctrl_student_DW.Memory1_PreviousInput[2] = ctrl_student_P.Memory1_X0[2];
 
-  /* InitializeConditions for Integrator: '<S12>/Integrator2' */
+  /* InitializeConditions for Integrator: '<S2>/Integrator2' */
   ctrl_student_X.Integrator2_CSTATE[0] = (ctrl_student_P.Integrator2_IC[0]);
   ctrl_student_X.Integrator2_CSTATE[1] = (ctrl_student_P.Integrator2_IC[1]);
   ctrl_student_X.Integrator2_CSTATE[2] = (ctrl_student_P.Integrator2_IC[2]);
 
-  /* InitializeConditions for Integrator: '<S12>/Integrator' */
+  /* InitializeConditions for Integrator: '<S2>/Integrator' */
   if (rtmIsFirstInitCond(ctrl_student_M)) {
     ctrl_student_X.Integrator_CSTATE[0] = 0.0;
     ctrl_student_X.Integrator_CSTATE[1] = 0.0;
@@ -1033,7 +939,7 @@ void ctrl_student_initialize(void)
 
   ctrl_student_DW.Integrator_IWORK.IcNeedsLoading = 1;
 
-  /* InitializeConditions for Integrator: '<S12>/Integrator1' */
+  /* InitializeConditions for Integrator: '<S2>/Integrator1' */
   ctrl_student_X.Integrator1_CSTATE[0] = (ctrl_student_P.Integrator1_IC[0]);
   ctrl_student_X.Integrator1_CSTATE[1] = (ctrl_student_P.Integrator1_IC[1]);
   ctrl_student_X.Integrator1_CSTATE[2] = (ctrl_student_P.Integrator1_IC[2]);
@@ -1239,9 +1145,9 @@ RT_MODEL_ctrl_student_T *ctrl_student(void)
   ctrl_student_M->Sizes.numU = (0);    /* Number of model inputs */
   ctrl_student_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   ctrl_student_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  ctrl_student_M->Sizes.numBlocks = (114);/* Number of blocks */
-  ctrl_student_M->Sizes.numBlockIO = (30);/* Number of block outputs */
-  ctrl_student_M->Sizes.numBlockPrms = (191);/* Sum of parameter "widths" */
+  ctrl_student_M->Sizes.numBlocks = (116);/* Number of blocks */
+  ctrl_student_M->Sizes.numBlockIO = (36);/* Number of block outputs */
+  ctrl_student_M->Sizes.numBlockPrms = (241);/* Sum of parameter "widths" */
   return ctrl_student_M;
 }
 
@@ -1501,9 +1407,72 @@ void SetExternalInputs(double* data, int* TaskSampleHit)
     index += 1;
   }
 
-  // Observer/Nonlinear Passisve Observer/reset
+  // Observer/reset
   if (TaskSampleHit[0]) {
     NIRT_SetValueByDataType(&ctrl_student_B.reset, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // Observer/K_4/K_4,psi
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_student_B.K_4psi, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // Observer/K_4/K_4,x
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_student_B.K_4x, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // Observer/K_4/K_4,y
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_student_B.K_4y, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // Observer/K_2/K_2,x
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_student_B.K_2x, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // Observer/K_2/K_2,y
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_student_B.K_2y, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // Observer/K_2/K_2,psi
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_student_B.K_2psi, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // Observer/K_3/K_3,psi
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_student_B.K_3psi, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // Observer/K_3/K_3,x
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_student_B.K_3x, 0, data[index++], 0, 0);
+  } else {
+    index += 1;
+  }
+
+  // Observer/K_3/K_3,y
+  if (TaskSampleHit[0]) {
+    NIRT_SetValueByDataType(&ctrl_student_B.K_3y, 0, data[index++], 0, 0);
   } else {
     index += 1;
   }
@@ -1511,7 +1480,7 @@ void SetExternalInputs(double* data, int* TaskSampleHit)
 
 long NumInputPorts(void)
 {
-  return 4;
+  return 13;
 }
 
 double ni_extout[20];
@@ -1772,81 +1741,59 @@ static NI_Parameter NI_ParamList[] DataSection(".NIVS.paramlist") =
   { 6, "ctrl_student/Derivative filter/Memory1/X0", offsetof(P_ctrl_student_T,
     Memory1_X0), 33, 3, 2, 12, 0 },
 
-  { 7,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator2/InitialCondition",
-    offsetof(P_ctrl_student_T, Integrator2_IC), 34, 3, 2, 14, 0 },
+  { 7, "ctrl_student/Observer/Integrator2/InitialCondition", offsetof
+    (P_ctrl_student_T, Integrator2_IC), 34, 3, 2, 14, 0 },
 
-  { 8,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Saturation/UpperLimit",
+  { 8, "ctrl_student/Observer/[-inf inf] to [-pi pi]/Saturation/UpperLimit",
     offsetof(P_ctrl_student_T, Saturation_UpperSat), 32, 1, 2, 16, 0 },
 
-  { 9,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Saturation/LowerLimit",
+  { 9, "ctrl_student/Observer/[-inf inf] to [-pi pi]/Saturation/LowerLimit",
     offsetof(P_ctrl_student_T, Saturation_LowerSat), 32, 1, 2, 18, 0 },
 
-  { 10,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Gain/Gain",
-    offsetof(P_ctrl_student_T, Gain_Gain), 32, 1, 2, 20, 0 },
+  { 10, "ctrl_student/Observer/[-inf inf] to [-pi pi]/Gain/Gain", offsetof
+    (P_ctrl_student_T, Gain_Gain), 32, 1, 2, 20, 0 },
 
-  { 11,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Constant/Value",
-    offsetof(P_ctrl_student_T, Constant_Value_p), 32, 1, 2, 22, 0 },
+  { 11, "ctrl_student/Observer/[-inf inf] to [-pi pi]/Constant/Value", offsetof
+    (P_ctrl_student_T, Constant_Value_c), 32, 1, 2, 22, 0 },
 
-  { 12,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]1/Saturation/UpperLimit",
-    offsetof(P_ctrl_student_T, Saturation_UpperSat_m), 32, 1, 2, 24, 0 },
+  { 12, "ctrl_student/Observer/Integrator1/InitialCondition", offsetof
+    (P_ctrl_student_T, Integrator1_IC), 34, 3, 2, 24, 0 },
 
-  { 13,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]1/Saturation/LowerLimit",
-    offsetof(P_ctrl_student_T, Saturation_LowerSat_n), 32, 1, 2, 26, 0 },
+  { 13, "ctrl_student/Observer/M^-1/Gain", offsetof(P_ctrl_student_T, M1_Gain),
+    21, 9, 2, 26, 0 },
 
-  { 14,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]1/Gain/Gain",
-    offsetof(P_ctrl_student_T, Gain_Gain_c), 32, 1, 2, 28, 0 },
+  { 14, "ctrl_student/Observer/Constant/Value", offsetof(P_ctrl_student_T,
+    Constant_Value_g), 32, 1, 2, 28, 0 },
 
-  { 15,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]1/Constant/Value",
-    offsetof(P_ctrl_student_T, Constant_Value_n), 32, 1, 2, 30, 0 },
+  { 15, "ctrl_student/Observer/Constant1/Value", offsetof(P_ctrl_student_T,
+    Constant1_Value), 32, 1, 2, 30, 0 },
 
-  { 16, "ctrl_student/Observer/Observer Gains/Constant6/Value", offsetof
-    (P_ctrl_student_T, Constant6_Value), 32, 1, 2, 32, 0 },
+  { 16, "ctrl_student/Observer/Constant2/Value", offsetof(P_ctrl_student_T,
+    Constant2_Value), 32, 1, 2, 32, 0 },
 
-  { 17, "ctrl_student/Observer/Observer Gains/Constant7/Value", offsetof
-    (P_ctrl_student_T, Constant7_Value), 32, 1, 2, 34, 0 },
+  { 17, "ctrl_student/Observer/Constant3/Value", offsetof(P_ctrl_student_T,
+    Constant3_Value), 32, 1, 2, 34, 0 },
 
-  { 18, "ctrl_student/Observer/Observer Gains/Constant8/Value", offsetof
-    (P_ctrl_student_T, Constant8_Value), 32, 1, 2, 36, 0 },
+  { 18, "ctrl_student/Observer/Constant4/Value", offsetof(P_ctrl_student_T,
+    Constant4_Value), 32, 1, 2, 36, 0 },
 
-  { 19,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator1/InitialCondition",
-    offsetof(P_ctrl_student_T, Integrator1_IC), 34, 3, 2, 38, 0 },
+  { 19, "ctrl_student/Observer/Constant5/Value", offsetof(P_ctrl_student_T,
+    Constant5_Value), 32, 1, 2, 38, 0 },
 
-  { 20, "ctrl_student/Observer/Nonlinear Passisve Observer/M^-1/Gain", offsetof
-    (P_ctrl_student_T, M1_Gain), 21, 9, 2, 40, 0 },
+  { 20, "ctrl_student/Observer/Constant6/Value", offsetof(P_ctrl_student_T,
+    Constant6_Value), 32, 1, 2, 40, 0 },
 
-  { 21, "ctrl_student/Observer/Observer Gains/Constant/Value", offsetof
-    (P_ctrl_student_T, Constant_Value_b), 32, 1, 2, 42, 0 },
+  { 21, "ctrl_student/Observer/Constant7/Value", offsetof(P_ctrl_student_T,
+    Constant7_Value), 32, 1, 2, 42, 0 },
 
-  { 22, "ctrl_student/Observer/Observer Gains/Constant1/Value", offsetof
-    (P_ctrl_student_T, Constant1_Value), 32, 1, 2, 44, 0 },
+  { 22, "ctrl_student/Observer/Constant8/Value", offsetof(P_ctrl_student_T,
+    Constant8_Value), 32, 1, 2, 44, 0 },
 
-  { 23, "ctrl_student/Observer/Observer Gains/Constant2/Value", offsetof
-    (P_ctrl_student_T, Constant2_Value), 32, 1, 2, 46, 0 },
-
-  { 24, "ctrl_student/Observer/Observer Gains/Constant3/Value", offsetof
-    (P_ctrl_student_T, Constant3_Value), 32, 1, 2, 48, 0 },
-
-  { 25, "ctrl_student/Observer/Observer Gains/Constant4/Value", offsetof
-    (P_ctrl_student_T, Constant4_Value), 32, 1, 2, 50, 0 },
-
-  { 26, "ctrl_student/Observer/Observer Gains/Constant5/Value", offsetof
-    (P_ctrl_student_T, Constant5_Value), 32, 1, 2, 52, 0 },
-
-  { 27, "ctrl_student/Derivative filter/Delay/DelayLength", offsetof
-    (P_ctrl_student_T, Delay_DelayLength), 35, 1, 2, 54, 0 },
+  { 23, "ctrl_student/Derivative filter/Delay/DelayLength", offsetof
+    (P_ctrl_student_T, Delay_DelayLength), 35, 1, 2, 46, 0 },
 };
 
-static int NI_ParamListSize DataSection(".NIVS.paramlistsize") = 28;
+static int NI_ParamListSize DataSection(".NIVS.paramlistsize") = 24;
 static int NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
 {
   1, 1,                                /* Parameter at index 0 */
@@ -1861,22 +1808,18 @@ static int NI_ParamDimList[] DataSection(".NIVS.paramdimlist") =
   1, 1,                                /* Parameter at index 9 */
   1, 1,                                /* Parameter at index 10 */
   1, 1,                                /* Parameter at index 11 */
-  1, 1,                                /* Parameter at index 12 */
-  1, 1,                                /* Parameter at index 13 */
+  3, 1,                                /* Parameter at index 12 */
+  3, 3,                                /* Parameter at index 13 */
   1, 1,                                /* Parameter at index 14 */
   1, 1,                                /* Parameter at index 15 */
   1, 1,                                /* Parameter at index 16 */
   1, 1,                                /* Parameter at index 17 */
   1, 1,                                /* Parameter at index 18 */
-  3, 1,                                /* Parameter at index 19 */
-  3, 3,                                /* Parameter at index 20 */
+  1, 1,                                /* Parameter at index 19 */
+  1, 1,                                /* Parameter at index 20 */
   1, 1,                                /* Parameter at index 21 */
   1, 1,                                /* Parameter at index 22 */
   1, 1,                                /* Parameter at index 23 */
-  1, 1,                                /* Parameter at index 24 */
-  1, 1,                                /* Parameter at index 25 */
-  1, 1,                                /* Parameter at index 26 */
-  1, 1,                                /* Parameter at index 27 */
 };
 
 static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
@@ -1926,268 +1869,175 @@ static NI_Signal NI_SigList[] DataSection(".NIVS.siglist") =
   { 14, "ctrl_student/Derivative filter/Memory1", 0, "(1,3)", offsetof
     (B_ctrl_student_T, Memory1)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 28, 0 },
 
-  { 15, "ctrl_student/Observer/Nonlinear Passisve Observer/reset", 0, "",
-    offsetof(B_ctrl_student_T, reset)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 30,
+  { 15, "ctrl_student/Observer/reset", 0, "", offsetof(B_ctrl_student_T, reset)+
+    0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 30, 0 },
+
+  { 16, "ctrl_student/Observer/Integrator2", 0, "(1,1)", offsetof
+    (B_ctrl_student_T, Integrator2)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 32,
     0 },
 
-  { 16, "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator2", 0,
-    "(1,1)", offsetof(B_ctrl_student_T, Integrator2)+0*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 32, 0 },
-
-  { 17, "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator2", 0,
-    "(1,2)", offsetof(B_ctrl_student_T, Integrator2)+1*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 34, 0 },
-
-  { 18, "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator2", 0,
-    "(1,3)", offsetof(B_ctrl_student_T, Integrator2)+2*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 36, 0 },
-
-  { 19, "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator", 0,
-    "(1,1)", offsetof(B_ctrl_student_T, Integrator)+0*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 38, 0 },
-
-  { 20, "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator", 0,
-    "(1,2)", offsetof(B_ctrl_student_T, Integrator)+1*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 40, 0 },
-
-  { 21, "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator", 0,
-    "(1,3)", offsetof(B_ctrl_student_T, Integrator)+2*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 42, 0 },
-
-  { 22,
-    "ctrl_student/Observer/Nonlinear Passisve Observer/[-inf inf] to [-pi pi]/Sum",
-    0, "", offsetof(B_ctrl_student_T, Sum)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1,
-    2, 44, 0 },
-
-  { 23, "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator1", 0,
-    "(1,1)", offsetof(B_ctrl_student_T, Integrator1)+0*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 46, 0 },
-
-  { 24, "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator1", 0,
-    "(1,2)", offsetof(B_ctrl_student_T, Integrator1)+1*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 48, 0 },
-
-  { 25, "ctrl_student/Observer/Nonlinear Passisve Observer/Integrator1", 0,
-    "(1,3)", offsetof(B_ctrl_student_T, Integrator1)+2*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 50, 0 },
-
-  { 26, "ctrl_student/Observer/Nonlinear Passisve Observer/M^-1", 0, "(1,1)",
-    offsetof(B_ctrl_student_T, M1)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 52,
+  { 17, "ctrl_student/Observer/Integrator2", 0, "(1,2)", offsetof
+    (B_ctrl_student_T, Integrator2)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 34,
     0 },
 
-  { 27, "ctrl_student/Observer/Nonlinear Passisve Observer/M^-1", 0, "(1,2)",
-    offsetof(B_ctrl_student_T, M1)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 54,
+  { 18, "ctrl_student/Observer/Integrator2", 0, "(1,3)", offsetof
+    (B_ctrl_student_T, Integrator2)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 36,
     0 },
 
-  { 28, "ctrl_student/Observer/Nonlinear Passisve Observer/M^-1", 0, "(1,3)",
-    offsetof(B_ctrl_student_T, M1)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 56,
+  { 19, "ctrl_student/Observer/Integrator", 0, "(1,1)", offsetof
+    (B_ctrl_student_T, Integrator)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 38,
     0 },
 
-  { 29, "ctrl_student/Observer/Nonlinear Passisve Observer/Matrix Multiply1", 0,
-    "(1,1)", offsetof(B_ctrl_student_T, MatrixMultiply1)+0*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 58, 0 },
-
-  { 30, "ctrl_student/Observer/Nonlinear Passisve Observer/Matrix Multiply1", 0,
-    "(1,2)", offsetof(B_ctrl_student_T, MatrixMultiply1)+1*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 60, 0 },
-
-  { 31, "ctrl_student/Observer/Nonlinear Passisve Observer/Matrix Multiply1", 0,
-    "(1,3)", offsetof(B_ctrl_student_T, MatrixMultiply1)+2*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 62, 0 },
-
-  { 32, "ctrl_student/Observer/Nonlinear Passisve Observer/Sum1", 0, "(1,1)",
-    offsetof(B_ctrl_student_T, Sum1)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 64,
+  { 20, "ctrl_student/Observer/Integrator", 0, "(1,2)", offsetof
+    (B_ctrl_student_T, Integrator)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 40,
     0 },
 
-  { 33, "ctrl_student/Observer/Nonlinear Passisve Observer/Sum1", 0, "(1,2)",
-    offsetof(B_ctrl_student_T, Sum1)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 66,
+  { 21, "ctrl_student/Observer/Integrator", 0, "(1,3)", offsetof
+    (B_ctrl_student_T, Integrator)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 42,
     0 },
 
-  { 34, "ctrl_student/Observer/Nonlinear Passisve Observer/Sum1", 0, "(1,3)",
-    offsetof(B_ctrl_student_T, Sum1)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 68,
+  { 22, "ctrl_student/Observer/[-inf inf] to [-pi pi]/Sum", 0, "", offsetof
+    (B_ctrl_student_T, Sum)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 44, 0 },
+
+  { 23, "ctrl_student/Observer/K_4/K_4,psi", 0, "", offsetof(B_ctrl_student_T,
+    K_4psi)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 46, 0 },
+
+  { 24, "ctrl_student/Observer/K_4/K_4,x", 0, "", offsetof(B_ctrl_student_T,
+    K_4x)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 48, 0 },
+
+  { 25, "ctrl_student/Observer/K_4/K_4,y", 0, "", offsetof(B_ctrl_student_T,
+    K_4y)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 50, 0 },
+
+  { 26, "ctrl_student/Observer/Integrator1", 0, "(1,1)", offsetof
+    (B_ctrl_student_T, Integrator1)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 52,
     0 },
 
-  { 35, "ctrl_student/Thrust allocation", 0, "u_BT", offsetof(B_ctrl_student_T,
-    u_BT)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 70, 0 },
+  { 27, "ctrl_student/Observer/Integrator1", 0, "(1,2)", offsetof
+    (B_ctrl_student_T, Integrator1)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 54,
+    0 },
 
-  { 36, "ctrl_student/Thrust allocation", 1, "u_VSP", offsetof(B_ctrl_student_T,
-    u_VSP)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 72, 0 },
+  { 28, "ctrl_student/Observer/Integrator1", 0, "(1,3)", offsetof
+    (B_ctrl_student_T, Integrator1)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 56,
+    0 },
 
-  { 37, "ctrl_student/Thrust allocation", 2, "alpha_VSP", offsetof
-    (B_ctrl_student_T, alpha_VSP)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 74, 0
+  { 29, "ctrl_student/Observer/M^-1", 0, "(1,1)", offsetof(B_ctrl_student_T, M1)
+    +0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 58, 0 },
+
+  { 30, "ctrl_student/Observer/M^-1", 0, "(1,2)", offsetof(B_ctrl_student_T, M1)
+    +1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 60, 0 },
+
+  { 31, "ctrl_student/Observer/M^-1", 0, "(1,3)", offsetof(B_ctrl_student_T, M1)
+    +2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 62, 0 },
+
+  { 32, "ctrl_student/Observer/K_2/K_2,x", 0, "", offsetof(B_ctrl_student_T,
+    K_2x)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 64, 0 },
+
+  { 33, "ctrl_student/Observer/K_2/K_2,y", 0, "", offsetof(B_ctrl_student_T,
+    K_2y)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 66, 0 },
+
+  { 34, "ctrl_student/Observer/K_2/K_2,psi", 0, "", offsetof(B_ctrl_student_T,
+    K_2psi)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 68, 0 },
+
+  { 35, "ctrl_student/Observer/K_3/K_3,psi", 0, "", offsetof(B_ctrl_student_T,
+    K_3psi)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 70, 0 },
+
+  { 36, "ctrl_student/Observer/K_3/K_3,x", 0, "", offsetof(B_ctrl_student_T,
+    K_3x)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 72, 0 },
+
+  { 37, "ctrl_student/Observer/K_3/K_3,y", 0, "", offsetof(B_ctrl_student_T,
+    K_3y)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 74, 0 },
+
+  { 38, "ctrl_student/Observer/Product1", 0, "(1,1)", offsetof(B_ctrl_student_T,
+    Product1)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 76, 0 },
+
+  { 39, "ctrl_student/Observer/Product1", 0, "(1,2)", offsetof(B_ctrl_student_T,
+    Product1)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 78, 0 },
+
+  { 40, "ctrl_student/Observer/Product1", 0, "(1,3)", offsetof(B_ctrl_student_T,
+    Product1)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 80, 0 },
+
+  { 41, "ctrl_student/Observer/Sum1", 0, "(1,1)", offsetof(B_ctrl_student_T,
+    Sum1)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 82, 0 },
+
+  { 42, "ctrl_student/Observer/Sum1", 0, "(1,2)", offsetof(B_ctrl_student_T,
+    Sum1)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 84, 0 },
+
+  { 43, "ctrl_student/Observer/Sum1", 0, "(1,3)", offsetof(B_ctrl_student_T,
+    Sum1)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 86, 0 },
+
+  { 44, "ctrl_student/Thrust allocation", 0, "u_BT", offsetof(B_ctrl_student_T,
+    u_BT)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 88, 0 },
+
+  { 45, "ctrl_student/Thrust allocation", 1, "u_VSP", offsetof(B_ctrl_student_T,
+    u_VSP)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 90, 0 },
+
+  { 46, "ctrl_student/Thrust allocation", 2, "alpha_VSP", offsetof
+    (B_ctrl_student_T, alpha_VSP)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 92, 0
   },
 
-  { 38, "ctrl_student/Thrust allocation", 3, "omega_VSP", offsetof
-    (B_ctrl_student_T, omega_VSP)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 76, 0
+  { 47, "ctrl_student/Thrust allocation", 3, "omega_VSP", offsetof
+    (B_ctrl_student_T, omega_VSP)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 94, 0
   },
 
-  { 39, "ctrl_student/Observer/u_2_tau/Thruster mapping/VSP", 0, "F_x", offsetof
-    (B_ctrl_student_T, F_x)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 78, 0 },
+  { 48, "ctrl_student/Observer/u_2_tau/Thruster mapping/VSP", 0, "F_x", offsetof
+    (B_ctrl_student_T, F_x)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 96, 0 },
 
-  { 40, "ctrl_student/Observer/u_2_tau/Thruster mapping/VSP", 1, "F_y", offsetof
-    (B_ctrl_student_T, F_y)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 80, 0 },
+  { 49, "ctrl_student/Observer/u_2_tau/Thruster mapping/VSP", 1, "F_y", offsetof
+    (B_ctrl_student_T, F_y)+0*sizeof(real_T), BLOCKIO_SIG, 0, 1, 2, 98, 0 },
 
-  { 41, "ctrl_student/Observer/Observer Gains/MATLAB Function2", 0, "K_d(1,1)",
-    offsetof(B_ctrl_student_T, K_d)+0*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 82,
-    0 },
+  { 50, "ctrl_student/Derivative filter/Rotation matrix", 0, "nu(1,1)", offsetof
+    (B_ctrl_student_T, nu)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 100, 0 },
 
-  { 42, "ctrl_student/Observer/Observer Gains/MATLAB Function2", 0, "K_d(2,1)",
-    offsetof(B_ctrl_student_T, K_d)+1*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 84,
-    0 },
+  { 51, "ctrl_student/Derivative filter/Rotation matrix", 0, "nu(1,2)", offsetof
+    (B_ctrl_student_T, nu)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 102, 0 },
 
-  { 43, "ctrl_student/Observer/Observer Gains/MATLAB Function2", 0, "K_d(3,1)",
-    offsetof(B_ctrl_student_T, K_d)+2*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 86,
-    0 },
+  { 52, "ctrl_student/Derivative filter/Rotation matrix", 0, "nu(1,3)", offsetof
+    (B_ctrl_student_T, nu)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 104, 0 },
 
-  { 44, "ctrl_student/Observer/Observer Gains/MATLAB Function2", 0, "K_d(1,2)",
-    offsetof(B_ctrl_student_T, K_d)+3*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 88,
-    0 },
-
-  { 45, "ctrl_student/Observer/Observer Gains/MATLAB Function2", 0, "K_d(2,2)",
-    offsetof(B_ctrl_student_T, K_d)+4*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 90,
-    0 },
-
-  { 46, "ctrl_student/Observer/Observer Gains/MATLAB Function2", 0, "K_d(3,2)",
-    offsetof(B_ctrl_student_T, K_d)+5*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 92,
-    0 },
-
-  { 47, "ctrl_student/Observer/Observer Gains/MATLAB Function2", 0, "K_d(1,3)",
-    offsetof(B_ctrl_student_T, K_d)+6*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 94,
-    0 },
-
-  { 48, "ctrl_student/Observer/Observer Gains/MATLAB Function2", 0, "K_d(2,3)",
-    offsetof(B_ctrl_student_T, K_d)+7*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 96,
-    0 },
-
-  { 49, "ctrl_student/Observer/Observer Gains/MATLAB Function2", 0, "K_d(3,3)",
-    offsetof(B_ctrl_student_T, K_d)+8*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 98,
-    0 },
-
-  { 50, "ctrl_student/Observer/Observer Gains/MATLAB Function1", 0, "K_i(1,1)",
-    offsetof(B_ctrl_student_T, K_i)+0*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 100,
-    0 },
-
-  { 51, "ctrl_student/Observer/Observer Gains/MATLAB Function1", 0, "K_i(2,1)",
-    offsetof(B_ctrl_student_T, K_i)+1*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 102,
-    0 },
-
-  { 52, "ctrl_student/Observer/Observer Gains/MATLAB Function1", 0, "K_i(3,1)",
-    offsetof(B_ctrl_student_T, K_i)+2*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 104,
-    0 },
-
-  { 53, "ctrl_student/Observer/Observer Gains/MATLAB Function1", 0, "K_i(1,2)",
-    offsetof(B_ctrl_student_T, K_i)+3*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 106,
-    0 },
-
-  { 54, "ctrl_student/Observer/Observer Gains/MATLAB Function1", 0, "K_i(2,2)",
-    offsetof(B_ctrl_student_T, K_i)+4*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 108,
-    0 },
-
-  { 55, "ctrl_student/Observer/Observer Gains/MATLAB Function1", 0, "K_i(3,2)",
-    offsetof(B_ctrl_student_T, K_i)+5*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 110,
-    0 },
-
-  { 56, "ctrl_student/Observer/Observer Gains/MATLAB Function1", 0, "K_i(1,3)",
-    offsetof(B_ctrl_student_T, K_i)+6*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 112,
-    0 },
-
-  { 57, "ctrl_student/Observer/Observer Gains/MATLAB Function1", 0, "K_i(2,3)",
-    offsetof(B_ctrl_student_T, K_i)+7*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 114,
-    0 },
-
-  { 58, "ctrl_student/Observer/Observer Gains/MATLAB Function1", 0, "K_i(3,3)",
-    offsetof(B_ctrl_student_T, K_i)+8*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 116,
-    0 },
-
-  { 59, "ctrl_student/Observer/Observer Gains/MATLAB Function", 0, "K_p(1,1)",
-    offsetof(B_ctrl_student_T, K_p)+0*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 118,
-    0 },
-
-  { 60, "ctrl_student/Observer/Observer Gains/MATLAB Function", 0, "K_p(2,1)",
-    offsetof(B_ctrl_student_T, K_p)+1*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 120,
-    0 },
-
-  { 61, "ctrl_student/Observer/Observer Gains/MATLAB Function", 0, "K_p(3,1)",
-    offsetof(B_ctrl_student_T, K_p)+2*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 122,
-    0 },
-
-  { 62, "ctrl_student/Observer/Observer Gains/MATLAB Function", 0, "K_p(1,2)",
-    offsetof(B_ctrl_student_T, K_p)+3*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 124,
-    0 },
-
-  { 63, "ctrl_student/Observer/Observer Gains/MATLAB Function", 0, "K_p(2,2)",
-    offsetof(B_ctrl_student_T, K_p)+4*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 126,
-    0 },
-
-  { 64, "ctrl_student/Observer/Observer Gains/MATLAB Function", 0, "K_p(3,2)",
-    offsetof(B_ctrl_student_T, K_p)+5*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 128,
-    0 },
-
-  { 65, "ctrl_student/Observer/Observer Gains/MATLAB Function", 0, "K_p(1,3)",
-    offsetof(B_ctrl_student_T, K_p)+6*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 130,
-    0 },
-
-  { 66, "ctrl_student/Observer/Observer Gains/MATLAB Function", 0, "K_p(2,3)",
-    offsetof(B_ctrl_student_T, K_p)+7*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 132,
-    0 },
-
-  { 67, "ctrl_student/Observer/Observer Gains/MATLAB Function", 0, "K_p(3,3)",
-    offsetof(B_ctrl_student_T, K_p)+8*sizeof(real_T), BLOCKIO_SIG, 21, 1, 2, 134,
-    0 },
-
-  { 68, "ctrl_student/Derivative filter/Rotation matrix", 0, "nu(1,1)", offsetof
-    (B_ctrl_student_T, nu)+0*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 136, 0 },
-
-  { 69, "ctrl_student/Derivative filter/Rotation matrix", 0, "nu(1,2)", offsetof
-    (B_ctrl_student_T, nu)+1*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 138, 0 },
-
-  { 70, "ctrl_student/Derivative filter/Rotation matrix", 0, "nu(1,3)", offsetof
-    (B_ctrl_student_T, nu)+2*sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 140, 0 },
-
-  { 71, "ctrl_student/Derivative filter/Low pass filter 2", 0,
+  { 53, "ctrl_student/Derivative filter/Low pass filter 2", 0,
     "eta_dot_filtered(1,1)", offsetof(B_ctrl_student_T, eta_dot_filtered)+0*
-    sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 142, 0 },
+    sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 106, 0 },
 
-  { 72, "ctrl_student/Derivative filter/Low pass filter 2", 0,
+  { 54, "ctrl_student/Derivative filter/Low pass filter 2", 0,
     "eta_dot_filtered(1,2)", offsetof(B_ctrl_student_T, eta_dot_filtered)+1*
-    sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 144, 0 },
+    sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 108, 0 },
 
-  { 73, "ctrl_student/Derivative filter/Low pass filter 2", 0,
+  { 55, "ctrl_student/Derivative filter/Low pass filter 2", 0,
     "eta_dot_filtered(1,3)", offsetof(B_ctrl_student_T, eta_dot_filtered)+2*
-    sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 146, 0 },
+    sizeof(real_T), BLOCKIO_SIG, 17, 1, 2, 110, 0 },
 
-  { 74, "ctrl_student/Derivative filter/Low pass filter", 0, "eta_filtered(1,1)",
+  { 56, "ctrl_student/Derivative filter/Low pass filter", 0, "eta_filtered(1,1)",
     offsetof(B_ctrl_student_T, eta_filtered)+0*sizeof(real_T), BLOCKIO_SIG, 17,
-    1, 2, 148, 0 },
+    1, 2, 112, 0 },
 
-  { 75, "ctrl_student/Derivative filter/Low pass filter", 0, "eta_filtered(1,2)",
+  { 57, "ctrl_student/Derivative filter/Low pass filter", 0, "eta_filtered(1,2)",
     offsetof(B_ctrl_student_T, eta_filtered)+1*sizeof(real_T), BLOCKIO_SIG, 17,
-    1, 2, 150, 0 },
+    1, 2, 114, 0 },
 
-  { 76, "ctrl_student/Derivative filter/Low pass filter", 0, "eta_filtered(1,3)",
+  { 58, "ctrl_student/Derivative filter/Low pass filter", 0, "eta_filtered(1,3)",
     offsetof(B_ctrl_student_T, eta_filtered)+2*sizeof(real_T), BLOCKIO_SIG, 17,
-    1, 2, 152, 0 },
+    1, 2, 116, 0 },
 
-  { 77, "ctrl_student/Derivative filter/Differentiate and filter1", 0,
+  { 59, "ctrl_student/Derivative filter/Differentiate and filter1", 0,
     "nu_dot(1,1)", offsetof(B_ctrl_student_T, nu_dot)+0*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 154, 0 },
+    BLOCKIO_SIG, 17, 1, 2, 118, 0 },
 
-  { 78, "ctrl_student/Derivative filter/Differentiate and filter1", 0,
+  { 60, "ctrl_student/Derivative filter/Differentiate and filter1", 0,
     "nu_dot(1,2)", offsetof(B_ctrl_student_T, nu_dot)+1*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 156, 0 },
+    BLOCKIO_SIG, 17, 1, 2, 120, 0 },
 
-  { 79, "ctrl_student/Derivative filter/Differentiate and filter1", 0,
+  { 61, "ctrl_student/Derivative filter/Differentiate and filter1", 0,
     "nu_dot(1,3)", offsetof(B_ctrl_student_T, nu_dot)+2*sizeof(real_T),
-    BLOCKIO_SIG, 17, 1, 2, 158, 0 },
+    BLOCKIO_SIG, 17, 1, 2, 122, 0 },
 
-  { 80, "ctrl_student/control limit checking", 0, "fault", offsetof
-    (B_ctrl_student_T, fault)+0*sizeof(boolean_T), BLOCKIO_SIG, 8, 1, 2, 160, 0
+  { 62, "ctrl_student/control limit checking", 0, "fault", offsetof
+    (B_ctrl_student_T, fault)+0*sizeof(boolean_T), BLOCKIO_SIG, 8, 1, 2, 124, 0
   },
 
   { -1, "", -1, "", 0, 0, 0 }
 };
 
-static int NI_SigListSize DataSection(".NIVS.siglistsize") = 81;
+static int NI_SigListSize DataSection(".NIVS.siglistsize") = 63;
 static int NI_VirtualBlockSources[1][1];
 static int NI_VirtualBlockOffsets[1][1];
 static int NI_VirtualBlockLengths[1][1];
@@ -2197,11 +2047,9 @@ static int NI_SigDimList[] DataSection(".NIVS.sigdimlist") =
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  1, 1, 1, 1, 1, 1, };
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, };
 
-static long NI_ExtListSize DataSection(".NIVS.extlistsize") = 24;
+static long NI_ExtListSize DataSection(".NIVS.extlistsize") = 33;
 static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 {
   { 0, "pose measured/x_m", 0, EXT_IN, 1, 1, 1 },
@@ -2210,7 +2058,25 @@ static NI_ExternalIO NI_ExtList[] DataSection(".NIVS.extlist") =
 
   { 2, "pose measured/psi_m", 0, EXT_IN, 1, 1, 1 },
 
-  { 3, "Observer/Nonlinear Passisve Observer/reset", 0, EXT_IN, 1, 1, 1 },
+  { 3, "Observer/reset", 0, EXT_IN, 1, 1, 1 },
+
+  { 4, "Observer/K_4/K_4,psi", 0, EXT_IN, 1, 1, 1 },
+
+  { 5, "Observer/K_4/K_4,x", 0, EXT_IN, 1, 1, 1 },
+
+  { 6, "Observer/K_4/K_4,y", 0, EXT_IN, 1, 1, 1 },
+
+  { 7, "Observer/K_2/K_2,x", 0, EXT_IN, 1, 1, 1 },
+
+  { 8, "Observer/K_2/K_2,y", 0, EXT_IN, 1, 1, 1 },
+
+  { 9, "Observer/K_2/K_2,psi", 0, EXT_IN, 1, 1, 1 },
+
+  { 10, "Observer/K_3/K_3,psi", 0, EXT_IN, 1, 1, 1 },
+
+  { 11, "Observer/K_3/K_3,x", 0, EXT_IN, 1, 1, 1 },
+
+  { 12, "Observer/K_3/K_3,y", 0, EXT_IN, 1, 1, 1 },
 
   { 0, "control input u exceeds bounds", 1, EXT_OUT, 1, 1, 1 },
 
@@ -2268,8 +2134,8 @@ NI_Task NI_TaskList[] DataSection(".NIVS.tasklist") =
 int NI_NumTasks DataSection(".NIVS.numtasks") = 1;
 static char* NI_CompiledModelName DataSection(".NIVS.compiledmodelname") =
   "ctrl_student";
-static char* NI_CompiledModelVersion = "1.55";
-static char* NI_CompiledModelDateTime = "Wed Dec 09 13:34:55 2015";
+static char* NI_CompiledModelVersion = "1.57";
+static char* NI_CompiledModelDateTime = "Wed Dec 16 15:39:04 2015";
 static char* NI_builder DataSection(".NIVS.builder") =
   "NI VeriStand 2014.0.0.82 (2014) RTW Build";
 static char* NI_BuilderVersion DataSection(".NIVS.builderversion") =
@@ -2831,7 +2697,7 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
   if (numContStates && numDiscStates && numClockTicks) {
     if (*numContStates < 0 || *numDiscStates < 0 || *numClockTicks < 0) {
       *numContStates = 9;
-      *numDiscStates = 420;
+      *numDiscStates = 546;
       *numClockTicks = NUMST - TID01EQ;
       return NI_OK;
     }
@@ -2970,6 +2836,15 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.psi_hat_DWORK1, 0,
       0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.psi_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_4psi_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_4psi_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_4x_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_4x_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_4y_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_4y_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.u_dot_hat_DWORK1,
       0, 0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.u_dot_hat_DWORK1");
@@ -2988,6 +2863,24 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
     discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.r_hat_DWORK1, 0,
       0, 0);
     strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.r_hat_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_2x_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_2x_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_2y_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_2y_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_2psi_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_2psi_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_3psi_DWORK1, 0,
+      0, 0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_3psi_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_3x_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_3x_DWORK1");
+    discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_3y_DWORK1, 0, 0,
+      0);
+    strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_3y_DWORK1");
     discStates[idx] = NIRT_GetValueByDataType
       (&ctrl_student_DW.NIVeriStandSignalProbe_DWORK2, 0, 6, 0);
     strcpy(discStatesNames + (idx++ * 100),
@@ -3113,6 +3006,24 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
     }
 
     for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_4psi_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_4psi_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_4x_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_4x_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_4y_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_4y_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
       discStates[idx] = NIRT_GetValueByDataType
         (&ctrl_student_DW.u_dot_hat_DWORK2, count, 19, 0);
       strcpy(discStatesNames + (idx++ * 100),
@@ -3149,6 +3060,42 @@ DLL_EXPORT long NIRT_GetSimState(long* numContStates, char* contStatesNames,
       discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.r_hat_DWORK2,
         count, 19, 0);
       strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.r_hat_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_2x_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_2x_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_2y_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_2y_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_2psi_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_2psi_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_3psi_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_3psi_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_3x_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_3x_DWORK2");
+    }
+
+    for (count = 0; count < 13; count++) {
+      discStates[idx] = NIRT_GetValueByDataType(&ctrl_student_DW.K_3y_DWORK2,
+        count, 19, 0);
+      strcpy(discStatesNames + (idx++ * 100), "&ctrl_student_DW.K_3y_DWORK2");
     }
 
     for (count = 0; count < 13; count++) {
@@ -3262,6 +3209,12 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
       0, 0);
     NIRT_SetValueByDataType(&ctrl_student_DW.psi_hat_DWORK1, 0, discStates[idx++],
       0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.K_4psi_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.K_4x_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.K_4y_DWORK1, 0, discStates[idx++],
+      0, 0);
     NIRT_SetValueByDataType(&ctrl_student_DW.u_dot_hat_DWORK1, 0, discStates[idx
       ++], 0, 0);
     NIRT_SetValueByDataType(&ctrl_student_DW.v_dot_hat_DWORK1, 0, discStates[idx
@@ -3273,6 +3226,18 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
     NIRT_SetValueByDataType(&ctrl_student_DW.v_hat_DWORK1, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&ctrl_student_DW.r_hat_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.K_2x_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.K_2y_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.K_2psi_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.K_3psi_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.K_3x_DWORK1, 0, discStates[idx++],
+      0, 0);
+    NIRT_SetValueByDataType(&ctrl_student_DW.K_3y_DWORK1, 0, discStates[idx++],
       0, 0);
     NIRT_SetValueByDataType(&ctrl_student_DW.NIVeriStandSignalProbe_DWORK2, 0,
       discStates[idx++], 6, 0);
@@ -3370,6 +3335,21 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
     }
 
     for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.K_4psi_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.K_4x_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.K_4y_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
       NIRT_SetValueByDataType(&ctrl_student_DW.u_dot_hat_DWORK2, count,
         discStates[idx++], 19, 0);
     }
@@ -3396,6 +3376,36 @@ DLL_EXPORT long NIRT_SetSimState(double* contStates, double* discStates, long
 
     for (count = 0; count < 13; count++) {
       NIRT_SetValueByDataType(&ctrl_student_DW.r_hat_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.K_2x_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.K_2y_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.K_2psi_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.K_3psi_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.K_3x_DWORK2, count,
+        discStates[idx++], 19, 0);
+    }
+
+    for (count = 0; count < 13; count++) {
+      NIRT_SetValueByDataType(&ctrl_student_DW.K_3y_DWORK2, count,
         discStates[idx++], 19, 0);
     }
 

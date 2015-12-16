@@ -67,8 +67,8 @@ D    = [d_11 d_12 0
         0    d_22 d_23
         0    d_32 d_33];
     
-matlabFunction(D,'file','D.m','vars',[u v r]);
-matlabFunction(C,'file','C.m','vars',[u v r]);
+matlabFunction(D,'file','ctrl_student_observer_D.m','vars',[u v r]);
+matlabFunction(C,'file','ctrl_student_observer_C.m','vars',[u v r]);
 
 %%
 
